@@ -7,9 +7,11 @@ import Overview from "../pages/dash_board/Overview";
 import Sales from "../pages/dash_board/Sales";
 
 import Stock from "../pages/stock";
-import Default from "../pages/stock/Default";
+import DefaultStock from "../pages/stock/Default";
 
 import PartEntry from "../pages/part_entry";
+import DefaultPartEntry from "../pages/part_entry/Default";
+
 import Jobs from "../pages/jobs";
 import PartIssue from "../pages/part_issue";
 import HangarUse from "../pages/hangar_use";
@@ -23,9 +25,11 @@ function AppRoutes() {
         <Route path="sales" element={<Sales />} />
       </Route>
       <Route path="stock" element={<Stock />} >
-        <Route path="default" element={<Default />} />
+        <Route path="default" element={<DefaultStock />} />
       </Route>
-      <Route path="parts-entry" element={<PartEntry />} />
+      <Route path="parts-entry" element={<PartEntry />} >
+        <Route path="default" element={<DefaultPartEntry />} />
+      </Route>
       <Route path="jobs" element={<Jobs />} />
       <Route path="part-issue" element={<PartIssue />} />
       <Route path="hangar-use" element={<HangarUse />} />
