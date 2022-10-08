@@ -1,11 +1,14 @@
 import React from "react";
-import { Box, Toolbar } from "@mui/material";
+import { Box, Toolbar, Divider } from "@mui/material";
 
 function Jobs() {
     return (
         <Box component="main" sx={{ p: 3 }}>
             <Toolbar />
-            <h1>Jobs Page</h1>
+            <Box sx={{ pt: 8.4, pb: 3 }}>
+                <Divider sx={{ mb: 2, mt: 0 }} />
+                <h1>Jobs Page</h1>
+            </Box>
         </Box>
     );
 }
