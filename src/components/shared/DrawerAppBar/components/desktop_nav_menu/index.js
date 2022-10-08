@@ -5,7 +5,7 @@ import { NavLink, useLocation } from "react-router-dom";
 
 function DesktopNavMenu() {
     const { pathname } = useLocation();
-    const dashboardTabs = (pathname === "/dashboard/tab2");
+    const dashboardTabs = (pathname === "/dashboard/sales");
     
     return (
         <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, flexGrow: 1, alignItems: 'center' }} className="nav">

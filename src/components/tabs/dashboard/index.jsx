@@ -5,8 +5,8 @@ import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 
 const navItems = [
-    { path: '/dashboard/tab1', label: 'Overview', icon: BusinessCenterIcon },
-    { path: '/dashboard/tab2', label: 'Sales', icon: PointOfSaleIcon },
+    { path: '/dashboard/overview', label: 'Overview', icon: BusinessCenterIcon },
+    { path: '/dashboard/sales', label: 'Sales', icon: PointOfSaleIcon },
 ];
 
 export default function DashboardTabs() {

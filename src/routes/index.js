@@ -3,8 +3,8 @@ import { Routes, Route } from "react-router-dom";
 
 import Login from "../pages/login";
 import Dashboard from "../pages/dash_board";
-import Tab1 from "../pages/dash_board/Tab1";
-import Tab2 from "../pages/dash_board/Tab2";
+import Overview from "../pages/dash_board/Overview";
+import Sales from "../pages/dash_board/Sales";
 
 import Stock from "../pages/stock";
 import PartEntry from "../pages/part_entry";
@@ -17,8 +17,8 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="dashboard" element={<Dashboard />}>
-        <Route path="tab1" element={<Tab1 />} />
-        <Route path="tab2" element={<Tab2 />} />
+        <Route path="overview" element={<Overview />} />
+        <Route path="sales" element={<Sales />} />
       </Route>
       <Route path="stock" element={<Stock />} />
       <Route path="parts-entry" element={<PartEntry />} />
