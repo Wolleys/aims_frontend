@@ -15,7 +15,7 @@ function MenuDrawer(props) {
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                 }}>
                 <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-                    <Typography variant="h6" sx={{ my: 2 }}> AIMS </Typography>
+                    <Typography variant="h6" sx={{ p: 2, background: '#3e345d', color: '#ede7f6' }}> AIMS </Typography>
                     <Divider />
                     <MobileNavMenu />
                 </Box>

@@ -16,7 +16,7 @@ function DrawerAppBar(props) {
             <AppBar component="nav" style={{ background: '#3e345d' }}>
                 <Toolbar>
                     <DesktopLogo handleDrawerToggle={handleDrawerToggle} />
-                    <MobileLogo />
+                    <MobileLogo mobileOpen={mobileOpen}/>
                     <DesktopNavMenu />
                     <AccountMenu />
                 </Toolbar>
