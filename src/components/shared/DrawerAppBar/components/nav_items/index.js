@@ -4,5 +4,5 @@ export const navItems = [
     { label: "Part Entry", href: "parts-entry/default" },
     { label: "Jobs", href: "jobs" },
     { label: "Part Issue", href: "part-issue/default" },
-    { label: "Hangar Use", href: "hangar-use" },
+    { label: "Hangar Use", href: "hangar-use/default" },
 ];

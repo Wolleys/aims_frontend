@@ -17,6 +17,7 @@ import PartIssue from "../pages/part_issue";
 import DefaultPartIssue from "../pages/part_issue/Default";
 
 import HangarUse from "../pages/hangar_use";
+import DefaultHangarUse from "../pages/hangar_use/Default";
 
 function AppRoutes() {
   return (
@@ -36,7 +37,9 @@ function AppRoutes() {
       <Route path="part-issue" element={<PartIssue />} >
         <Route path="default" element={<DefaultPartIssue />} />
       </Route>
-      <Route path="hangar-use" element={<HangarUse />} />
+      <Route path="hangar-use" element={<HangarUse />} >
+        <Route path="default" element={<DefaultHangarUse />} />
+      </Route>
     </Routes>
   );
 }
