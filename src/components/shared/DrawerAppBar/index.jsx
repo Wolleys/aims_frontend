@@ -13,7 +13,7 @@ function DrawerAppBar(props) {
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <AppBar component="nav" style={{ background: '#3e345d' }}>
+            <AppBar component="nav" style={{ background: '#3e345d' }} elevation={0}>
                 <Toolbar>
                     <DesktopLogo handleDrawerToggle={handleDrawerToggle} />
                     <MobileLogo mobileOpen={mobileOpen}/>

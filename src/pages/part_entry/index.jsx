@@ -5,7 +5,7 @@ import PartEntryTabs from "../../components/tabs/part_entry";
 
 function PartEntry() {
   return (
-    <Box component="main" sx={{ p: 3 }}>
+    <Box component="main" sx={{ p: 3, pt:0 }}>
       <Toolbar />
       <Box sx={{ pt: 0, pb: 3 }}>
         <PartEntryTabs />

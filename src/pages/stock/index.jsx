@@ -5,7 +5,7 @@ import { Box, Toolbar, Divider } from "@mui/material";
 
 function Stock() {
   return (
-    <Box component="main" sx={{ p: 3 }}>
+    <Box component="main" sx={{ p: 3, pt:0 }}>
       <Toolbar />
       <Box sx={{ pt: 0, pb: 3 }}>
         <StockTabs />
