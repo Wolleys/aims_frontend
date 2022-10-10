@@ -1,10 +1,13 @@
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
 import { Link as RouterLink } from "react-router-dom";
 import Copyright from "../../components/shared/Copyright";
-import AuthTextField from "../../components/shared/TextField/AuthTextField";
+import { UserContext } from '../../context/UserContextProvider';
 import { Box, Grid, Button, Typography, Link } from "@mui/material";
+import AuthTextField from "../../components/shared/TextField/AuthTextField";
 
 function SignIn() {
+    const { isAuth, setIsAuth } = useContext(UserContext);
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -32,6 +35,7 @@ function SignIn() {
                         <AuthTextField required fullWidth type="password" autoComplete="none" variant="outlined" name="password"
                             placeholder="Password" />
                         <Button type="submit" size="large" fullWidth variant="contained" disableElevation
+                            onClick={() => setIsAuth(true)}
                             sx={{ mt: 2, mb: 2, textTransform: 'none', borderRadius: '6px', background: '#5046e4' }} >
                             Sign in
                         </Button>
@@ -42,6 +46,7 @@ function SignIn() {
                         </Grid>
                         <Grid sx={{ textAlign: 'center', mt: 4 }}>
                             {/* Error */}
+                            {isAuth ? "Logged in" : "Not logged in"}
                         </Grid>
                         <Copyright sx={{ display: { xs: 'flex', md: 'none' }, mt: 5 }} />
                     </Box>
