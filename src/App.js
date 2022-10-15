@@ -1,15 +1,14 @@
-import { useContext } from 'react';
-import './App.css';
+import "./App.css";
+import axios from "axios";
 import AppRoutes from "./routes";
 import { BrowserRouter as Router } from "react-router-dom";
 import DrawerAppBar from "./components/shared/DrawerAppBar";
-import { UserContext } from "./context/UserContextProvider";
+axios.defaults.withCredentials = true;
 
 function App() {
-  const { isAuth } = useContext(UserContext);
   return (
     <Router>
-      {isAuth ? <DrawerAppBar /> : null}
+      <DrawerAppBar />
       <AppRoutes />
     </Router>
   );
