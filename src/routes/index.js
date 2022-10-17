@@ -1,5 +1,8 @@
-import React from "react";
+import { useContext } from "react";
+import PrivateRoute from "./PrivateRoute";
+import NotFound from "../pages/not_found";
 import { Routes, Route } from "react-router-dom";
+import { AuthContext } from "../context/AuthContextProvider";
 
 import Login from "../pages/login";
 import Dashboard from "../pages/dash_board";
@@ -20,26 +23,30 @@ import HangarUse from "../pages/hangar_use";
 import DefaultHangarUse from "../pages/hangar_use/Default";
 
 function AppRoutes() {
+  const { isAuth } = useContext(AuthContext);
+
   return (
     <Routes>
       <Route path="/" element={<Login />} />
-      <Route path="dashboard" element={<Dashboard />}>
+      <Route path="dashboard" element={<PrivateRoute isAuth={isAuth}> <Dashboard /> </PrivateRoute>}>
         <Route path="overview" element={<Overview />} />
         <Route path="sales" element={<Sales />} />
       </Route>
-      <Route path="stock" element={<Stock />} >
+      <Route path="stock" element={<PrivateRoute isAuth={isAuth}> <Stock /> </PrivateRoute>} >
         <Route path="default" element={<DefaultStock />} />
       </Route>
-      <Route path="parts-entry" element={<PartEntry />} >
+      <Route path="parts-entry" element={<PrivateRoute isAuth={isAuth}> <PartEntry /> </PrivateRoute>} >
         <Route path="default" element={<DefaultPartEntry />} />
       </Route>
-      <Route path="jobs" element={<Jobs />} />
-      <Route path="part-issue" element={<PartIssue />} >
+      <Route path="jobs" element={<PrivateRoute isAuth={isAuth}> <Jobs /> </PrivateRoute>} />
+      <Route path="part-issue" element={<PrivateRoute isAuth={isAuth}> <PartIssue /> </PrivateRoute>} >
         <Route path="default" element={<DefaultPartIssue />} />
       </Route>
-      <Route path="hangar-use" element={<HangarUse />} >
+      <Route path="hangar-use" element={<PrivateRoute isAuth={isAuth}> <HangarUse /> </PrivateRoute>} >
         <Route path="default" element={<DefaultHangarUse />} />
       </Route>
+
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
