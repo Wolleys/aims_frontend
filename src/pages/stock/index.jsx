@@ -2,10 +2,12 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import StockTabs from "../../components/tabs/stock";
 import { Box, Toolbar, Divider } from "@mui/material";
+import DrawerAppBar from "../../components/shared/DrawerAppBar";
 
 function Stock() {
   return (
     <Box component="main" sx={{ p: 3, pt:0 }}>
+      <DrawerAppBar />
       <Toolbar />
       <Box sx={{ pt: 0, pb: 3 }}>
         <StockTabs />

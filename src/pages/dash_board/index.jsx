@@ -1,11 +1,13 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import DashboardTabs from "../../components/tabs/dashboard";
 import { Box, Toolbar, Divider } from "@mui/material";
+import DashboardTabs from "../../components/tabs/dashboard";
+import DrawerAppBar from "../../components/shared/DrawerAppBar";
 
 function Dashboard() {
   return (
     <Box component="main" sx={{ p: 3, pt:0 }}>
+      <DrawerAppBar />
       <Toolbar />
       <Box sx={{ pt: 0, pb: 3 }}>
         <DashboardTabs />
