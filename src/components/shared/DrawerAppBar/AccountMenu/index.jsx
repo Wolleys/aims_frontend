@@ -1,8 +1,10 @@
-import { useState, Fragment } from 'react';
+import { useState, Fragment, useContext } from 'react';
 import AppBarAvatar from './components/app_bar_avatar';
 import DropDownMenu from './components/drop_down_menu';
+import { AuthContext } from "../../../../context/AuthContextProvider";
 
 export default function AccountMenu() {
+    const { isAuth } = useContext(AuthContext);
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
@@ -11,8 +13,8 @@ export default function AccountMenu() {
 
     return (
         <Fragment>
-            <AppBarAvatar open={open} handleClick={handleClick} />
-            <DropDownMenu anchorEl={anchorEl} open={open} handleClose={handleClose} />
+            <AppBarAvatar open={open} handleClick={handleClick} isAuth={isAuth} />
+            <DropDownMenu anchorEl={anchorEl} open={open} handleClose={handleClose} isAuth={isAuth} />
         </Fragment>
     );
 }

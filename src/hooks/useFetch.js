@@ -5,7 +5,7 @@ function useFetch(url) {
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
-    const [isAuth, setIsAuth] = useState({ userName: "", id: 0, status: null });
+    const [isAuth, setIsAuth] = useState({ firstName: "", lastName: "", status: null, avatar: null });
 
     useEffect(() => {
         setLoading(true)
@@ -15,9 +15,11 @@ function useFetch(url) {
                 setIsAuth({ ...isAuth, status: false });
             } else {
                 setIsAuth({
-                    firstName: response.data.user.firstName,
                     id: response.data.user.id,
                     status: response.data.auth,
+                    firstName: response.data.user.firstName,
+                    lastName: response.data.user.lastName,
+                    avatar: response.data.user.avatar,
                 });
             }
             setData(response.data)

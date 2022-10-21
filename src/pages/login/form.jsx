@@ -18,11 +18,18 @@ function SignIn() {
     
     const onSubmit = async (data) => {
         await mutateAsync({...data}).then((response)=>{
+            console.log(response.data)
             if(!response.data.auth){
                 setMessage(response.data.error);
             }
             else{
-                setIsAuth({ firstName: response.data.firstName, id: response.data.id, status: true });
+                setIsAuth({ 
+                    status: true,
+                    id: response.data.id,
+                    firstName: response.data.firstName, 
+                    lastName: response.data.lastName, 
+                    avatar: response.data.avatar, 
+                });
                 navigate("/dashboard/overview");
             }
         })

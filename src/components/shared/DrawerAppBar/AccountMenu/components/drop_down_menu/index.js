@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { Settings, Logout } from "@mui/icons-material";
+import { stringAvatar } from "../../../../../../assets/js/scripts";
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import { Avatar, Menu, ListItemIcon, Divider, MenuItem } from "@mui/material";
 
 function DropDownMenu(props) {
-    const { anchorEl, open, handleClose, } = props;
+    const { anchorEl, open, handleClose, isAuth } = props;
     return (
         <Menu anchorEl={anchorEl} id="account-menu" open={open} onClose={handleClose} onClick={handleClose}
             PaperProps={{
@@ -22,10 +23,14 @@ function DropDownMenu(props) {
             anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         >
             <Link to="/profile/overview" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <MenuItem sx={{ fontSize: '14px', color: '#444' }}> <Avatar /> My Profile </MenuItem>
+                <MenuItem sx={{ fontSize: '14px', color: '#444' }}> 
+                    <Avatar {...stringAvatar(isAuth.firstName + ' ' + isAuth.lastName)} /> My Profile 
+                </MenuItem>
             </Link>
             <Link to="/account-settings" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <MenuItem sx={{ fontSize: '14px', color: '#444' }}> <Avatar /> Account Settings </MenuItem>
+                <MenuItem sx={{ fontSize: '14px', color: '#444' }}> 
+                    <Avatar src={isAuth?.avatar} /> Account Settings 
+                </MenuItem>
             </Link>
             <Divider />
             <Link to="/access-management/users" style={{ textDecoration: 'none', color: 'inherit' }}>
