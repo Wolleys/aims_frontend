@@ -1,5 +1,5 @@
-import * as Api from '../../api/auth';
 import { Formik, Form } from "formik";
+import { Login } from "../../queries";
 import { Fragment, useState, useContext } from "react";
 import Copyright from "../../components/shared/Copyright";
 import { loginSchema } from "../../validations/loginSchema";
@@ -11,28 +11,27 @@ import { Box, Grid, Button, Typography, Link, Alert, CircularProgress } from "@m
 function SignIn() {
     const navigate = useNavigate();
     const { setIsAuth } = useContext(AuthContext);
-    const [error, setError] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
+    const [message, setMessage] = useState("")
+    const { mutateAsync, isLoading, isError, error } = Login()
 
     const initialValues = { email: "", password: "" }
-
-    const onSubmit = (data) => {
-        setIsLoading(true);
-        Api.Login(data).then((response) => {
-            if (!response.data.auth) {
-                setError(response.data.error);
-                setIsLoading(false);
+    
+    const onSubmit = async (data) => {
+        await mutateAsync({...data}).then((response)=>{
+            if(!response.data.auth){
+                setMessage(response.data.error);
             }
-            else {
+            else{
                 setIsAuth({ firstName: response.data.firstName, id: response.data.id, status: true });
-                setIsLoading(false);
                 navigate("/dashboard/overview");
             }
         })
     }
 
-    const handleMsg = (error) => {
-        return (error) ? (<Alert severity="error" align="center">{error}</Alert>) : null
+    const handleMsg = (err) => {
+        return (err) ? (<Alert severity="error" align="center">{err}</Alert>) 
+        : (isError) ?  (<Alert severity="error" align="center">{error.message}</Alert>)
+        : null
     };
 
     return (
@@ -66,7 +65,7 @@ function SignIn() {
                             </Link>
                         </Grid>
                         <Grid sx={{ textAlign: 'center', mt: 4 }}>
-                            {isLoading ? null : (handleMsg(error))}
+                            {isLoading ? null : (handleMsg(message))}
                         </Grid>
                         <Copyright sx={{ display: { xs: 'flex', md: 'none' }, mt: 5 }} />
                     </Box>
