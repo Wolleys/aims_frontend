@@ -1,11 +1,11 @@
 import { Formik, Form } from "formik";
-import { Login } from "../../queries";
+import { Login } from "../../../queries";
 import { Fragment, useState, useContext } from "react";
-import Copyright from "../../components/shared/Copyright";
-import { loginSchema } from "../../validations/loginSchema";
-import { AuthContext } from "../../context/AuthContextProvider";
+import Copyright from "../../../components/shared/Copyright";
+import { loginSchema } from "../../../validations/loginSchema";
+import { AuthContext } from "../../../context/AuthContextProvider";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-import FormikTextField from '../../components/shared/TextField/FormikTextField';
+import FormikTextField from '../../../components/shared/TextField/FormikTextField';
 import { Box, Grid, Button, Typography, Link, Alert, CircularProgress } from "@mui/material";
 
 function SignIn() {

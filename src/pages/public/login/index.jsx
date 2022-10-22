@@ -1,6 +1,6 @@
 import React from "react";
 import SignIn from "./form";
-import Features from "../../components/shared/Features";
+import Features from "../../../components/shared/Features";
 import { Box, Container, Grid, CssBaseline, Paper } from "@mui/material";
 
 function Login() {

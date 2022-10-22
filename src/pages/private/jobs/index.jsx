@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Toolbar, Divider } from "@mui/material";
-import DrawerAppBar from "../../components/shared/DrawerAppBar";
+import DrawerAppBar from "../../../components/shared/DrawerAppBar";
 
 function Jobs() {
     return (

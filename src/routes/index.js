@@ -1,26 +1,26 @@
 import { useContext } from "react";
 import PrivateRoute from "./PrivateRoute";
-import NotFound from "../pages/not_found";
+import NotFound from "../pages/public/not_found";
 import { Routes, Route } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
 
-import Login from "../pages/login";
-import Dashboard from "../pages/dash_board";
-import Overview from "../pages/dash_board/Overview";
-import Sales from "../pages/dash_board/Sales";
+import Login from "../pages/public/login";
+import Dashboard from "../pages/private/dash_board";
+import Overview from "../pages/private/dash_board/Overview";
+import Sales from "../pages/private/dash_board/Sales";
 
-import Stock from "../pages/stock";
-import DefaultStock from "../pages/stock/Default";
+import Stock from "../pages/private/stock";
+import DefaultStock from "../pages/private/stock/Default";
 
-import PartEntry from "../pages/part_entry";
-import DefaultPartEntry from "../pages/part_entry/Default";
+import PartEntry from "../pages/private/part_entry";
+import DefaultPartEntry from "../pages/private/part_entry/Default";
 
-import Jobs from "../pages/jobs";
-import PartIssue from "../pages/part_issue";
-import DefaultPartIssue from "../pages/part_issue/Default";
+import Jobs from "../pages/private/jobs";
+import PartIssue from "../pages/private/part_issue";
+import DefaultPartIssue from "../pages/private/part_issue/Default";
 
-import HangarUse from "../pages/hangar_use";
-import DefaultHangarUse from "../pages/hangar_use/Default";
+import HangarUse from "../pages/private/hangar_use";
+import DefaultHangarUse from "../pages/private/hangar_use/Default";
 
 function AppRoutes() {
   const { isAuth } = useContext(AuthContext);
