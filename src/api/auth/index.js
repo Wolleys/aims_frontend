@@ -21,3 +21,14 @@ export const validateAuth = async () => {
 
     return response;
 };
+
+export const logout = async () => {
+    const response = await instance
+        .post("/auth/logout")
+        .then((data) => data)
+        .catch((err) => {
+            throw new Error(err);
+        });
+
+    return response;
+};
