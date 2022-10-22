@@ -5,6 +5,8 @@ import { Routes, Route } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
 
 import Login from "../pages/public/login";
+import ForgotPassword from "../pages/public/forgot_pass";
+
 import Dashboard from "../pages/private/dash_board";
 import Overview from "../pages/private/dash_board/Overview";
 import Sales from "../pages/private/dash_board/Sales";
@@ -28,6 +30,7 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
+      <Route path="forgot-password" element={<ForgotPassword />} />
       <Route path="dashboard" element={<PrivateRoute isAuth={isAuth}> <Dashboard /> </PrivateRoute>}>
         <Route path="overview" element={<Overview />} />
         <Route path="sales" element={<Sales />} />

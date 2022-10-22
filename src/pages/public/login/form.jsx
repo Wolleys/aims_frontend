@@ -67,7 +67,7 @@ function SignIn() {
                             </Form>
                         </Formik>
                         <Grid sx={{ textAlign: 'left', mt: 1 }}>
-                            <Link {...{ to: "/app/forgot-password", component: RouterLink, }} variant="body2"
+                            <Link {...{ to: "/forgot-password", component: RouterLink, }} variant="body2"
                                 sx={{ textDecoration: 'none', color: '#5046e4', fontWeight: 500 }} > Forgot password?
                             </Link>
                         </Grid>
