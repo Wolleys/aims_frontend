@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import PurchaseHistory from "./purchaseHistory";
-import SearchEport from '../../../../../components/shared/SearchBox/searchExport';
+import PrimarySearchBar from '../../../../../components/shared/SearchBar/primary';
 
 import {
     Paper, Table, TableRow, TableHead, TableBody, TableCell, tableCellClasses,
@@ -66,7 +66,7 @@ const rows = [
 export default function DefaultStore() {
     return (
         <Fragment>
-            <SearchEport />
+            <PrimarySearchBar />
             <TableContainer component={Paper} elevation={0} sx={{ maxHeight: 500 }}>
                 <Table size="small" stickyHeader>
                     <TableHead>
