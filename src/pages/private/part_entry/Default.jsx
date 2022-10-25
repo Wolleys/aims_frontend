@@ -1,9 +1,9 @@
 import React from "react";
+import DefaultStore from "./tables/default";
+
 function Default() {
     return (
-        <>
-            <h1>Default</h1>
-        </>
+        <DefaultStore />
     );
 }
 
