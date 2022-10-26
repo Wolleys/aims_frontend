@@ -31,7 +31,7 @@ const rows = [
 export default function DefaultStore() {
     const navigate = useNavigate();
     const addPart = () => {
-      navigate("/part/add-part");
+      navigate("/parts-entry/default/add-part");
     };
 
     return (
