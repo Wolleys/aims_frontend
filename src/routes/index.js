@@ -26,6 +26,7 @@ import Jobs from "../pages/private/jobs";
 import DefaultJobsList from "../pages/private/jobs/Default";
 import OpenJob from "../pages/private/jobs/actions/open_job";
 import EditJob from "../pages/private/jobs/actions/edit_job";
+import JobProfile from "../pages/private/jobs/actions/job_profile";
 
 import PartIssue from "../pages/private/part_issue";
 import DefaultPartIssue from "../pages/private/part_issue/Default";
@@ -59,6 +60,7 @@ function AppRoutes() {
         <Route path="jobs-list" element={<DefaultJobsList />} />
         <Route path="open-job" element={<OpenJob />} />
         <Route path="edit-job/:jobId" element={<EditJob />} />
+        <Route path="job-profile/:jobId" element={<JobProfile />} />
       </Route>
       <Route path="part-issue" element={<PrivateRoute isAuth={isAuth}> <PartIssue /> </PrivateRoute>} >
         <Route path="default" element={<DefaultPartIssue />} />
