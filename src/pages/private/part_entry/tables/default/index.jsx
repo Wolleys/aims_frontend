@@ -6,9 +6,10 @@ import PrimarySearchBar from '../../../../../components/shared/SearchBar/primary
 import StyledTableCell from "../../../../../components/shared/Table/StyledTableCell";
 import { Paper, Table, TableRow, TableHead, TableBody, TableCell, TableContainer } from "@mui/material";
 
-function createData(description, part_number, location, starting_quantity, quantity_received,
+function createData(id,description, part_number, location, starting_quantity, quantity_received,
     quantity_issued, quantity_on_hand, reorder_level) {
     return {
+        id,
         description,
         part_number,
         location,
@@ -21,11 +22,11 @@ function createData(description, part_number, location, starting_quantity, quant
 }
 
 const rows = [
-    createData("SEAL & GASKET", "LW-14976", "BK20", 24, 4, 3, 25, 10),
-    createData("Ice cream sandwich", "75441-1", "BI15", 10, 3, 7, 6, 10),
-    createData("Eclair", "LW-14815", "BK19", 0, 30, 0, 30, 5),
-    createData("Cupcake", "79472000", "AH41", 0, 100, 20, 80, 20),
-    createData("Gingerbread", "Brasso", "Flammable Stores", 0, 150, 40, 110, 20),
+    createData(1, "SEAL & GASKET", "LW-14976", "BK20", 24, 4, 3, 25, 10),
+    createData(2, "Ice cream sandwich", "75441-1", "BI15", 10, 3, 7, 6, 10),
+    createData(3, "Eclair", "LW-14815", "BK19", 0, 30, 0, 30, 5),
+    createData(4, "Cupcake", "79472000", "AH41", 0, 100, 20, 80, 20),
+    createData(5, "Gingerbread", "Brasso", "Flammable Stores", 0, 150, 40, 110, 20),
 ];
 
 export default function DefaultStore() {
@@ -54,7 +55,7 @@ export default function DefaultStore() {
                     </TableHead>
                     <TableBody>
                         {rows.map((row) => (
-                            <TableRow hover key={row.part_number}>
+                            <TableRow hover key={row.id}>
                                 <TableCell component="th" scope="row"> {row.description} </TableCell>
                                 <TableCell align="left">{row.part_number}</TableCell>
                                 <TableCell align="left">{row.location}</TableCell>
