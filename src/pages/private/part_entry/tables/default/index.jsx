@@ -1,9 +1,10 @@
 import { Fragment } from 'react';
+import { useNavigate } from "react-router-dom";
 import AddIcon from '@mui/icons-material/Add';
 import ActionMenu from "../../components/actionMenu";
 import PrimarySearchBar from '../../../../../components/shared/SearchBar/primary';
 import StyledTableCell from "../../../../../components/shared/Table/StyledTableCell";
-import { Paper, Table, TableRow, TableHead, TableBody, TableCell, TableContainer} from "@mui/material";
+import { Paper, Table, TableRow, TableHead, TableBody, TableCell, TableContainer } from "@mui/material";
 
 function createData(description, part_number, location, starting_quantity, quantity_received,
     quantity_issued, quantity_on_hand, reorder_level) {
@@ -28,10 +29,14 @@ const rows = [
 ];
 
 export default function DefaultStore() {
-    
+    const navigate = useNavigate();
+    const addPart = () => {
+      navigate("/part/add-part");
+    };
+
     return (
         <Fragment>
-            <PrimarySearchBar action icon={<AddIcon />} label="Add Part" />
+            <PrimarySearchBar action icon={<AddIcon />} label="Add Part" navigate={addPart} />
             <TableContainer component={Paper} elevation={0} sx={{ maxHeight: 500 }}>
                 <Table size="small" stickyHeader>
                     <TableHead>

@@ -4,7 +4,7 @@ import SearchTextField from "../TextField/SearchTextField"
 import DescriptionIcon from "@mui/icons-material/Description";
 
 export default function PrimarySearchBar(props) {
-    const { action, label, icon } = props;
+    const { action, label, icon, navigate } = props;
     
     return (
         <Fragment>
@@ -15,7 +15,7 @@ export default function PrimarySearchBar(props) {
                 </Grid>
                 <Grid item xs={12} sm={6} md={6} sx={{ textAlign: "right", mt: { xs: -0.5, sm: 0.5 }, mb: { xs: 1 } }}>
                     {action &&
-                        <Button variant="contained" disableElevation size="small"
+                        <Button onClick={navigate} variant="contained" disableElevation size="small"
                             sx={{ textTransform: "none", mr: 1, background: "#5046e4", borderRadius: "4px" }} startIcon={icon} >
                             {label}
                         </Button>
