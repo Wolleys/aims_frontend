@@ -1,25 +1,8 @@
 import { Fragment } from 'react';
 import PurchaseHistory from "./purchaseHistory";
 import PrimarySearchBar from '../../../../../components/shared/SearchBar/primary';
-
-import {
-    Paper, Table, TableRow, TableHead, TableBody, TableCell, tableCellClasses,
-    TableContainer, styled,
-} from "@mui/material";
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-    [`&.${tableCellClasses.head}`]: {
-        backgroundColor: "#EBEBEB",
-        color: theme.palette.text.primary,
-        fontSize: 14, paddingTop: '10px', paddingBottom: '10px',
-        fontWeight: '500', cursor: 'default'
-    },
-    [`&.${tableCellClasses.body}`]: {
-        fontSize: 14,
-    },
-}));
-
-
+import StyledTableCell from "../../../../../components/shared/Table/StyledTableCell";
+import { Paper, Table, TableRow, TableHead, TableBody, TableContainer } from "@mui/material";
 
 function createData(description, part_number, location, starting_quantity, quantity_received,
     quantity_issued, quantity_on_hand, reorder_level) {
