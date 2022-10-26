@@ -30,7 +30,7 @@ export default function ActionMenu(props) {
 
     //Links
     const editPart = (row) => { navigate(`/parts-entry/default/edit-part/${row.id}`) }
-    const purchaseHistory = (row) => { navigate(`/part/purchase-history/${row.id}`) }
+    const purchaseHistory = (row) => { navigate(`/parts-entry/default/purchase-history/${row.id}`) }
     const issueHistory = (row) => { navigate(`/part/issue-history/${row.id}`) }
     const purchasePart = (row) => { navigate(`/part/purchase-part/${row.id}`) }
 
