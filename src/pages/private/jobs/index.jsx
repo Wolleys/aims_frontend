@@ -1,4 +1,5 @@
 import React from "react";
+import JobsList from "./tables/jobsList";
 import { Box, Toolbar, Divider } from "@mui/material";
 import DrawerAppBar from "../../../components/shared/DrawerAppBar";
 
@@ -9,7 +10,7 @@ function Jobs() {
             <Toolbar />
             <Box sx={{ pt: 8.4, pb: 3 }}>
                 <Divider sx={{ mb: 2, mt: 0 }} />
-                <h1>Jobs Page</h1>
+                <JobsList />
             </Box>
         </Box>
     );
