@@ -25,6 +25,7 @@ import PurchasePart from "../pages/private/part_entry/actions/purchase_part";
 import Jobs from "../pages/private/jobs";
 import DefaultJobsList from "../pages/private/jobs/Default";
 import OpenJob from "../pages/private/jobs/actions/open_job";
+import EditJob from "../pages/private/jobs/actions/edit_job";
 
 import PartIssue from "../pages/private/part_issue";
 import DefaultPartIssue from "../pages/private/part_issue/Default";
@@ -57,6 +58,7 @@ function AppRoutes() {
       <Route path="jobs" element={<PrivateRoute isAuth={isAuth}> <Jobs /> </PrivateRoute>} >
         <Route path="jobs-list" element={<DefaultJobsList />} />
         <Route path="open-job" element={<OpenJob />} />
+        <Route path="edit-job/:jobId" element={<EditJob />} />
       </Route>
       <Route path="part-issue" element={<PrivateRoute isAuth={isAuth}> <PartIssue /> </PrivateRoute>} >
         <Route path="default" element={<DefaultPartIssue />} />
