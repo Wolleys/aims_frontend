@@ -29,10 +29,10 @@ export default function ActionMenu(props) {
     };
 
     //Links
-    const editPart = (row) => { navigate(`/parts-entry/default/edit-part/${row.id}`) }
-    const purchaseHistory = (row) => { navigate(`/parts-entry/default/purchase-history/${row.id}`) }
-    const issueHistory = (row) => { navigate(`/parts-entry/default/issue-history/${row.id}`) }
-    const purchasePart = (row) => { navigate(`/parts-entry/default/purchase-part/${row.id}`) }
+    const editPart = (row) => { navigate(`/part-entry/default/edit-part/${row.id}`) }
+    const purchaseHistory = (row) => { navigate(`/part-entry/default/purchase-history/${row.id}`) }
+    const issueHistory = (row) => { navigate(`/part-entry/default/issue-history/${row.id}`) }
+    const purchasePart = (row) => { navigate(`/part-entry/default/purchase-part/${row.id}`) }
 
     const menuItems = [
         { label: "Edit", link: () => { editPart(row); }, icon: EditIcon },

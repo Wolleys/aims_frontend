@@ -43,7 +43,7 @@ function AppRoutes() {
       <Route path="stock" element={<PrivateRoute isAuth={isAuth}> <Stock /> </PrivateRoute>} >
         <Route path="default" element={<DefaultStock />} />
       </Route>
-      <Route path="parts-entry" element={<PrivateRoute isAuth={isAuth}> <PartEntry /> </PrivateRoute>} >
+      <Route path="part-entry" element={<PrivateRoute isAuth={isAuth}> <PartEntry /> </PrivateRoute>} >
         <Route path="default" element={<DefaultPartEntry />} />
         <Route path="default/add-part" element={<AddPart />} />
         <Route path="default/edit-part/:partId" element={<EditPart />} />

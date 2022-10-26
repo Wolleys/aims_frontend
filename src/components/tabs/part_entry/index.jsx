@@ -8,7 +8,7 @@ function PartEntryTabs() {
             <Box sx={{ width: '100%', }}>
                 <Tabs value={'Default'} centered
                     TabIndicatorProps={{ sx: { display: 'none', top: "60px" } }}>
-                    <Tab value='Default' component={NavLink} to='/parts-entry/default'
+                    <Tab value='Default' component={NavLink} to='/part-entry/default'
                         label={<span><StoreIcon /><br /> {'Default'} </span>} sx={{ textTransform: 'none', }} wrapped />
                 </Tabs>
             </Box>

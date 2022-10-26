@@ -32,7 +32,7 @@ const rows = [
 export default function DefaultStore() {
     const navigate = useNavigate();
     const addPart = () => {
-      navigate("/parts-entry/default/add-part");
+      navigate("/part-entry/default/add-part");
     };
 
     return (
