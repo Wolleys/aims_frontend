@@ -23,6 +23,8 @@ import IssueHistory from "../pages/private/part_entry/actions/issue_history";
 import PurchasePart from "../pages/private/part_entry/actions/purchase_part";
 
 import Jobs from "../pages/private/jobs";
+import DefaultJobsList from "../pages/private/jobs/Default";
+
 import PartIssue from "../pages/private/part_issue";
 import DefaultPartIssue from "../pages/private/part_issue/Default";
 
@@ -51,7 +53,9 @@ function AppRoutes() {
         <Route path="default/issue-history/:partId" element={<IssueHistory />} />
         <Route path="default/purchase-part/:partId" element={<PurchasePart />} />
       </Route>
-      <Route path="jobs" element={<PrivateRoute isAuth={isAuth}> <Jobs /> </PrivateRoute>} />
+      <Route path="jobs" element={<PrivateRoute isAuth={isAuth}> <Jobs /> </PrivateRoute>} >
+        <Route path="jobs-list" element={<DefaultJobsList />} />
+      </Route>
       <Route path="part-issue" element={<PrivateRoute isAuth={isAuth}> <PartIssue /> </PrivateRoute>} >
         <Route path="default" element={<DefaultPartIssue />} />
       </Route>
