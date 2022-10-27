@@ -1,37 +1,45 @@
 import { useState, Fragment } from 'react';
+import { useNavigate } from "react-router-dom";
+import { history } from "../../../data/history";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import {
     Box, Table, TableRow, TableHead, TableBody, TableCell, Collapse, Typography, IconButton,
-    styled, tableCellClasses,
+    styled, tableCellClasses, Link, Button
 } from "@mui/material";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
-      backgroundColor: theme.palette.common.black,
-      color: theme.palette.common.white,
+        backgroundColor: theme.palette.common.white,
+        color: "#555",
+        fontWeight: "bold",
+        cursor: "default",
     },
     [`&.${tableCellClasses.body}`]: {
-      fontSize: 14,
+        fontSize: 14,
     },
-  }));
-  
-  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.action.hover,
+        backgroundColor: theme.palette.action.hover,
     },
     // hide last border
     '&:last-child td, &:last-child th': {
-      border: 0,
+        border: 0,
     },
-  }));
+}));
 
 export default function PurchaseHistory(props) {
     const { row } = props;
+    const navigate = useNavigate();
     const [open, setOpen] = useState(false);
+
+    const showMore = () => { navigate(`/part-entry/default/purchase-history/${row.id}`) }
+
     return (
         <Fragment>
-            <TableRow hover sx={{ "& > *": { borderBottom: "unset" }, cursor: "pointer" }} 
+            <TableRow hover sx={{ "& > *": { borderBottom: "unset" }, cursor: "pointer" }}
                 onClick={() => { setOpen(!open) }} >
                 <TableCell component="th" scope="row"> {row.description} </TableCell>
                 <TableCell align="left">{row.part_number}</TableCell>
@@ -68,8 +76,8 @@ export default function PurchaseHistory(props) {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {row.history.map((row) => (
-                                        <StyledTableRow key={row.date}>
+                                    {history.slice(0, 3).map((row) => (
+                                        <StyledTableRow key={row.id}>
                                             <StyledTableCell component="th" scope="row"> {row.date} </StyledTableCell>
                                             <StyledTableCell>{row.company_name}</StyledTableCell>
                                             <StyledTableCell>{row.quantity_received}</StyledTableCell>
@@ -82,6 +90,10 @@ export default function PurchaseHistory(props) {
                                     ))}
                                 </TableBody>
                             </Table>
+                            {history.length > 3 ?
+                                <Button component={Link} onClick={showMore} sx={{ textTransform: 'none', float: 'right', mt: 0.5 }}>Show more</Button>
+                                : null
+                            }
                         </Box>
                     </Collapse>
                 </TableCell>
