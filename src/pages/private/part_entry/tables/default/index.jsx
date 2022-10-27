@@ -1,77 +1,49 @@
-import { Fragment } from 'react';
+import { parts } from "../../../data/parts";
 import { useNavigate } from "react-router-dom";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
 import ActionMenu from "../../components/actionMenu";
-import PrimarySearchBar from '../../../../../components/shared/SearchBar/primary';
-import StyledTableCell from "../../../../../components/shared/Table/StyledTableCell";
-import { Paper, Table, TableRow, TableHead, TableBody, TableCell, TableContainer } from "@mui/material";
+import PrimaryTable from "../../../../../components/shared/Table/primary";
+import PrimarySearchBar from "../../../../../components/shared/SearchBar/primary";
 
-function createData(id,description, part_number, location, starting_quantity, quantity_received,
-    quantity_issued, quantity_on_hand, reorder_level) {
-    return {
-        id,
-        description,
-        part_number,
-        location,
-        starting_quantity,
-        quantity_received,
-        quantity_issued,
-        quantity_on_hand,
-        reorder_level,
-    };
-}
-
-const rows = [
-    createData(1, "SEAL & GASKET", "LW-14976", "BK20", 24, 4, 3, 25, 10),
-    createData(2, "Ice cream sandwich", "75441-1", "BI15", 10, 3, 7, 6, 10),
-    createData(3, "Eclair", "LW-14815", "BK19", 0, 30, 0, 30, 5),
-    createData(4, "Cupcake", "79472000", "AH41", 0, 100, 20, 80, 20),
-    createData(5, "Gingerbread", "Brasso", "Flammable Stores", 0, 150, 40, 110, 20),
+const columns = [
+    { value: "description", label: "Description" },
+    { value: "part_number", label: "Part Number" },
+    { value: "location", label: "Location" },
+    { value: "starting_quantity", label: "Initial Qty.", align: "center" },
+    { value: "quantity_received", label: "Qty. Added", align: "center" },
+    { value: "quantity_issued", label: "Qty. Issued", align: "center" },
+    { value: "quantity_on_hand", label: "Qty. In Stock", align: "center" },
+    { value: "reorder_level", label: "Reorder Level", align: "center" },
+    {
+        value: "actions",
+        label: "Actions",
+        align: "center",
+        style: { padding: "1px" },
+    },
 ];
+
+const partsData = parts?.map((item) => {
+    return {
+        ...item,
+        actions: <ActionMenu row={item} />,
+    };
+});
 
 export default function DefaultStore() {
     const navigate = useNavigate();
     const addPart = () => {
-      navigate("/part-entry/default/add-part");
+        navigate("/part-entry/default/add-part");
     };
 
     return (
-        <Fragment>
-            <PrimarySearchBar action icon={<AddIcon />} label="Add Part" navigate={addPart} />
-            <TableContainer component={Paper} elevation={0} sx={{ maxHeight: 500 }}>
-                <Table size="small" stickyHeader>
-                    <TableHead>
-                        <TableRow>
-                            <StyledTableCell>Description</StyledTableCell>
-                            <StyledTableCell align="left">Part Number</StyledTableCell>
-                            <StyledTableCell align="left">Location</StyledTableCell>
-                            <StyledTableCell align="center">Initial Qty.</StyledTableCell>
-                            <StyledTableCell align="center">Qty. Added</StyledTableCell>
-                            <StyledTableCell align="center">Qty. Issued</StyledTableCell>
-                            <StyledTableCell align="center">Qty. In Stock</StyledTableCell>
-                            <StyledTableCell align="center">Reorder Level</StyledTableCell>
-                            <StyledTableCell align="center">Actions</StyledTableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {rows.map((row) => (
-                            <TableRow hover key={row.id}>
-                                <TableCell component="th" scope="row"> {row.description} </TableCell>
-                                <TableCell align="left">{row.part_number}</TableCell>
-                                <TableCell align="left">{row.location}</TableCell>
-                                <TableCell align="center">{row.starting_quantity}</TableCell>
-                                <TableCell align="center">{row.quantity_received}</TableCell>
-                                <TableCell align="center">{row.quantity_issued}</TableCell>
-                                <TableCell align="center">{row.quantity_on_hand}</TableCell>
-                                <TableCell align="center">{row.reorder_level}</TableCell>
-                                <TableCell align="center" style={{ padding: '0px' }}>
-                                    {<ActionMenu row={row} />}
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </Fragment>
+        <>
+            <PrimarySearchBar
+                action
+                icon={<AddIcon />}
+                label="Add Part"
+                navigate={addPart}
+            />
+            <PrimaryTable data={partsData} columns={columns} />
+        </>
     );
 }
