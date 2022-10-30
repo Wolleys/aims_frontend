@@ -34,3 +34,7 @@ body {
   padding: 20px 15px;
   background-color: inherit;
 }
+
+.selected_row {
+  background: #0000000a;
+}

@@ -1,9 +1,10 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useContext, useState } from 'react';
 import { jobs } from '../../../data/jobs';
 import {
     Paper, Table, TableRow, TableHead, TableBody, TableCell, tableCellClasses,
     TableContainer, styled, Typography, Divider, Box
 } from '@mui/material';
+import { SelectedJobContext } from '../../../../../context/SelectedJobContextProvider';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -17,9 +18,8 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
 }));
 
-
-export default function JobsList(props) {
-    const { onSelected } = props;
+export default function JobsList() {
+    const { setSelectedJob } = useContext(SelectedJobContext);
     const [clickedRow, setClickedRowIndex] = useState(null);
 
     const OpenedJobs = jobs.filter((item) => item.job_status === "Opened")
@@ -34,7 +34,7 @@ export default function JobsList(props) {
         const { target } = event;
         const jobIndex = target.getAttribute("jobindex");
         const selectedJob = jobs[jobIndex];
-        onSelected(selectedJob);
+        setSelectedJob(selectedJob);
     }
 
     return (
@@ -52,7 +52,7 @@ export default function JobsList(props) {
                         {jobs.length > 0 ? (
                             jobs.map((row, index) => (
                                 <TableRow key={row.id} hover onClick={handleSelection(index)} style={{ cursor: 'pointer', fontSize: '10px' }}
-                                    className={clickedRow === index ? "selectedRow" : ""}>
+                                    className={clickedRow === index ? "selected_row" : null}>
                                     <TableCell jobindex={index} align="left">{row.job_number}</TableCell>
                                     <TableCell jobindex={index} align="left">{row.aircraft_reg}</TableCell>
                                     <TableCell jobindex={index} align="left" style={{ color: row.job_status === "Opened" ? '#4caf50' : '#dc004e' }}>
