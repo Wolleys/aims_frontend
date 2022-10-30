@@ -1,10 +1,7 @@
-import React from "react";
+import Layout from "./layout";
+
 function Default() {
-    return (
-        <>
-            <h1>Default</h1>
-        </>
-    );
+    return <Layout />;
 }
 
 export default Default;
