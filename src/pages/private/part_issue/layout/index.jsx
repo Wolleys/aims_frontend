@@ -1,4 +1,5 @@
 import JobContainer from "./jobContainer";
+import IssueContent from "../tables/default/content";
 import { Box, Grid } from "@mui/material";
 
 function Layout() {
@@ -9,7 +10,7 @@ function Layout() {
                     <JobContainer />
                 </Grid>
                 <Grid item xs={12} sm={8} md={9} >
-                    Content
+                    <IssueContent />
                 </Grid>
             </Grid>
         </Box>

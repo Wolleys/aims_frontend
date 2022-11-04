@@ -38,3 +38,11 @@ body {
 .selected_row {
   background: #0000000a;
 }
+
+.primary_label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: #03060b;
+  line-height: 1.4375em;
+}

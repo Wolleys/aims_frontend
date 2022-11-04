@@ -1,10 +1,11 @@
 import { Fragment, } from 'react';
 import { Formik, Form } from "formik";
 import { Link as RouterLink } from "react-router-dom";
+import { Box, Typography, Grid, Link } from "@mui/material";
 import Copyright from "../../../components/shared/Copyright";
 import { loginSchema } from "../../../validations/loginSchema";
-import { Box, Button, Typography, Grid, Link } from "@mui/material";
-import FormikTextField from '../../../components/shared/TextField/FormikTextField';
+import SubmitBtn from "../../../components/shared/FormsUI/Button";
+import TextField from "../../../components/shared/FormsUI/TextField/Auth";
 
 function ForgotPasswordForm() {
     const initialValues = { email: ""}
@@ -32,12 +33,10 @@ function ForgotPasswordForm() {
                     <Box sx={{ mt: 1 }}>
                         <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={loginSchema} >
                             <Form>
-                                <FormikTextField formikKey="email" fullWidth autoComplete="none" variant="outlined" autoFocus
-                                     placeholder="Email address" sx={{ mb: 0 }} />
-                                <Button type="submit" size="large" fullWidth variant="contained" disableElevation
-                                    sx={{ mt: 2, mb: 2, textTransform: 'none', borderRadius: '6px', background: '#5046e4' }}> Submit
-                                </Button>
-
+                                <TextField name="email" placeholder="Email address" sx={{ mb: 0 }} />
+                                <SubmitBtn size="large" fullWidth
+                                    sx={{ mt: 2, mb: 2, textTransform: 'none', borderRadius: '6px' }}> Submit
+                                </SubmitBtn>
                             </Form>
                         </Formik>
                         <Grid sx={{ textAlign: 'left', mt: 1 }}>

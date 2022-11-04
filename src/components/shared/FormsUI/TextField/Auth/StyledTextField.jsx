@@ -28,7 +28,7 @@ const AuthTextField = styled(TextField)(() => ({
     },
 }));
 
-export default function CssTextField({ ...props }) {
+export default function StyledTextField({ ...props }) {
     return (
         <Fragment>
             <AuthTextField {...props} />

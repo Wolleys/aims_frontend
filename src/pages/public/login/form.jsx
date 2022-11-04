@@ -3,10 +3,11 @@ import { Login } from "../../../queries";
 import { Fragment, useState, useContext } from "react";
 import Copyright from "../../../components/shared/Copyright";
 import { loginSchema } from "../../../validations/loginSchema";
+import SubmitBtn from "../../../components/shared/FormsUI/Button";
 import { AuthContext } from "../../../context/AuthContextProvider";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-import FormikTextField from '../../../components/shared/TextField/FormikTextField';
-import { Box, Grid, Button, Typography, Link, Alert, CircularProgress } from "@mui/material";
+import TextField from "../../../components/shared/FormsUI/TextField/Auth";
+import { Box, Grid, Typography, Link, Alert, CircularProgress } from "@mui/material";
 
 function SignIn() {
     const navigate = useNavigate();
@@ -55,15 +56,13 @@ function SignIn() {
                     <Box sx={{ mt: 1 }}>
                         <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={loginSchema} >
                             <Form>
-                                <FormikTextField formikKey="email" fullWidth autoComplete="none" variant="outlined" autoFocus
-                                    disabled={isLoading} placeholder="Email address" sx={{ mb: 2 }} />
+                                <TextField name="email" placeholder="Email address" disabled={isLoading} sx={{ mb: 2 }} />
                                 <br />
-                                <FormikTextField formikKey="password" fullWidth type="password" autoComplete="none" variant="outlined"
-                                    disabled={isLoading} placeholder="Password" />
-                                <Button type="submit" size="large" fullWidth variant="contained" disableElevation disabled={isLoading}
-                                    sx={{ mt: 2, mb: 2, textTransform: 'none', borderRadius: '6px', background: '#5046e4' }} >
+                                <TextField name="password" placeholder="Password" disabled={isLoading} type="password" />
+                                <SubmitBtn size="large" fullWidth disabled={isLoading}
+                                    sx={{ mt: 2, mb: 2, textTransform: "none", borderRadius: "6px"}} >
                                     {isLoading ? (<CircularProgress size={26} color="inherit" />) : (<span>Sign in</span>)}
-                                </Button>
+                                </SubmitBtn>
                             </Form>
                         </Formik>
                         <Grid sx={{ textAlign: 'left', mt: 1 }}>
