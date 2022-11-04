@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 import ActionMenu from "../../components/actionMenu";
 import PrimaryTable from "../../../../../components/shared/Table/primary";
-import PrimarySearchBar from "../../../../../components/shared/SearchBar/primary";
+import PrimarySearchBar from "../../../../../components/shared/SearchBar/Primary";
 
 const columns = [
     { value: "description", label: "Description" },

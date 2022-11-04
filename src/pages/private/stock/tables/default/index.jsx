@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { parts } from "../../../data/parts";
 import PurchaseHistory from "./purchaseHistory";
-import PrimarySearchBar from '../../../../../components/shared/SearchBar/primary';
+import PrimarySearchBar from '../../../../../components/shared/SearchBar/Primary';
 import StyledTableCell from "../../../../../components/shared/Table/StyledTableCell";
 import { Paper, Table, TableRow, TableHead, TableBody, TableContainer } from "@mui/material";
 

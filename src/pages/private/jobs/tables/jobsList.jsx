@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import PrimaryTable from "../../../../components/shared/Table/primary";
 import MoreEditDel from "../../../../components/shared/ActionMenu/MoreEditDel";
-import PrimarySearchBar from "../../../../components/shared/SearchBar/primary";
+import PrimarySearchBar from "../../../../components/shared/SearchBar/Primary";
 
 const columns = [
     { value: "date_opened", label: "Date Opened" },
