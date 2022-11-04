@@ -1,6 +1,6 @@
 import { Button, styled } from "@mui/material";
 
-const SubmitButton = styled(Button)({
+const PrimaryButton = styled(Button)({
     boxShadow: "none",
     textTransform: "none",
     fontSize: 14,
@@ -22,5 +22,5 @@ const SubmitButton = styled(Button)({
 });
 
 export default function StyledButtons({ ...props }) {
-    return <SubmitButton {...props} />;
+    return <PrimaryButton {...props} />;
 }
