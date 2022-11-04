@@ -3,10 +3,10 @@ import { Login } from "../../../queries";
 import { Fragment, useState, useContext } from "react";
 import Copyright from "../../../components/shared/Copyright";
 import { loginSchema } from "../../../validations/loginSchema";
-import SubmitBtn from "../../../components/shared/FormsUI/Button";
 import { AuthContext } from "../../../context/AuthContextProvider";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import TextField from "../../../components/shared/FormsUI/TextField/Auth";
+import SubmitBtn from "../../../components/shared/FormsUI/Button/SubmitBtn";
 import { Box, Grid, Typography, Link, Alert, CircularProgress } from "@mui/material";
 
 function SignIn() {

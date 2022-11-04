@@ -4,8 +4,8 @@ import { Link as RouterLink } from "react-router-dom";
 import { Box, Typography, Grid, Link } from "@mui/material";
 import Copyright from "../../../components/shared/Copyright";
 import { loginSchema } from "../../../validations/loginSchema";
-import SubmitBtn from "../../../components/shared/FormsUI/Button";
 import TextField from "../../../components/shared/FormsUI/TextField/Auth";
+import SubmitBtn from "../../../components/shared/FormsUI/Button/SubmitBtn";
 
 function ForgotPasswordForm() {
     const initialValues = { email: ""}

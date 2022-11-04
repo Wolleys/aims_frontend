@@ -6,10 +6,10 @@ import { engineers } from "../../../data/engineers";
 import { partsSchema } from "../../../../../validations/partsSchema";
 import Select from "../../../../../components/shared/FormsUI/Select";
 import { partStatus, initialValues } from "../../components/formData";
-import SubmitBtn from "../../../../../components/shared/FormsUI/Button";
 import TextField from "../../../../../components/shared/FormsUI/TextField";
 import DatePicker from "../../../../../components/shared/FormsUI/DatePicker";
 import AutoComplete from "../../../../../components/shared/FormsUI/AutoComplete";
+import SubmitBtn from "../../../../../components/shared/FormsUI/Button/SubmitBtn";
 import { SelectedJobContext } from '../../../../../context/SelectedJobContextProvider';
 
 function IssuePart() {
