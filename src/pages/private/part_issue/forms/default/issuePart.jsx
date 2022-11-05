@@ -7,10 +7,10 @@ import { partsSchema } from "../../../../../validations/partsSchema";
 import Select from "../../../../../components/shared/FormsUI/Select";
 import { partStatus, initialValues } from "../../components/formData";
 import TextField from "../../../../../components/shared/FormsUI/TextField";
-import DatePicker from "../../../../../components/shared/FormsUI/DatePicker";
 import AutoComplete from "../../../../../components/shared/FormsUI/AutoComplete";
 import SubmitBtn from "../../../../../components/shared/FormsUI/Button/SubmitBtn";
 import { SelectedJobContext } from '../../../../../context/SelectedJobContextProvider';
+import DatePicker from "../../../../../components/shared/FormsUI/DatePicker/DatePicker";
 
 function IssuePart() {
     const { selectedJob } = useContext(SelectedJobContext);
@@ -93,6 +93,7 @@ function IssuePart() {
                             <label className="primary_label">Issued to</label>
                             <AutoComplete options={engineersOptions} name="issued_to" />
                         </Grid>
+                        
                         <Grid item xs={12} sm={6} md={3}> {handleIssuePartButton()} </Grid>
                     </Grid>
                 </Form>
