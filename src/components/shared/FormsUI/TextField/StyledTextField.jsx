@@ -5,7 +5,7 @@ const PrimaryTextField = styled(TextField)(() => ({
         "& input": {
             color: "#666",
             fontWeight: 400,
-            fontSize: "15px",
+            fontSize: "14px",
         },
         "& fieldset": {
             borderRadius: "4px",
@@ -17,9 +17,18 @@ const PrimaryTextField = styled(TextField)(() => ({
         "&.Mui-focused fieldset": {
             border: "1px solid #c6beee",
         },
+        "& .MuiSvgIcon-root": {
+            color: "#5046e4",
+        },
     },
 }));
 
+const defaultProps = {
+    size: "small",
+    fullWidth: true,
+    variant: "outlined",
+};
+
 export default function StyledTextField({ ...props }) {
-    return <PrimaryTextField {...props} />;
+    return <PrimaryTextField {...props} {...defaultProps} />;
 }

@@ -1,6 +1,6 @@
 import { MenuItem } from "@mui/material";
+import StyledSelect from "./StyledSelect";
 import { useField, useFormikContext } from "formik";
-import StyledTextField from "../TextField/StyledTextField";
 
 const Select = ({ name, options, ...otherProps }) => {
     const { setFieldValue } = useFormikContext();
@@ -13,26 +13,8 @@ const Select = ({ name, options, ...otherProps }) => {
 
     const configSelect = {
         ...field,
-        select: true,
-        size: "small",
         ...otherProps,
-        fullWidth: true,
-        variant: "outlined",
         onChange: handleChange,
-    };
-
-    const dropDownMenu = {
-        MenuProps: {
-            PaperProps: {
-                style: {
-                    color: "#666",
-                    marginTop: "5px",
-                    boxShadow: "none",
-                    borderRadius: "4px",
-                    border: "1px solid #d5d8e1",
-                },
-            },
-        },
     };
 
     if (meta && meta.touched && meta.error) {
@@ -41,15 +23,15 @@ const Select = ({ name, options, ...otherProps }) => {
     }
 
     return (
-        <StyledTextField {...configSelect} SelectProps={dropDownMenu}>
+        <StyledSelect {...configSelect} >
             {options?.map((option, index) => {
                 return (
-                    <MenuItem key={option.value} value={option.value}>
+                    <MenuItem key={option.value} value={option.value} sx={{fontSize: "14px"}}>
                         {option.label}
                     </MenuItem>
                 );
             })}
-        </StyledTextField>
+        </StyledSelect>
     );
 };
 

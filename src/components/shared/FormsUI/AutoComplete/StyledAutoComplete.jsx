@@ -15,6 +15,7 @@ const CustomPaper = (props) => {
     );
 };
 const defaultProps = {
+    size: "small",
     PaperComponent: CustomPaper,
     getOptionLabel: (option) => option.label,
     isOptionEqualToValue: (option, value) => option.value === value.value,

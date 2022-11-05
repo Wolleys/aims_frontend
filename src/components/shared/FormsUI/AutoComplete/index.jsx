@@ -17,10 +17,7 @@ const AutoComplete = ({ name, options, ...otherProps }) => {
 
     const configTextField = {
         ...field,
-        size: "small",
         ...otherProps,
-        fullWidth: true,
-        variant: "outlined",
     };
 
     if (meta && meta.touched && meta.error) {
