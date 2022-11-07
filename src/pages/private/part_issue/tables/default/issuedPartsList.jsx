@@ -1,0 +1,60 @@
+import { useContext } from "react";
+import { issuedParts } from "../../../data/issuedParts";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import PrimaryTable from "../../../../../components/shared/Table/primary";
+import EditDel from "../../../../../components/shared/ActionMenu/EditDel";
+import { CloseJobContext } from "../../../../../context/CloseJobContextProvider";
+import ActionBtn from "../../../../../components/shared/FormsUI/Button/ActionBtn";
+import { SelectedJobContext } from "../../../../../context/SelectedJobContextProvider";
+import RecordsCloseExp from "../../../../../components/shared/PartIssue/RecordsCloseExp";
+
+const columns = [
+    { value: "date_of_issue", label: "Date Issued" },
+    { value: "description", label: "Description" },
+    { value: "part_number", label: "Part No" },
+    { value: "serial_number", label: "Serial No" },
+    { value: "issued_to", label: "Issued To" },
+    { value: "usp_usd", label: "Unit SP", align: "center" },
+    { value: "qty_issued", label: "Qty. Issued", align: "center" },
+    { value: "total_price", label: "Total Price", align: "center" },
+    {
+        value: "actions",
+        label: "Actions",
+        align: "center",
+        style: { padding: "1px" },
+    },
+];
+
+export default function IssuedPartsList(props) {
+    const { selectedJob } = useContext(SelectedJobContext);
+    const { handleOpenDialog } = useContext(CloseJobContext);
+    const jobId = selectedJob.id;
+    const details = issuedParts.filter((item) => item.job_id === jobId);
+    const length = details.length;
+
+    const issuedPartsData = details?.map((item) => {
+        return {
+            ...item,
+            issued_to: item.first_name + " " + item.last_name,
+            total_price: (item.usp_usd * item.qty_issued).toFixed(2),
+            actions: <EditDel row={item} />,
+        };
+    });
+
+    const handleCloseJob = () => {
+        const status = selectedJob.job_status;
+        if (status === "Opened") {
+            return (
+                <ActionBtn onClick={() => { handleOpenDialog(); }}
+                    sx={{ mr: 1, fontSize: "13.1px" }} startIcon={<LockOutlinedIcon />} > Close Job </ActionBtn>
+            );
+        }
+    };
+
+    return (
+        <>
+            <PrimaryTable data={issuedPartsData} columns={columns} />
+            <RecordsCloseExp length={length} closeJob={handleCloseJob()} details={details} />
+        </>
+    );
+}

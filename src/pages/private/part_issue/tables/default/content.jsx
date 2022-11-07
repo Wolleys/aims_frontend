@@ -1,4 +1,5 @@
 import { Fragment, useContext } from "react";
+import IssuedPartsList from "./issuedPartsList";
 import IssuePart from "../../forms/default/issuePart";
 import { Card, CardContent, CardHeader, Typography, } from "@mui/material";
 import { SelectedJobContext } from "../../../../../context/SelectedJobContextProvider";
@@ -17,6 +18,7 @@ function IssueContent() {
                 />
                 <CardContent sx={{ mt: '0px' }}>
                     <IssuePart />
+                    <IssuedPartsList />
 
                 </CardContent>
             </Card>
