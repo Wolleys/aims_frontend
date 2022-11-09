@@ -14,7 +14,7 @@ const columns = [
     { value: "part_number", label: "Part No" },
     { value: "serial_number", label: "Serial No" },
     { value: "issued_to", label: "Issued To" },
-    { value: "usp_usd", label: "Unit SP", align: "center" },
+    { value: "sp_in_foreign", label: "Unit SP", align: "center" },
     { value: "qty_issued", label: "Qty. Issued", align: "center" },
     { value: "total_price", label: "Total Price", align: "center" },
     {
@@ -36,7 +36,7 @@ export default function IssuedPartsList(props) {
         return {
             ...item,
             issued_to: item.first_name + " " + item.last_name,
-            total_price: (item.usp_usd * item.qty_issued).toFixed(2),
+            total_price: (item.sp_in_foreign * item.qty_issued).toFixed(2),
             actions: <EditDel row={item} />,
         };
     });
