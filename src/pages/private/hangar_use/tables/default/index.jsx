@@ -1,4 +1,5 @@
 import AddIcon from "@mui/icons-material/Add";
+import { useNavigate } from "react-router-dom";
 import { issuedParts } from "../../../data/issuedParts";
 import Records from "../../../../../components/shared/HangarUse/Records";
 import PrimaryTable from "../../../../../components/shared/Table/primary";
@@ -23,6 +24,11 @@ const columns = [
 ];
 
 const DefaultStore = () => {
+    const navigate = useNavigate();
+    const issuePart = () => {
+        navigate("/hangar-use/default/issue-part");
+    };
+
     const length = issuedParts.length;
     const issuedPartsData = issuedParts?.map((item) => {
         return {
@@ -33,14 +39,13 @@ const DefaultStore = () => {
         };
     });
 
-
     return (
         <>
             <PrimarySearchBar
                 action
                 icon={<AddIcon />}
                 label="New Issue"
-            // navigate={addPart}
+                navigate={issuePart}
             />
             <PrimaryTable data={issuedPartsData} columns={columns} />
             <Records length={length} data={issuedPartsData} />
