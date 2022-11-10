@@ -6,7 +6,8 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Menu, MenuItem, IconButton, ListItemText, ListItemIcon, Divider, } from "@mui/material";
 
 export default function EditDel(props) {
-    const [anchorEl, setAnchorEl] = useState(null);
+    const { row, action, navigate } = props;
+    const [anchorEl, setAnchorEl] = useState(null)
 
     //Vertical Menu
     const openMenu = Boolean(anchorEl);
@@ -30,10 +31,16 @@ export default function EditDel(props) {
             <Menu anchorEl={anchorEl} open={openMenu} onClose={handleCloseMenu}
                 anchorOrigin={{ vertical: 'top', horizontal: 'left', }}
                 transformOrigin={{ vertical: 'top', horizontal: 'left', }}  >
-                <MenuItem onClick={() => { handleCloseMenu(); }}>
+
+                {action ? <MenuItem onClick={() => { handleCloseMenu(); navigate(row.id); }}>
                     <ListItemIcon><EditIcon fontSize="small" /></ListItemIcon>
                     <ListItemText primaryTypographyProps={{ fontSize: 14, fontWeight: 'medium', color: '#444' }}>Edit </ListItemText>
                 </MenuItem>
+                    : <MenuItem onClick={() => { handleCloseMenu(); }}>
+                        <ListItemIcon><EditIcon fontSize="small" /></ListItemIcon>
+                        <ListItemText primaryTypographyProps={{ fontSize: 14, fontWeight: 'medium', color: '#444' }}>Edit </ListItemText>
+                    </MenuItem>
+                }
                 <Divider />
                 <MenuItem onClick={() => { handleOpenDialog(); handleCloseMenu(); }}>
                     <ListItemIcon><DeleteIcon fontSize="small" color="error" /></ListItemIcon>

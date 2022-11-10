@@ -34,6 +34,7 @@ import DefaultPartIssue from "../pages/private/part_issue/Default";
 import HangarUse from "../pages/private/hangar_use";
 import DefaultHangarUse from "../pages/private/hangar_use/Default";
 import IssuePart from "../pages/private/hangar_use/actions/default/issue_part";
+import EditIssuedPart from "../pages/private/hangar_use/actions/default/edit_issue";
 
 function AppRoutes() {
   const { isAuth } = useContext(AuthContext);
@@ -69,6 +70,7 @@ function AppRoutes() {
       <Route path="hangar-use" element={<PrivateRoute isAuth={isAuth}> <HangarUse /> </PrivateRoute>} >
         <Route path="default" element={<DefaultHangarUse />} />
         <Route path="default/issue-part" element={<IssuePart />} />
+        <Route path="default/edit-issue/:partId" element={<EditIssuedPart />} />
       </Route>
 
       <Route path="*" element={<NotFound />} />

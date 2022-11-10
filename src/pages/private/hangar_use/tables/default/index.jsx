@@ -29,13 +29,15 @@ const DefaultStore = () => {
         navigate("/hangar-use/default/issue-part");
     };
 
+    const handleEdit = (row) => navigate(`/hangar-use/default/edit-issue/${row}`);
+
     const length = issuedParts.length;
     const issuedPartsData = issuedParts?.map((item) => {
         return {
             ...item,
             issued_to: item.first_name + " " + item.last_name,
             total_price: (item.sp_in_foreign * item.qty_issued).toFixed(2),
-            actions: <EditDel row={item} />,
+            actions: <EditDel row={item} action navigate={handleEdit} />,
         };
     });
 
