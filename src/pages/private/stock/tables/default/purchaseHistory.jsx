@@ -48,7 +48,8 @@ export default function PurchaseHistory(props) {
                 <TableCell align="center">{row.quantity_received}</TableCell>
                 <TableCell align="center">{row.quantity_issued}</TableCell>
                 <TableCell align="center">{row.quantity_on_hand}</TableCell>
-                <TableCell align="center">{row.reorder_level}</TableCell>
+                <TableCell align="center">{row.sp_in_foreign}</TableCell>
+                <TableCell align="center">{(row.quantity_on_hand * row.sp_in_foreign).toFixed(2)}</TableCell>
                 <TableCell>
                     <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)} >
                         {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
@@ -56,7 +57,7 @@ export default function PurchaseHistory(props) {
                 </TableCell>
             </TableRow>
             <TableRow>
-                <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={9} sx={{ borderBottom: !open ? "unset" : null }}>
+                <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={10} sx={{ borderBottom: !open ? "unset" : null }}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Box sx={{ margin: 1 }}>
                             <Typography variant="subtitle2" gutterBottom component="div" sx={{ fontWeight: "bold" }}>

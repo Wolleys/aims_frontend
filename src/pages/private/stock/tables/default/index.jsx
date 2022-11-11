@@ -1,13 +1,14 @@
-import { Fragment } from 'react';
 import { parts } from "../../../data/parts";
 import PurchaseHistory from "./purchaseHistory";
+import RecordsAndValue from '../../../../../components/shared/RecordsAndValue';
 import PrimarySearchBar from '../../../../../components/shared/SearchBar/Primary';
 import StyledTableCell from "../../../../../components/shared/Table/StyledTableCell";
 import { Paper, Table, TableRow, TableHead, TableBody, TableContainer } from "@mui/material";
 
 export default function DefaultStore() {
+    const length = parts.length;
     return (
-        <Fragment>
+        <>
             <PrimarySearchBar />
             <TableContainer component={Paper} elevation={0} sx={{ maxHeight: 500 }}>
                 <Table size="small" stickyHeader>
@@ -20,7 +21,8 @@ export default function DefaultStore() {
                             <StyledTableCell align="center">Qty. Added</StyledTableCell>
                             <StyledTableCell align="center">Qty. Issued</StyledTableCell>
                             <StyledTableCell align="center">Qty. In Stock</StyledTableCell>
-                            <StyledTableCell align="center">Reorder Level</StyledTableCell>
+                            <StyledTableCell align="center">Selling Price ($)</StyledTableCell>
+                            <StyledTableCell align="right">Value ($)</StyledTableCell>
                             <StyledTableCell />
                         </TableRow>
                     </TableHead>
@@ -31,6 +33,7 @@ export default function DefaultStore() {
                     </TableBody>
                 </Table>
             </TableContainer>
-        </Fragment>
+            <RecordsAndValue length={length} data={parts} />
+        </>
     );
 }
