@@ -7,7 +7,7 @@ const SearchTextField = styled(TextField)(() => ({
             height: "unset",
             fontWeight: 400,
             fontSize: "14px",
-            padding: "6px 12px",
+            padding: "6px 0 6px 12px",
             "&::placeholder": {
                 color: "#03060b",
                 fontWeight: 500,
@@ -23,9 +23,19 @@ const SearchTextField = styled(TextField)(() => ({
         "&.Mui-focused fieldset": {
             border: "1px solid #c6beee",
         },
+        "& .MuiSvgIcon-root": {
+            color: "#ccc",
+            fontSize: "21px",
+        },
     },
 }));
 
+const defaultProps = {
+    size: "small",
+    variant: "outlined",
+    placeholder: "Search...",
+};
+
 export default function StyledSearchTextField({ ...props }) {
-    return <SearchTextField {...props} />;
+    return <SearchTextField {...defaultProps} {...props} />;
 }
