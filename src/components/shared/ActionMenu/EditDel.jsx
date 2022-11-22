@@ -6,7 +6,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Menu, MenuItem, IconButton, ListItemText, ListItemIcon, Divider, } from "@mui/material";
 
 export default function EditDel(props) {
-    const { row, action, navigate } = props;
+    const { row, action, navigate, editRow } = props;
     const [anchorEl, setAnchorEl] = useState(null)
 
     //Vertical Menu
@@ -36,7 +36,7 @@ export default function EditDel(props) {
                     <ListItemIcon><EditIcon fontSize="small" /></ListItemIcon>
                     <ListItemText primaryTypographyProps={{ fontSize: 14, fontWeight: 'medium', color: '#444' }}>Edit </ListItemText>
                 </MenuItem>
-                    : <MenuItem onClick={() => { handleCloseMenu(); }}>
+                    : <MenuItem onClick={() => { handleCloseMenu(); editRow(row) }}>
                         <ListItemIcon><EditIcon fontSize="small" /></ListItemIcon>
                         <ListItemText primaryTypographyProps={{ fontSize: 14, fontWeight: 'medium', color: '#444' }}>Edit </ListItemText>
                     </MenuItem>

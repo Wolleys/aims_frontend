@@ -26,6 +26,7 @@ const columns = [
 ];
 
 export default function IssuedPartsList(props) {
+    const { editRow } = props;
     const { selectedJob } = useContext(SelectedJobContext);
     const { handleOpenDialog } = useContext(CloseJobContext);
     const jobId = selectedJob.id;
@@ -37,7 +38,7 @@ export default function IssuedPartsList(props) {
             ...item,
             issued_to: item.first_name + " " + item.last_name,
             total_price: (item.sp_in_foreign * item.qty_issued).toFixed(2),
-            actions: <EditDel row={item} />,
+            actions: <EditDel row={item} editRow={editRow} />,
         };
     });
 

@@ -1,11 +1,19 @@
-import { Fragment, useContext } from "react";
 import IssuedPartsList from "./issuedPartsList";
 import IssuePart from "../../forms/default/issuePart";
+import EditIssuedPart from "../../forms/default/editIssuedPart";
+import { Fragment, useContext, useState } from "react";
 import { Card, CardContent, CardHeader, Typography } from "@mui/material";
 import { SelectedJobContext } from "../../../../../context/SelectedJobContextProvider";
 
 function IssueContent() {
   const { selectedJob } = useContext(SelectedJobContext);
+
+  const [editing, setEditing] = useState(false);
+
+  const editRow = (part) => {
+    setEditing(true);
+    console.log(part.id);
+  }
 
   const jobNo = (
     <span>
@@ -20,7 +28,8 @@ function IssueContent() {
   );
   const subHeader = (
     <span>
-      Aircraft Reg: <span style={{ color: "#888" }}>{selectedJob.aircraft_reg}</span>
+      Aircraft Reg:
+      <span style={{ color: "#888" }}>{selectedJob.aircraft_reg}</span>
     </span>
   );
 
@@ -51,8 +60,12 @@ function IssueContent() {
           }
         />
         <CardContent sx={{ mt: "0px" }}>
-          <IssuePart />
-          <IssuedPartsList />
+          {editing ? (
+            <EditIssuedPart setEditing={setEditing} />
+          ) : (
+            <IssuePart />
+          )}
+          <IssuedPartsList editRow={editRow} />
         </CardContent>
       </Card>
     </Fragment>
