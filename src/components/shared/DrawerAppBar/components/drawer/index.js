@@ -12,7 +12,7 @@ function MenuDrawer(props) {
                 ModalProps={{ keepMounted: true, }}
                 sx={{
                     display: { xs: 'block', sm: 'block', md: 'none' },
-                    '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                    '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, height: "100%" },
                 }}>
                 <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
                     <Typography variant="h6" sx={{ p: 2, background: '#3e345d', color: '#ede7f6' }}> AIMS </Typography>

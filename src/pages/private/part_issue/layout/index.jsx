@@ -1,17 +1,30 @@
 import JobContainer from "./jobContainer";
-import IssueContent from "../tables/default/content";
 import { Box, Grid } from "@mui/material";
+import IssueContent from "../tables/default/content";
+import SwipeableEdgeDrawer from "../../../../components/shared/Drawer";
 
 function Layout() {
     return (
         <Box>
             <Grid container spacing={1} sx={{ mt: -1 }} >
-                <Grid item xs={12} sm={4} md={3} >
+                <Grid item md={3}
+                    sx={{
+                        display: { xs: "none", sm: "none", md: "grid" }
+                    }} >
                     <JobContainer />
                 </Grid>
-                <Grid item xs={12} sm={8} md={9} >
+                <Grid
+                    item md={9}
+                    sx={{
+                        display: { xs: "grid", sm: "grid", md: "grid" }
+                    }} >
                     <IssueContent />
                 </Grid>
+                <Box sx={{
+                    display: { xs: "grid", sm: "grid", md: "none" }
+                }}>
+                    <SwipeableEdgeDrawer content={<JobContainer />} />
+                </Box>
             </Grid>
         </Box>
     );
