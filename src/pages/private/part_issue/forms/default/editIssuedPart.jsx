@@ -36,11 +36,12 @@ function EditIssuedPart(props) {
         const status = selectedJob.job_status;
         if (status === "Opened") {
             return (
-                <Box sx={{ float: "right", mt: 2.4 }}>
+                <Box sx={{ float: { xs: "none", sm: "right" }, mt: {xs: 0 ,sm: 2.4} }}>
                     <Button type="button" variant="contained" disableElevation color="inherit"
-                        sx={{ textTransform: "none", mr: 2, lineHeight: 1.5 }} onClick={() => setEditing(false)} >Cancel
+                        sx={{ textTransform: "none", mr: 2, lineHeight: 1.5, float: { xs: "left", sm: "none" } }} 
+                        onClick={() => setEditing(false)} >Cancel
                     </Button>
-                    <SubmitBtn>Edit</SubmitBtn>
+                    <SubmitBtn sx={{float: { xs: "right", sm: "none" }}}>Edit</SubmitBtn>
                 </Box>
             );
         }
@@ -93,12 +94,12 @@ function EditIssuedPart(props) {
                             <label className="primary_label">Total price</label>
                             <TextField name="total_price" />
                         </Grid>
-                        <Grid item xs={6} sm={4} md={3}>
+                        <Grid item xs={12} sm={4} md={3}>
                             <label className="primary_label">Issued to</label>
                             <AutoComplete options={engineersOptions} name="issued_to" />
                         </Grid>
 
-                        <Grid item xs={6} sm={4} md={3}> {handleIssuePartButton()} </Grid>
+                        <Grid item xs={12} sm={4} md={3}> {handleIssuePartButton()} </Grid>
                     </Grid>
                 </Form>
             </Formik>
