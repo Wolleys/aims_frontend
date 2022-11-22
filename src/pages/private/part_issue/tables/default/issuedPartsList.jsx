@@ -3,8 +3,8 @@ import { issuedParts } from "../../../data/issuedParts";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import PrimaryTable from "../../../../../components/shared/Table/primary";
 import EditDel from "../../../../../components/shared/ActionMenu/EditDel";
+import ErrorBtn from "../../../../../components/shared/FormsUI/Button/ErrorBtn";
 import { CloseJobContext } from "../../../../../context/CloseJobContextProvider";
-import ActionBtn from "../../../../../components/shared/FormsUI/Button/ActionBtn";
 import { SelectedJobContext } from "../../../../../context/SelectedJobContextProvider";
 import RecordsCloseExp from "../../../../../components/shared/PartIssue/RecordsCloseExp";
 
@@ -45,8 +45,15 @@ export default function IssuedPartsList(props) {
         const status = selectedJob.job_status;
         if (status === "Opened") {
             return (
-                <ActionBtn onClick={() => { handleOpenDialog(); }}
-                    sx={{ mr: 1, fontSize: "13.1px", float: { xs: "left", sm: "none" }, }} startIcon={<LockOutlinedIcon />} > Close Job </ActionBtn>
+                <ErrorBtn
+                    onClick={() => {
+                        handleOpenDialog();
+                    }}
+                    sx={{ mr: 1, fontSize: "13.1px", float: { xs: "left", sm: "none" } }}
+                    startIcon={<LockOutlinedIcon />}
+                >
+                    Close Job
+                </ErrorBtn>
             );
         }
     };
@@ -54,7 +61,11 @@ export default function IssuedPartsList(props) {
     return (
         <>
             <PrimaryTable data={issuedPartsData} columns={columns} />
-            <RecordsCloseExp length={length} closeJob={handleCloseJob()} details={details} />
+            <RecordsCloseExp
+                length={length}
+                closeJob={handleCloseJob()}
+                details={details}
+            />
         </>
     );
 }
