@@ -46,7 +46,7 @@ export default function IssuedPartsList(props) {
         if (status === "Opened") {
             return (
                 <ActionBtn onClick={() => { handleOpenDialog(); }}
-                    sx={{ mr: 1, fontSize: "13.1px" }} startIcon={<LockOutlinedIcon />} > Close Job </ActionBtn>
+                    sx={{ mr: 1, fontSize: "13.1px", float: { xs: "left", sm: "none" }, }} startIcon={<LockOutlinedIcon />} > Close Job </ActionBtn>
             );
         }
     };
