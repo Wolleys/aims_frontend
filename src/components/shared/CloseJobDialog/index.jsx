@@ -1,3 +1,4 @@
+import ErrorBtn from "../FormsUI/Button/ErrorBtn";
 import { Fragment, forwardRef, useContext } from "react";
 import { CloseJobContext } from "../../../context/CloseJobContextProvider";
 import { Dialog, DialogActions, Button, DialogContent, DialogContentText, DialogTitle, Slide } from "@mui/material";
@@ -22,11 +23,9 @@ export default function CloseJobDialog(props) {
                 </DialogContent>
                 <DialogActions>
                     <Button variant="outlined" color="error" onClick={handleCloseDialog} 
-                        sx={{ textTransform: 'none', }} > Cancle
+                        sx={{ textTransform: 'none', lineHeight: 1.3, fontSize: 14, }} > Cancle
                     </Button>
-                    <Button variant="contained" color="error" disableElevation sx={{ textTransform: 'none', }}
-                        onClick={() => { handleCloseDialog(); }}> Close Job
-                    </Button>
+                    <ErrorBtn onClick={() => { handleCloseDialog(); }}> Close Job </ErrorBtn>
                 </DialogActions>
             </Dialog>
         </Fragment>
