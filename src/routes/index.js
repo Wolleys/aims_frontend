@@ -16,11 +16,11 @@ import DefaultStock from "../pages/private/stock/Default";
 
 import PartEntry from "../pages/private/part_entry";
 import DefaultPartEntry from "../pages/private/part_entry/Default";
-import AddPart from "../pages/private/part_entry/actions/add_part";
-import EditPart from "../pages/private/part_entry/actions/edit_part";
-import PurchaseHistory from "../pages/private/part_entry/actions/purchase_history";
-import IssueHistory from "../pages/private/part_entry/actions/issue_history";
-import PurchasePart from "../pages/private/part_entry/actions/purchase_part";
+import AddPart from "../pages/private/part_entry/actions/default/add_part";
+import EditPart from "../pages/private/part_entry/actions/default/edit_part";
+import PurchaseHistory from "../pages/private/part_entry/actions/default/purchase_history";
+import IssueHistory from "../pages/private/part_entry/actions/default/issue_history";
+import PurchasePart from "../pages/private/part_entry/actions/default/purchase_part";
 
 import Jobs from "../pages/private/jobs";
 import DefaultJobsList from "../pages/private/jobs/Default";
