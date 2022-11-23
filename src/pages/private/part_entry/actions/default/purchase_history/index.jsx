@@ -1,8 +1,11 @@
 import { useParams } from "react-router-dom";
+import PartPurchaseHistory from "./tables/partPurchaseHistory";
 
 function PurchaseHistory() {
     const { partId } = useParams();
-    return <h1>Purchase History For - {partId} </h1>;
+    return (
+        <PartPurchaseHistory partId={partId} />
+    );
 }
 
 export default PurchaseHistory;
