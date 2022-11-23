@@ -5,7 +5,8 @@ import BackBtn from "../../../../../../components/shared/FormsUI/Button/BackBtn"
 import ActionBtn from "../../../../../../components/shared/FormsUI/Button/ActionBtn";
 import NormalTextField from "../../../../../../components/shared/FormsUI/TextField/Normal";
 
-const PartDetails = () => {
+const PartDetails = (props) => {
+    const { editRow } = props;
     const navigate = useNavigate();
     const goBack = () => {
         navigate(-1);
@@ -92,7 +93,7 @@ const PartDetails = () => {
                     </Grid>
                     <Grid item xs={12} sm={12} sx={{ mt: 0 }}>
                         <BackBtn startIcon={<ArrowBackIcon />} onClick={goBack} >Back </BackBtn>
-                        <ActionBtn sx={{ float: "right", }}> Edit </ActionBtn>
+                        <ActionBtn sx={{ float: "right", }} onClick={() => { editRow() }}> Edit </ActionBtn>
                     </Grid>
                 </Grid>
             </Container>

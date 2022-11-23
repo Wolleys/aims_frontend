@@ -1,13 +1,24 @@
+import { useState } from "react";
 import PartDetails from "./partDetails";
+import EditPartForm from "./editPartForm";
 import { useParams } from "react-router-dom";
 
 function EditPart() {
     const { partId } = useParams();
+    const [editing, setEditing] = useState(false);
+
+    const editRow = (part) => {
+        setEditing(true);
+    };
+
     return (
         <>
-            <PartDetails partId={partId} />
+            {editing ? (
+                <EditPartForm setEditing={setEditing} />
+            ) : (
+                <PartDetails partId={partId} editRow={editRow} />
+            )}
         </>
-
     );
 }
 
