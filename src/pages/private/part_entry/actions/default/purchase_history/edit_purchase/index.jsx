@@ -1,5 +1,11 @@
+import PurchaseDetails from "./purchaseDetails";
+
 function EditPurchase() {
-  return <div>Edit Purchase</div>;
+    return (
+        <>
+            <PurchaseDetails />
+        </>
+    );
 }
 
 export default EditPurchase;
