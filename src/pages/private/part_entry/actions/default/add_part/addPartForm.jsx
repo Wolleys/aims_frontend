@@ -3,12 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { parts } from "../../../../data/parts";
 import { units } from "../../../../data/units";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Typography, Container, Grid, Divider } from "@mui/material";
 import Select from "../../../../../../components/shared/FormsUI/Select";
-import { Typography, Container, Grid, Divider, Button } from "@mui/material";
 import TextField from "../../../../../../components/shared/FormsUI/TextField";
 import { partEntrySchema } from "../../../../../../validations/partEntrySchema";
+import BackBtn from "../../../../../../components/shared/FormsUI/Button/BackBtn";
 import AutoComplete from "../../../../../../components/shared/FormsUI/AutoComplete";
 import { partStatus, shelfLife, initialValues } from "../../../components/formData";
+import SubmitBtn from "../../../../../../components/shared/FormsUI/Button/SubmitBtn";
 import DatePicker from "../../../../../../components/shared/FormsUI/DatePicker/DatePicker";
 
 const partNumberOptions = parts?.map((part) => ({
@@ -122,13 +124,8 @@ const AddPartForm = () => {
                                 <TextField name="sp_in_usd" />
                             </Grid>
                             <Grid item xs={12} sm={12} sx={{ mt: 0 }}>
-                                <Button type="button" variant="outlined" startIcon={<ArrowBackIcon />}
-                                    sx={{ textTransform: 'none' }} onClick={goBack} >Back
-                                </Button>
-                                <Button type="submit" variant="contained" disableElevation
-                                    sx={{ textTransform: 'none', float: 'right', background: '#5046e4' }}>
-                                    Add
-                                </Button>
+                                <BackBtn startIcon={<ArrowBackIcon />} onClick={goBack} >Back </BackBtn>
+                                <SubmitBtn sx={{ float: "right" }}> Add </SubmitBtn>
                             </Grid>
                         </Grid>
                     </Form>
