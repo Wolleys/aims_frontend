@@ -1,7 +1,6 @@
+import AddPartForm from "./addPartForm";
 function AddPart() {
-return(
-    <h1>Add Part</h1>
-  )
+  return <AddPartForm />;
 }
 
 export default AddPart;
