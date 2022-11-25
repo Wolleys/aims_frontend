@@ -19,6 +19,7 @@ import DefaultPartEntry from "../pages/private/part_entry/Default";
 import AddPart from "../pages/private/part_entry/actions/default/add_part";
 import EditPart from "../pages/private/part_entry/actions/default/edit_part";
 import PurchaseHistory from "../pages/private/part_entry/actions/default/purchase_history";
+import NewPurchase from "../pages/private/part_entry/actions/default/purchase_history/new_purchase";
 import EditPurchase from "../pages/private/part_entry/actions/default/purchase_history/edit_purchase";
 import IssueHistory from "../pages/private/part_entry/actions/default/issue_history";
 import PurchasePart from "../pages/private/part_entry/actions/default/purchase_part";
@@ -56,6 +57,7 @@ function AppRoutes() {
         <Route path="default/add-part" element={<AddPart />} />
         <Route path="default/edit-part/:partId" element={<EditPart />} />
         <Route path="default/purchase-history/:partId" element={<PurchaseHistory />} />
+        <Route path="default/purchase-history/new-purchase" element={<NewPurchase />} />
         <Route path="default/purchase-history/edit-part/:partId" element={<EditPurchase />} />
         <Route path="default/issue-history/:partId" element={<IssueHistory />} />
         <Route path="default/purchase-part/:partId" element={<PurchasePart />} />

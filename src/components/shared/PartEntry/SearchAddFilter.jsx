@@ -1,10 +1,15 @@
 import HistoryAction from "./HistoryAction";
 import { Grid, Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
+import { useNavigate } from "react-router-dom";
 import SearchTextField from "../FormsUI/Search";
 
 function SearchAddFilter(props) {
-    const { purchasePart } = props;
+    const navigate = useNavigate();
+    const purchasePart = () => {
+        navigate("/part-entry/default/purchase-history/new-purchase");
+    };
+
     return (
         <Grid container spacing={2} >
             <Grid item xs={12} sm={6} md={6}>
