@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { history } from "../../../../../data/history";
 import EditDel from "../../../../../../../components/shared/ActionMenu/EditDel";
 import PrimaryTable from "../../../../../../../components/shared/Table/primary";
+import SearchAddFilter from "../../../../../../../components/shared/PartEntry/SearchAddFilter";
 
 const columns = [
     { value: "date", label: "Purchase Date" },
@@ -34,6 +35,7 @@ function PartPurchaseHistory() {
 
     return (
         <>
+            <SearchAddFilter />
             <PrimaryTable data={historyData} columns={columns} />
         </>
 
