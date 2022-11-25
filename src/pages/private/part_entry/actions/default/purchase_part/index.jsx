@@ -1,8 +1,13 @@
 import { useParams } from "react-router-dom";
+import NewPurchaseForm from "./newPurchaseForm";
 
 function PurchasePart() {
     const { partId } = useParams();
-    return <h1>Purchase Part For - {partId} </h1>;
+    return (
+        <>
+            <NewPurchaseForm partId={partId} />
+        </>
+    );
 }
 
 export default PurchasePart;

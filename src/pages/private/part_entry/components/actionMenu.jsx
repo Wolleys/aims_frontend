@@ -36,9 +36,9 @@ export default function ActionMenu(props) {
 
     const menuItems = [
         { label: "Edit", link: () => { editPart(row); }, icon: EditIcon },
+        { label: "Purchase", link: () => { purchasePart(row); }, icon: AddCircleIcon },
         { label: "P. History", link: () => { purchaseHistory(row); }, icon: ShoppingCartIcon },
         { label: "I. History", link: () => { issueHistory(row); }, icon: TransferWithinAStationIcon },
-        { label: "Purchase", link: () => { purchasePart(row); }, icon: AddCircleIcon },
     ];
 
     return (
