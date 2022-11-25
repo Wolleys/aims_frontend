@@ -3,6 +3,7 @@ import { issuedPartsHistory } from "../../../../../data/issuedPartsHistory";
 import PrimaryTable from "../../../../../../../components/shared/Table/primary";
 import PartDetails from "../../../../../../../components/shared/PartEntry/PartDetails";
 import PrimarySearchBar from "../../../../../../../components/shared/SearchBar/Primary";
+import RecordsAndTotal from "../../../../../../../components/shared/PartEntry/RecordsAndTotal";
 
 const columns = [
     { value: "date_of_issue", label: "Date Issued" },
@@ -24,6 +25,7 @@ const historyData = issuedPartsHistory?.map((item) => {
 
 function IssuedPartsHistory(props) {
     const { partId } = props;
+    const length = issuedPartsHistory.length;
     const partDetails = parts?.filter((item) => item.id === parseInt(partId));
 
     return (
@@ -31,6 +33,7 @@ function IssuedPartsHistory(props) {
             <PrimarySearchBar />
             <PartDetails part={partDetails} />
             <PrimaryTable data={historyData} columns={columns} />
+            <RecordsAndTotal length={length} history={issuedPartsHistory} />
         </>
     );
 }

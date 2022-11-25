@@ -22,8 +22,14 @@ export const totalPurchaseValue = (data) => {
     }, 0).toFixed(2);
 };
 
-export const totaQtyReceived = (data) => {
+export const totalQtyReceived = (data) => {
     return data?.reduce((total, item) => {
         return total + item.quantity_received;
+    }, 0);
+}
+
+export const totalQtyIssued = (data) => {
+    return data?.reduce((total, item) => {
+        return total + item.qty_issued;
     }, 0);
 }
