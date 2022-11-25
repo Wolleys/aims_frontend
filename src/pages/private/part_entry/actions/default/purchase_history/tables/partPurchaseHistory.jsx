@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
+import { parts } from "../../../../../data/parts";
 import { history } from "../../../../../data/history";
 import EditDel from "../../../../../../../components/shared/ActionMenu/EditDel";
 import PrimaryTable from "../../../../../../../components/shared/Table/primary";
+import PartDetails from "../../../../../../../components/shared/PartEntry/PartDetails";
 import RecordsExport from "../../../../../../../components/shared/PartEntry/RecordsExport";
 import SearchAddFilter from "../../../../../../../components/shared/PartEntry/SearchAddFilter";
 
@@ -22,11 +24,13 @@ const columns = [
     },
 ];
 
-function PartPurchaseHistory() {
+function PartPurchaseHistory(props) {
+    const { partId } = props;
     const navigate = useNavigate();
     const handleEdit = (row) => navigate(`/part-entry/default/purchase-history/edit-part/${row}`);
 
     const length = history.length;
+    const partDetails = parts?.filter((item) => item.id === parseInt(partId));
 
     const historyData = history?.map((item) => {
         return {
@@ -39,6 +43,7 @@ function PartPurchaseHistory() {
     return (
         <>
             <SearchAddFilter />
+            <PartDetails part={partDetails} />
             <PrimaryTable data={historyData} columns={columns} />
             <RecordsExport length={length} history={history} />
         </>
