@@ -1,7 +1,6 @@
+import OpenJobForm from "./openJobForm";
 function OpenJob() {
-return(
-    <h1>Open New Job</h1>
-  )
+  return <OpenJobForm />
 }
 
 export default OpenJob;
