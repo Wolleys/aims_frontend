@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Global } from "@emotion/react";
 import { grey } from "@mui/material/colors";
-import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import {
     styled,
     CssBaseline,
@@ -35,18 +34,31 @@ const Puller = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "light" ? grey[300] : grey[900],
 }));
 
+const StyledFab1 = styled(Fab)({
+    left: 0,
+    zIndex: 100,
+    top: "4.4rem",
+    right: "-78%",
+    boxShadow:"none",
+    margin: "0 auto",
+    position: "absolute",
+    backgroundColor: "#5046e4",
+    
+});
+
 const StyledFab = styled(Fab)({
     left: 0,
     zIndex: 100,
     top: "9.2rem",
     right: "-78%",
+    boxShadow:"none",
     margin: "0 auto",
     position: "absolute",
     backgroundColor: "#5046e4",
 });
 
 function SwipeableEdgeDrawer(props) {
-    const { content } = props;
+    const { content, title, style1, icon } = props;
     const [open, setOpen] = useState(false);
 
     const toggleDrawer = (newOpen) => () => {
@@ -65,14 +77,24 @@ function SwipeableEdgeDrawer(props) {
                 }}
             />
             <Box sx={{ textAlign: "center", pt: 1 }}>
-                <StyledFab
-                    sx={{ right: { sm: 0 } }}
-                    color="primary"
-                    size="small"
-                    onClick={toggleDrawer(true)}
-                >
-                    <BusinessCenterIcon />
-                </StyledFab>
+                {style1 ?
+                    <StyledFab1
+                        sx={{ right: { sm: 0 }, mt: { sm: 1 } }}
+                        color="primary"
+                        size="small"
+                        onClick={toggleDrawer(true)}
+                    >
+                        {icon}
+                    </StyledFab1> :
+                    <StyledFab
+                        sx={{ right: { sm: 0 } }}
+                        color="primary"
+                        size="small"
+                        onClick={toggleDrawer(true)}
+                    >
+                        {icon}
+                    </StyledFab>
+                }
             </Box>
             <SwipeableDrawer
                 anchor="bottom"
@@ -99,7 +121,7 @@ function SwipeableEdgeDrawer(props) {
                 >
                     <Puller />
                     <Typography sx={{ p: 2, color: "text.secondary" }}>
-                        Jobs List
+                        {title}
                     </Typography>
                 </StyledBox>
                 <StyledBox sx={{ px: 2, pb: 2, height: "100%", overflow: "auto" }}>

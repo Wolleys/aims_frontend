@@ -4,6 +4,8 @@ import { jobs } from "../../../../data/jobs";
 import { useNavigate } from "react-router-dom";
 import { Box, Grid, Divider } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import BadgeOutlinedIcon from "@mui/icons-material/BadgeOutlined";
+import SwipeableEdgeDrawer from "../../../../../../components/shared/Drawer";
 import BackBtn from "../../../../../../components/shared/FormsUI/Button/BackBtn";
 
 function Layout(props) {
@@ -32,6 +34,12 @@ function Layout(props) {
                         }} >
                         <IssueList item={item} jobId={jobId} />
                     </Grid>
+                    <Box sx={{
+                        display: { xs: "grid", sm: "grid", md: "none" }
+                    }}>
+                        <SwipeableEdgeDrawer style1 title="Job Card" 
+                            content={<JobCard item={item} />} icon={<BadgeOutlinedIcon />} />
+                    </Box>
                     <Grid item xs={12} sm={12} sx={{ mt: 1 }}>
                         <BackBtn startIcon={<ArrowBackIcon />} onClick={goBack} >Back </BackBtn>
                     </Grid>

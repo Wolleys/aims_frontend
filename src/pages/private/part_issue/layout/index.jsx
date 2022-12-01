@@ -2,6 +2,7 @@ import JobContainer from "./jobContainer";
 import { Box, Grid } from "@mui/material";
 import IssueContent from "../tables/default/content";
 import SwipeableEdgeDrawer from "../../../../components/shared/Drawer";
+import BusinessCenterOutlinedIcon from '@mui/icons-material/BusinessCenterOutlined';
 
 function Layout() {
     return (
@@ -23,7 +24,8 @@ function Layout() {
                 <Box sx={{
                     display: { xs: "grid", sm: "grid", md: "none" }
                 }}>
-                    <SwipeableEdgeDrawer content={<JobContainer />} />
+                    <SwipeableEdgeDrawer title="Jobs List" content={<JobContainer />}
+                        icon={<BusinessCenterOutlinedIcon />} />
                 </Box>
             </Grid>
         </Box>
