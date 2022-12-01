@@ -1,7 +1,12 @@
 import SecondaryLayout from "../../../components/shared/Layout/secondary";
+import { CloseJobContextProvider } from "../../../context/CloseJobContextProvider";
 
 function Jobs() {
-    return <SecondaryLayout />;
+    return (
+        <CloseJobContextProvider>
+            <SecondaryLayout />
+        </CloseJobContextProvider>
+    );
 }
 
 export default Jobs;
