@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { issuedParts } from "../../../data/issuedParts";
 import PrimaryTable from "../../../../../components/shared/Table/primary";
 import EditDel from "../../../../../components/shared/ActionMenu/EditDel";
-import SalesRecords from "../../../../../components/shared/RecordsAndValue/StockRecords";
 import PrimarySearchBar from "../../../../../components/shared/SearchBar/Primary";
+import SalesRecords from "../../../../../components/shared/RecordsAndValue/StockRecords";
 
 const columns = [
     { value: "date_of_issue", label: "Date Issued" },
