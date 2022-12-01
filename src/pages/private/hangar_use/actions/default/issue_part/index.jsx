@@ -1,11 +1,7 @@
-import React from "react";
+import IssuePartForm from "./issuePartForm";
 
 const IssuePart = () => {
-    return (
-        <div>
-            <h1>Issue Part</h1>
-        </div>
-    );
+    return <IssuePartForm />;
 };
 
 export default IssuePart;
