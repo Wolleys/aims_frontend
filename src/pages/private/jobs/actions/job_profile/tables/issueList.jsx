@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { issuedParts } from "../../../../data/issuedParts";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import PrimaryTable from "../../../../../../components/shared/Table/primary";
+import SalesRecords from "../../../../../../components/shared/Jobs/SalesRecords";
 import ErrorBtn from "../../../../../../components/shared/FormsUI/Button/ErrorBtn";
 import { CloseJobContext } from "../../../../../../context/CloseJobContextProvider";
 import SearchCloseExp from "../../../../../../components/shared/Jobs/SearchCloseExp";
@@ -22,6 +23,7 @@ function IssueList(props) {
     const { handleOpenDialog } = useContext(CloseJobContext);
 
     const details = issuedParts.filter((item) => item.job_id === parseInt(jobId));
+    const length = details.length;
 
     const issuedPartsData = details?.map((item) => {
         return {
@@ -52,6 +54,7 @@ function IssueList(props) {
         <>
             <SearchCloseExp closeJob={handleCloseJob()} />
             <PrimaryTable data={issuedPartsData} columns={columns} />
+            <SalesRecords length={length} data={details} />
         </>
     );
 }
