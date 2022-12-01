@@ -1,8 +1,8 @@
 import { parts } from "../../../data/parts";
 import PurchaseHistory from "./purchaseHistory";
-import RecordsAndValue from '../../../../../components/shared/RecordsAndValue';
 import PrimarySearchBar from '../../../../../components/shared/SearchBar/Primary';
 import StyledTableCell from "../../../../../components/shared/Table/StyledTableCell";
+import StockRecords from '../../../../../components/shared/RecordsAndValue/StockRecords';
 import { Paper, Table, TableRow, TableHead, TableBody, TableContainer } from "@mui/material";
 
 export default function DefaultStore() {
@@ -33,7 +33,7 @@ export default function DefaultStore() {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <RecordsAndValue length={length} data={parts} />
+            <StockRecords length={length} data={parts} />
         </>
     );
 }

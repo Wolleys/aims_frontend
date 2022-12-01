@@ -5,7 +5,7 @@ import { totalPurchaseValue, totalQtyReceived } from "../../../helpers/stockTota
 
 function RecordsExport(props) {
     const { length, history } = props;
-    const stockValue = useMemo(() => totalPurchaseValue(history), [history]);
+    const purchaseValue = useMemo(() => totalPurchaseValue(history), [history]);
     const qtyRecieved = useMemo(() => totalQtyReceived(history), [history]);
 
     return (
@@ -44,7 +44,7 @@ function RecordsExport(props) {
                             float: { xs: "left", sm: "none" }
                         }}
                     >
-                        Value: ${stockValue}
+                        Value: ${purchaseValue}
                     </Typography>
                     {length > 0 ?
                         <Button

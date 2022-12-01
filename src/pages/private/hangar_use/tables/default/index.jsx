@@ -1,9 +1,9 @@
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
 import { issuedParts } from "../../../data/issuedParts";
-import Records from "../../../../../components/shared/HangarUse/Records";
 import PrimaryTable from "../../../../../components/shared/Table/primary";
 import EditDel from "../../../../../components/shared/ActionMenu/EditDel";
+import SalesRecords from "../../../../../components/shared/RecordsAndValue/StockRecords";
 import PrimarySearchBar from "../../../../../components/shared/SearchBar/Primary";
 
 const columns = [
@@ -50,7 +50,7 @@ const DefaultStore = () => {
                 navigate={issuePart}
             />
             <PrimaryTable data={issuedPartsData} columns={columns} />
-            <Records length={length} data={issuedPartsData} />
+            <SalesRecords length={length} data={issuedPartsData} />
         </>
     );
 };

@@ -2,10 +2,10 @@ import { useContext } from "react";
 import { issuedParts } from "../../../../data/issuedParts";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import PrimaryTable from "../../../../../../components/shared/Table/primary";
-import SalesRecords from "../../../../../../components/shared/Jobs/SalesRecords";
 import ErrorBtn from "../../../../../../components/shared/FormsUI/Button/ErrorBtn";
 import { CloseJobContext } from "../../../../../../context/CloseJobContextProvider";
 import SearchCloseExp from "../../../../../../components/shared/Jobs/SearchCloseExp";
+import SalesRecords from "../../../../../../components/shared/RecordsAndValue/SalesRecords";
 
 const columns = [
     { value: "date_of_issue", label: "Date Issued" },
