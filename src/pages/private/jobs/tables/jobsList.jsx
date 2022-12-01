@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { jobs } from "../../data/jobs";
 import { useNavigate } from "react-router-dom";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
@@ -30,6 +31,7 @@ export default function JobsList() {
     const jobsData = jobs?.map((item) => {
         return {
             ...item,
+            date_opened: dayjs(item.date_opened).format("DD-MMM-YYYY"),
             actions: (
                 <MoreEditDel
                     row={item}
