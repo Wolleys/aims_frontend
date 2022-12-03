@@ -1,43 +1,21 @@
-import { useContext, lazy, Suspense } from "react";
+import { useContext, Suspense } from "react";
 import PrivateRoute from "./PrivateRoute";
 import { Routes, Route } from "react-router-dom";
 import Loader from "../components/shared/Loader";
 import { AuthContext } from "../context/AuthContextProvider";
 
-const NotFound = lazy(() => import("../pages/public/not_found"));
-const Login = lazy(() => import("../pages/public/login"));
-const ForgotPassword = lazy(() => import("../pages/public/forgot_pass"));
+import { Login, ForgotPassword } from "./auth";
+import { Dashboard, Overview, Sales } from "./dash_board";
+import { Stock, DefaultStock } from "./stock/default";
+import {
+  PartEntry, DefaultPartEntry, AddPart, EditPart, PurchaseHistory, NewPurchase,
+  EditPurchase, IssueHistory, PurchasePart
+} from "./part_entry/default";
 
-const Dashboard = lazy(() => import("../pages/private/dash_board"));
-const Overview = lazy(() => import("../pages/private/dash_board/Overview"));
-const Sales = lazy(() => import("../pages/private/dash_board/Sales"));
-
-const Stock = lazy(() => import("../pages/private/stock"));
-const DefaultStock = lazy(() => import("../pages/private/stock/Default"));
-
-const PartEntry = lazy(() => import("../pages/private/part_entry"));
-const DefaultPartEntry = lazy(() => import("../pages/private/part_entry/Default"));
-const AddPart = lazy(() => import("../pages/private/part_entry/actions/default/add_part"));
-const EditPart = lazy(() => import("../pages/private/part_entry/actions/default/edit_part"));
-const PurchaseHistory = lazy(() => import("../pages/private/part_entry/actions/default/purchase_history"));
-const NewPurchase = lazy(() => import("../pages/private/part_entry/actions/default/purchase_history/new_purchase"));
-const EditPurchase = lazy(() => import("../pages/private/part_entry/actions/default/purchase_history/edit_purchase"));
-const IssueHistory = lazy(() => import("../pages/private/part_entry/actions/default/issue_history"));
-const PurchasePart = lazy(() => import("../pages/private/part_entry/actions/default/purchase_part"));
-
-const Jobs = lazy(() => import("../pages/private/jobs"));
-const DefaultJobsList = lazy(() => import("../pages/private/jobs/Default"));
-const OpenJob = lazy(() => import("../pages/private/jobs/actions/open_job"));
-const EditJob = lazy(() => import("../pages/private/jobs/actions/edit_job"));
-const JobProfile = lazy(() => import("../pages/private/jobs/actions/job_profile"));
-
-const PartIssue = lazy(() => import("../pages/private/part_issue"));
-const DefaultPartIssue = lazy(() => import("../pages/private/part_issue/Default"));
-
-const HangarUse = lazy(() => import("../pages/private/hangar_use"));
-const DefaultHangarUse = lazy(() => import("../pages/private/hangar_use/Default"));
-const IssuePart = lazy(() => import("../pages/private/hangar_use/actions/default/issue_part"));
-const EditIssuedPart = lazy(() => import("../pages/private/hangar_use/actions/default/edit_issue"));
+import { Jobs, DefaultJobsList, OpenJob, EditJob, JobProfile } from "./jobs";
+import { PartIssue, DefaultPartIssue } from "./part_issue/default";
+import { HangarUse, DefaultHangarUse, IssuePart, EditIssuedPart } from "./hangar_use/default";
+import { NotFound } from "./not_found";
 
 function AppRoutes() {
   const { isAuth } = useContext(AuthContext);
