@@ -20,7 +20,15 @@ body {
   text-decoration: none;
 }
 
+#dark .nav a {
+  color: #c9d1d9;
+}
+
 .nav a.active {
+  color: #ec407a;
+}
+
+#dark .nav a.active {
   color: #ec407a;
 }
 
