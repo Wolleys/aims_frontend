@@ -1,7 +1,7 @@
-import React from "react";
+import ThemeDivider from "../Divider";
 import { Outlet } from "react-router-dom";
 import DrawerAppBar from "../DrawerAppBar";
-import { Box, Toolbar, Divider } from "@mui/material";
+import { Box, Toolbar } from "@mui/material";
 
 function SecondaryLayout() {
     return (
@@ -9,7 +9,7 @@ function SecondaryLayout() {
             <DrawerAppBar />
             <Toolbar />
             <Box sx={{ pt: 8.4, pb: 3 }}>
-                <Divider sx={{ mb: 2, mt: 0 }} />
+                <ThemeDivider />
                 <Outlet />
             </Box>
         </Box>

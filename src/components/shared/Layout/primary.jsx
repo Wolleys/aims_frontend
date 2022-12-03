@@ -1,7 +1,7 @@
-import React from "react";
+import ThemeDivider from "../Divider";
 import { Outlet } from "react-router-dom";
 import DrawerAppBar from "../DrawerAppBar";
-import { Box, Toolbar, Divider } from "@mui/material";
+import { Box, Toolbar } from "@mui/material";
 
 function PrimaryLayout(props) {
     const { tabs } = props;
@@ -13,7 +13,7 @@ function PrimaryLayout(props) {
             <Box sx={{ pt: 0, pb: 3 }}>
                 {tabs}
                 <Box>
-                    <Divider sx={{ mb: 2, mt: 0 }} />
+                    <ThemeDivider />
                     <Outlet />
                 </Box>
             </Box>

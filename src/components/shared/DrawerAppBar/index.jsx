@@ -15,7 +15,7 @@ function DrawerAppBar(props) {
 
     const navStyle = {
         backgroundColor: theme === "light" ? "#3e345d" : "#161B22",
-        borderBottom: theme === "light" ? "none" : "1px solid #30363d"
+        // borderBottom: theme === "light" ? "none" : "1px solid #30363d"
     }
 
     return (
