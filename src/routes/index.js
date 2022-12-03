@@ -1,8 +1,7 @@
-import { useContext, Suspense } from "react";
+import { Suspense } from "react";
 import PrivateRoute from "./PrivateRoute";
 import { Routes, Route } from "react-router-dom";
 import Loader from "../components/shared/Loader";
-import { AuthContext } from "../context/AuthContextProvider";
 
 import { Login, ForgotPassword } from "./auth";
 import { Dashboard, Overview, Sales } from "./dash_board";
@@ -18,21 +17,19 @@ import { HangarUse, DefaultHangarUse, IssuePart, EditIssuedPart } from "./hangar
 import { NotFound } from "./not_found";
 
 function AppRoutes() {
-  const { isAuth } = useContext(AuthContext);
-
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="forgot-password" element={<ForgotPassword />} />
-        <Route path="dashboard" element={<PrivateRoute isAuth={isAuth}> <Dashboard /> </PrivateRoute>}>
+        <Route path="dashboard" element={<PrivateRoute> <Dashboard /> </PrivateRoute>}>
           <Route path="overview" element={<Overview />} />
           <Route path="sales" element={<Sales />} />
         </Route>
-        <Route path="stock" element={<PrivateRoute isAuth={isAuth}> <Stock /> </PrivateRoute>} >
+        <Route path="stock" element={<PrivateRoute> <Stock /> </PrivateRoute>} >
           <Route path="default" element={<DefaultStock />} />
         </Route>
-        <Route path="part-entry" element={<PrivateRoute isAuth={isAuth}> <PartEntry /> </PrivateRoute>} >
+        <Route path="part-entry" element={<PrivateRoute> <PartEntry /> </PrivateRoute>} >
           <Route path="default" element={<DefaultPartEntry />} />
           <Route path="default/add-part" element={<AddPart />} />
           <Route path="default/edit-part/:partId" element={<EditPart />} />
@@ -42,16 +39,16 @@ function AppRoutes() {
           <Route path="default/issue-history/:partId" element={<IssueHistory />} />
           <Route path="default/purchase-part/:partId" element={<PurchasePart />} />
         </Route>
-        <Route path="jobs" element={<PrivateRoute isAuth={isAuth}> <Jobs /> </PrivateRoute>} >
+        <Route path="jobs" element={<PrivateRoute> <Jobs /> </PrivateRoute>} >
           <Route path="jobs-list" element={<DefaultJobsList />} />
           <Route path="open-job" element={<OpenJob />} />
           <Route path="edit-job/:jobId" element={<EditJob />} />
           <Route path="job-profile/:jobId" element={<JobProfile />} />
         </Route>
-        <Route path="part-issue" element={<PrivateRoute isAuth={isAuth}> <PartIssue /> </PrivateRoute>} >
+        <Route path="part-issue" element={<PrivateRoute> <PartIssue /> </PrivateRoute>} >
           <Route path="default" element={<DefaultPartIssue />} />
         </Route>
-        <Route path="hangar-use" element={<PrivateRoute isAuth={isAuth}> <HangarUse /> </PrivateRoute>} >
+        <Route path="hangar-use" element={<PrivateRoute> <HangarUse /> </PrivateRoute>} >
           <Route path="default" element={<DefaultHangarUse />} />
           <Route path="default/issue-part" element={<IssuePart />} />
           <Route path="default/edit-issue/:partId" element={<EditIssuedPart />} />
