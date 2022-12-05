@@ -1,11 +1,13 @@
+import StyledTableRow from "./StyledTableRow";
 import StyledTableCell from "./StyledTableCell";
-import { Paper, Table, TableRow, TableHead, TableBody, TableCell, TableContainer } from "@mui/material";
+import StyledTableContainer from "./StyledTableContainer";
+import { Table, TableRow, TableHead, TableBody } from "@mui/material";
 
 export default function PrimaryTable(props) {
     const { data, columns } = props;
 
     return (
-        <TableContainer component={Paper} elevation={0} sx={{ maxHeight: 500 }}>
+        <StyledTableContainer >
             <Table size="small" stickyHeader>
                 <TableHead>
                     <TableRow>
@@ -16,15 +18,15 @@ export default function PrimaryTable(props) {
                 </TableHead>
                 <TableBody>
                     {data?.map((row) => (
-                        <TableRow hover key={row.id}>
+                        <StyledTableRow key={row.id}>
                             {columns?.map((col, index) => (
-                                <TableCell key={index} align={col.align} style={col.style} > {row[col.value]} </TableCell>
+                                <StyledTableCell key={index} align={col.align} style={col.style} > {row[col.value]} </StyledTableCell>
                             ))}
-                        </TableRow>
+                        </StyledTableRow>
                     ))}
                 </TableBody>
             </Table>
             {data ? null : <p>No data found</p>}
-        </TableContainer>
+        </StyledTableContainer>
     );
 }
