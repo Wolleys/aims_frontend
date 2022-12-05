@@ -1,9 +1,10 @@
 import { Logout } from "../../../../../../queries";
 import { Link, useNavigate } from "react-router-dom";
+import MenuDivider from "../../../../Divider/menuDivider";
 import { stringAvatar } from "../../../../../../assets/js/scripts";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import { Avatar, Menu, ListItemIcon, Divider, MenuItem } from "@mui/material";
+import { Avatar, Menu, ListItemIcon, MenuItem } from "@mui/material";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 
 function DropDownMenu(props) {
@@ -57,22 +58,22 @@ function DropDownMenu(props) {
         <Menu anchorEl={anchorEl} open={open} onClose={handleClose} onClick={handleClose}
             PaperProps={{
                 elevation: 0, sx: {
-                    overflow: "visible", filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                    overflow: "visible",
                     mt: 1.5, "& .MuiAvatar-root": { width: 32, height: 32, ml: -0.5, mr: 1, },
                     "&:before": {
                         content: '""', display: "block", position: "absolute", top: 0, right: 14, width: 10,
                         height: 10, transform: "translateY(-50%) rotate(45deg)", zIndex: 0,
                         bgcolor: theme === "light" ? "background.paper" : "#161B22",
-                        borderLeft: theme === "light" ? "none" : "1px solid #30363d",
-                        borderTop: theme === "light" ? "none" : "1px solid #30363d",
+                        borderLeft: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",
+                        borderTop: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",
                     },
                     backgroundColor: theme === "light" ? "background.paper" : "#161B22",
-                    border: theme === "light" ? "none" : "1px solid #30363d"
+                    border: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",
                 },
             }}
             transformOrigin={{ horizontal: "right", vertical: "top" }}
-            anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-        >
+            anchorOrigin={{ horizontal: "right", vertical: "bottom" }} >
+
             {profileItems.map((item) => (
                 <Link key={item.label} to={item.link} style={linkStyle}>
                     <MenuItem sx={menuItemStyle}>
@@ -80,7 +81,7 @@ function DropDownMenu(props) {
                     </MenuItem>
                 </Link>
             ))}
-            <Divider sx={{ borderBottom: theme === "light" ? "thin solid #0000001f" : "thin solid #30363d" }} />
+            <MenuDivider />
             {settingsItems.map((item) => (
                 <Link key={item.label} to={item.link} style={linkStyle}>
                     <MenuItem sx={menuItemStyle}>
