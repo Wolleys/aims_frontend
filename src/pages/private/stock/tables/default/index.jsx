@@ -3,14 +3,15 @@ import PurchaseHistory from "./purchaseHistory";
 import PrimarySearchBar from '../../../../../components/shared/SearchBar/Primary';
 import StyledTableCell from "../../../../../components/shared/Table/StyledTableCell";
 import StockRecords from '../../../../../components/shared/RecordsAndValue/StockRecords';
-import { Paper, Table, TableRow, TableHead, TableBody, TableContainer } from "@mui/material";
+import { Table, TableRow, TableHead, TableBody } from "@mui/material";
+import StyledTableContainer from '../../../../../components/shared/Table/StyledTableContainer';
 
 export default function DefaultStore() {
     const length = parts.length;
     return (
         <>
             <PrimarySearchBar />
-            <TableContainer component={Paper} elevation={0} sx={{ maxHeight: 500 }}>
+            <StyledTableContainer >
                 <Table size="small" stickyHeader>
                     <TableHead>
                         <TableRow>
@@ -32,7 +33,7 @@ export default function DefaultStore() {
                         ))}
                     </TableBody>
                 </Table>
-            </TableContainer>
+            </StyledTableContainer>
             <StockRecords length={length} data={parts} />
         </>
     );

@@ -4,17 +4,14 @@ import { ThemeContext } from "../../../context/ThemeContextProvider";
 
 export default function CssTableCell({ ...props }) {
     const { theme } = useContext(ThemeContext);
-    const StyledTableRow = styled(TableRow)(() => ({
-        "&:hover": {
+    const HistoryStyledTableRow = styled(TableRow)(() => ({
+        '&:nth-of-type(even)': {
             backgroundColor: theme === "light" ? "#f6f8fa" : "#161b22",
         },
         '&:last-child td, &:last-child th': {
             border: 0,
         },
-        "&.Mui-selected, &.Mui-selected:hover": {
-            backgroundColor: theme === "light" ? "#f6f8fa" : "#161b22",
-        },
     }));
 
-    return <StyledTableRow {...props} />;
+    return <HistoryStyledTableRow {...props} />;
 }
