@@ -41,7 +41,7 @@ export default function MoreEditDel(props) {
         },
         "& .MuiSvgIcon-root": {
             fontSize: "17px",
-            color: theme === "light" ? "inherit" : "#8b949e",
+            color: theme === "light" ? "#57606a" : "#8b949e",
         },
         "&:hover": {
             color: theme === "light" ? "#444" : "#fff",

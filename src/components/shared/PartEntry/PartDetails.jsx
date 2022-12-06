@@ -1,7 +1,38 @@
+import { useContext } from "react";
 import { Grid, Typography, Box } from "@mui/material";
+import { ThemeContext } from "../../../context/ThemeContextProvider";
 
 function PartDetails(props) {
     const { part } = props;
+    const { theme } = useContext(ThemeContext);
+
+    const desktopTypoStyle = {
+        mb: 0.5,
+        fontWeight: 600,
+        fontSize: "14px",
+        justifyContent: "center",
+        display: { xs: "none", sm: "flex" },
+        color: theme === "light" ? "#24292f" : "#c9d1d9",
+    };
+
+    const mobileTypoStyle = {
+        fontWeight: 600,
+        fontSize: "14px",
+        color: theme === "light" ? "#24292f" : "#c9d1d9",
+    };
+
+    const descSpanStyle = {
+        fontWeight: 500,
+        fontSize: "14px",
+        margin: "0 40px 0 0",
+        color: theme === "light" ? "#57606a" : "#8b949e",
+    };
+
+    const spanStyle = {
+        fontWeight: 500,
+        fontSize: "14px",
+        color: theme === "light" ? "#57606a" : "#8b949e",
+    };
 
     return (
         <Grid container>
@@ -14,40 +45,21 @@ function PartDetails(props) {
                             mb: 1,
                         }}
                     >
-                        <Typography sx={{ fontSize: "14px", fontWeight: 600 }}>
+                        <Typography sx={mobileTypoStyle}>
                             Description: {""}
-                            <span style={{ fontSize: "14px", color: "#888" }}>
-                                {row.description}
-                            </span>
+                            <span style={spanStyle}>{row.description}</span>
                         </Typography>
-                        <Typography sx={{ fontSize: "14px", fontWeight: 600 }}>
+                        <Typography sx={mobileTypoStyle}>
                             Part No: {""}
-                            <span style={{ fontSize: "14px", color: "#888" }}>
-                                {row.part_number}
-                            </span>
+                            <span style={spanStyle}>{row.part_number}</span>
                         </Typography>
                     </Box>
 
-                    <Typography
-                        gutterBottom
-                        sx={{
-                            fontSize: "14px",
-                            fontWeight: 600,
-                            mb: 0.5,
-                            display: { xs: "none", sm: "flex" },
-                            justifyContent: "center",
-                        }}
-                    >
+                    <Typography gutterBottom sx={desktopTypoStyle}>
                         Description:
-                        <span
-                            style={{ fontSize: "14px", color: "#888", margin: "0 40px 0 0" }}
-                        >
-                            {row.description}
-                        </span>
+                        <span style={descSpanStyle}>{row.description}</span>
                         Part No:
-                        <span style={{ fontSize: "14px", color: "#888" }}>
-                            {row.part_number}
-                        </span>
+                        <span style={spanStyle}>{row.part_number}</span>
                     </Typography>
                 </Grid>
             ))}

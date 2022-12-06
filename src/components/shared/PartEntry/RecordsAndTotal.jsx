@@ -1,9 +1,11 @@
-import { useMemo } from "react";
+import { useMemo, useContext } from "react";
 import { Grid, Box, Typography } from "@mui/material";
+import { ThemeContext } from "../../../context/ThemeContextProvider";
 import { totalQtyIssued, totalSalesValue } from "../../../helpers/stockTotalValues";
 
 function RecordsAndTotal(props) {
     const { length, history} = props;
+    const { theme } = useContext(ThemeContext);
     const qtyIssued = useMemo(() => totalQtyIssued(history), [history]);
     const salesValue = useMemo(() => totalSalesValue(history), [history]);
 
@@ -14,7 +16,7 @@ function RecordsAndTotal(props) {
                     <Typography
                         sx={{
                             fontSize: "14px",
-                            color: "#888",
+                            color: theme === "light" ? "#57606a" : "#8b949e",
                             margin: { xs: "0", sm: "0 50px 0 0" },
                             float: "left",
                         }}
@@ -24,7 +26,7 @@ function RecordsAndTotal(props) {
                     <Typography
                         sx={{
                             fontSize: "14px",
-                            color: "#888",
+                            color: theme === "light" ? "#57606a" : "#8b949e",
                             float: { xs: "right", sm: "left" },
                         }}
                     >
@@ -37,7 +39,7 @@ function RecordsAndTotal(props) {
                     <Typography
                         sx={{
                             fontSize: "14px",
-                            color: "#888",
+                            color: theme === "light" ? "#57606a" : "#8b949e",
                             margin: { xs: "0", sm: "0 4rem 0 0" },
                         }}
                     >

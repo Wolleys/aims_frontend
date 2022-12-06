@@ -1,11 +1,13 @@
-import { useMemo } from "react";
+import { useMemo, useContext } from "react";
 import CloseJobDialog from "../CloseJobDialog";
 import ExportBtn from "../FormsUI/Button/ExportBtn";
 import { Grid, Box, Typography } from "@mui/material";
 import DescriptionIcon from "@mui/icons-material/Description";
 import { totalStockValue } from "../../../helpers/stockTotalValues";
+import { ThemeContext } from "../../../context/ThemeContextProvider";
 
 const RecordsCloseExp = (props) => {
+    const { theme } = useContext(ThemeContext);
     const { length, closeJob, details } = props;
     const stockValue = useMemo(() => totalStockValue(details), [details]);
 
@@ -17,7 +19,7 @@ const RecordsCloseExp = (props) => {
                         <Typography
                             sx={{
                                 fontSize: "14px",
-                                color: "#888",
+                                color: theme === "light" ? "#57606a" : "#8b949e",
                                 margin: { xs: "0", sm: "0 50px 0 0" },
                                 float: "left",
                             }}
@@ -27,7 +29,7 @@ const RecordsCloseExp = (props) => {
                         <Typography
                             sx={{
                                 fontSize: "14px",
-                                color: "#888",
+                                color: theme === "light" ? "#57606a" : "#8b949e",
                                 float: { xs: "right", sm: "left" },
                             }}
                         >

@@ -1,10 +1,12 @@
-import { useMemo } from "react";
+import { useMemo, useContext } from "react";
 import { Grid, Box, Typography, Button } from "@mui/material";
 import DescriptionIcon from "@mui/icons-material/Description";
+import { ThemeContext } from "../../../context/ThemeContextProvider";
 import { totalPurchaseValue, totalQtyReceived } from "../../../helpers/stockTotalValues";
 
 function RecordsExport(props) {
     const { length, history } = props;
+    const { theme } = useContext(ThemeContext);
     const purchaseValue = useMemo(() => totalPurchaseValue(history), [history]);
     const qtyRecieved = useMemo(() => totalQtyReceived(history), [history]);
 
@@ -15,7 +17,7 @@ function RecordsExport(props) {
                     <Typography
                         sx={{
                             fontSize: "14px",
-                            color: "#888",
+                            color: theme === "light" ? "#57606a" : "#8b949e",
                             margin: { xs: "0", sm: "0 50px 0 0" },
                             float: "left",
                         }}
@@ -25,7 +27,7 @@ function RecordsExport(props) {
                     <Typography
                         sx={{
                             fontSize: "14px",
-                            color: "#888",
+                            color: theme === "light" ? "#57606a" : "#8b949e",
                             float: { xs: "right", sm: "left" },
                         }}
                     >
@@ -39,7 +41,7 @@ function RecordsExport(props) {
                     <Typography
                         sx={{
                             fontSize: "14px",
-                            color: "#888",
+                            color: theme === "light" ? "#57606a" : "#8b949e",
                             margin: { xs: "0", sm: "0 10rem 0 0" },
                             float: { xs: "left", sm: "none" }
                         }}
