@@ -1,34 +1,37 @@
+import { useContext } from "react";
 import StyledTextField from "../TextField/StyledTextField";
-
-const dropDownMenu = {
-    MenuProps: {
-        PaperProps: {
-            style: {
-                color: "#666",
-                marginTop: "5px",
-                boxShadow: "none",
-                borderRadius: "4px",
-                border: "1px solid #d5d8e1",
-            },
-        },
-    },
-};
-
-const input = {
-    color: "#666",
-    fontSize: "14px",
-    fontWeight: 400,
-};
-
-const defaultProps = {
-    select: true,
-    InputProps: {
-        sx: input,
-    },
-};
+import { ThemeContext } from "../../../../context/ThemeContextProvider";
 
 const StyledSelect = ({ ...props }) => {
-    return <StyledTextField SelectProps={dropDownMenu} {...defaultProps} { ...props } />;
+    const { theme } = useContext(ThemeContext);
+
+    const dropDownMenu = {
+        MenuProps: {
+            PaperProps: {
+                style: {
+                    marginTop: "5px",
+                    boxShadow: "none",
+                    borderRadius: "4px",
+                    backgroundColor: theme === "light" ? "#ffffff" : "#161B22",
+                    border: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",
+                },
+            },
+        },
+    };
+
+    const input = {
+        fontWeight: 400,
+        fontSize: "14px",
+        color: theme === "light" ? "#24292f" : "#c9d1d9",
+    };
+
+    const defaultProps = {
+        select: true,
+        InputProps: {
+            sx: input,
+        }
+    };
+    return <StyledTextField SelectProps={dropDownMenu} {...defaultProps} {...props} />;
 };
 
 export default StyledSelect;
