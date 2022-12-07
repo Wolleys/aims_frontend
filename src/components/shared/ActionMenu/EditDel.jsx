@@ -30,7 +30,7 @@ export default function EditDel(props) {
         color: theme === "light" ? "#57606a" : "#8b949e",
     }
     const menuStyle = {
-        backgroundColor: theme === "light" ? "background.paper" : "#161B22",
+        backgroundColor: theme === "light" ? "#ffffff" : "#161B22",
         border: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",
     }
     const menuItemStyle = {
