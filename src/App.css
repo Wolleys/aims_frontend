@@ -51,6 +51,10 @@ body {
   display: block;
   font-size: 12px;
   font-weight: 500;
-  color: #03060b;
+  color: #24292f;
   line-height: 1.4375em;
+}
+
+#dark .primary_label {
+  color: #c9d1d9;
 }

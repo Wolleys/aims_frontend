@@ -1,34 +1,39 @@
-import { TextField, styled } from "@mui/material";
-
-const PrimaryTextField = styled(TextField)(() => ({
-    "& .MuiOutlinedInput-root": {
-        "& input": {
-            color: "#666",
-            fontWeight: 400,
-            fontSize: "14px",
-        },
-        "& fieldset": {
-            borderRadius: "4px",
-            border: "1px solid #d5d8e1",
-        },
-        "&:hover fieldset": {
-            border: "1px solid #d5d8e1",
-        },
-        "&.Mui-focused fieldset": {
-            border: "1px solid #c6beee",
-        },
-        "& .MuiSvgIcon-root": {
-            color: "#5046e4",
-        },
-    },
-}));
-
-const defaultProps = {
-    size: "small",
-    fullWidth: true,
-    variant: "outlined",
-};
+import { useContext } from "react";
+import { TextField } from "@mui/material";
+import { ThemeContext } from "../../../../context/ThemeContextProvider";
 
 export default function StyledTextField({ ...props }) {
-    return <PrimaryTextField {...props} {...defaultProps} />;
+    const { theme } = useContext(ThemeContext);
+
+    const primaryTextField = {
+        background: theme === "light" ? "#f6f8fa" : "#0d1117",
+        borderRadius: "4px",
+        "& .MuiOutlinedInput-root": {
+            "& input": {
+                fontWeight: 400,
+                fontSize: "14px",
+                color: theme === "light" ? "#24292f" : "#c9d1d9",
+            },
+            "& fieldset": {
+                borderRadius: "4px",
+                border: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",
+            },
+            "&:hover fieldset": {
+                border: theme === "light" ? "1px solid #d5d8e1" : "1px solid #30363d",
+            },
+            "&.Mui-focused fieldset": {
+                border: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",
+            },
+            "& .MuiSvgIcon-root": {
+                color: theme === "light" ? "#5046e4" : "#8b949e",
+            },
+        },
+    };
+
+    const defaultProps = {
+        size: "small",
+        fullWidth: true,
+        variant: "outlined",
+    };
+    return <TextField {...props} {...defaultProps} sx={primaryTextField} />;
 }

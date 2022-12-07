@@ -2,8 +2,8 @@ import { Formik, Form } from "formik";
 import { useNavigate } from "react-router-dom";
 import { parts } from "../../../../data/parts";
 import { units } from "../../../../data/units";
+import { Container, Grid, Divider } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Typography, Container, Grid, Divider } from "@mui/material";
 import Select from "../../../../../../components/shared/FormsUI/Select";
 import TextField from "../../../../../../components/shared/FormsUI/TextField";
 import { partEntrySchema } from "../../../../../../validations/partEntrySchema";
@@ -11,6 +11,7 @@ import BackBtn from "../../../../../../components/shared/FormsUI/Button/BackBtn"
 import AutoComplete from "../../../../../../components/shared/FormsUI/AutoComplete";
 import { partStatus, shelfLife, initialValues } from "../../../components/formData";
 import SubmitBtn from "../../../../../../components/shared/FormsUI/Button/SubmitBtn";
+import FormHeading from "../../../../../../components/shared/Typography/FormHeading";
 import DatePicker from "../../../../../../components/shared/FormsUI/DatePicker/DatePicker";
 
 const partNumberOptions = parts?.map((part) => ({
@@ -38,9 +39,7 @@ const AddPartForm = () => {
     return (
         <>
             <Container>
-                <Typography component="p" variant="h6" gutterBottom sx={{ fontSize: '16px', fontWeight: 600, mb: 2 }}>
-                    Add Part
-                </Typography>
+                <FormHeading title="Add Part" />
                 <Formik initialValues={{ ...initialValues }} validationSchema={partEntrySchema} onSubmit={onSubmit} >
                     <Form autoComplete="off">
                         <Grid container spacing={2}>
