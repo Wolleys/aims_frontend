@@ -1,15 +1,17 @@
 import { Formik, Form } from "formik";
 import { clients } from "../../../data/clients";
 import { useNavigate } from "react-router-dom";
+import { Container, Grid } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { initialValues } from "../../components/formData";
-import { Typography, Container, Grid, Divider } from "@mui/material";
 import { openJobSchema } from "../../../../../validations/openJobSchema";
 import TextField from "../../../../../components/shared/FormsUI/TextField";
 import BackBtn from "../../../../../components/shared/FormsUI/Button/BackBtn";
 import AutoComplete from "../../../../../components/shared/FormsUI/AutoComplete";
 import SubmitBtn from "../../../../../components/shared/FormsUI/Button/SubmitBtn";
+import FormHeading from "../../../../../components/shared/Typography/FormHeading";
 import DatePicker from "../../../../../components/shared/FormsUI/DatePicker/DatePicker";
+import SecondaryDivider from "../../../../../components/shared/Divider/secondaryDivider";
 
 const clientOptions = clients?.map((client) => ({
     label: client.first_name + " " + client.last_name,
@@ -30,9 +32,7 @@ function OpenJobForm() {
     return (
         <>
             <Container>
-                <Typography component="p" variant="h6" gutterBottom sx={{ fontSize: "16px", fontWeight: 600, mb: 2 }} >
-                    Open Job
-                </Typography>
+                <FormHeading title="Open Job" />
                 <Formik initialValues={{ ...initialValues }} validationSchema={openJobSchema} onSubmit={onSubmit} >
                     <Form autoComplete="off">
                         <Grid container spacing={2}>
@@ -68,7 +68,7 @@ function OpenJobForm() {
                     </Form>
                 </Formik>
             </Container>
-            <Divider sx={{ mt: 2, mb: 2 }} />
+            <SecondaryDivider />
         </>
     );
 }

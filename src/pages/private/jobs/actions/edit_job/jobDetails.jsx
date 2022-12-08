@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import { Container, Grid } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Typography, Container, Grid, Divider } from "@mui/material";
 import BackBtn from "../../../../../components/shared/FormsUI/Button/BackBtn";
 import ActionBtn from "../../../../../components/shared/FormsUI/Button/ActionBtn";
+import FormHeading from "../../../../../components/shared/Typography/FormHeading";
 import NormalTextField from "../../../../../components/shared/FormsUI/TextField/Normal";
+import SecondaryDivider from "../../../../../components/shared/Divider/secondaryDivider";
 
 function JobDetails(props) {
     const { editRow } = props;
@@ -15,9 +17,7 @@ function JobDetails(props) {
     return (
         <>
             <Container>
-                <Typography component="p" variant="h6" gutterBottom sx={{ fontSize: '16px', fontWeight: 600, mb: 2 }}>
-                    Job Details
-                </Typography>
+                <FormHeading title="Job Details" />
                 <Grid container spacing={2}>
                     <Grid item xs={6} sm={6} md={4}>
                         <label className="primary_label">Date opened</label>
@@ -42,7 +42,7 @@ function JobDetails(props) {
                     </Grid>
                 </Grid>
             </Container>
-            <Divider sx={{ mt: 2, mb: 2 }} />
+            <SecondaryDivider />
         </>
     );
 }
