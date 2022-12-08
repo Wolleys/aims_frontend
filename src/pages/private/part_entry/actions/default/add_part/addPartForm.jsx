@@ -2,7 +2,7 @@ import { Formik, Form } from "formik";
 import { useNavigate } from "react-router-dom";
 import { parts } from "../../../../data/parts";
 import { units } from "../../../../data/units";
-import { Container, Grid, Divider } from "@mui/material";
+import { Container, Grid, Box } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Select from "../../../../../../components/shared/FormsUI/Select";
 import TextField from "../../../../../../components/shared/FormsUI/TextField";
@@ -13,6 +13,7 @@ import { partStatus, shelfLife, initialValues } from "../../../components/formDa
 import SubmitBtn from "../../../../../../components/shared/FormsUI/Button/SubmitBtn";
 import FormHeading from "../../../../../../components/shared/Typography/FormHeading";
 import DatePicker from "../../../../../../components/shared/FormsUI/DatePicker/DatePicker";
+import SecondaryDivider from "../../../../../../components/shared/Divider/secondaryDivider";
 
 const partNumberOptions = parts?.map((part) => ({
     label: part.part_number,
@@ -98,12 +99,15 @@ const AddPartForm = () => {
                                 <label className="primary_label">Date of production</label>
                                 <DatePicker name="date_of_production" />
                             </Grid>
-                            <Grid item xs={12} sm={4} md={3}>
-                                <label className="primary_label">Shelf life</label>
-                                <TextField name="shelf_life" type="number" inputProps={{ min: "0" }}
-                                    sx={{ width: "50%", marginRight: "-1px", }} />
-                                <Select name="duration" value={"None"} label="Duration" options={shelfLife}
-                                    sx={{ width: "50%" }} />
+                            <Grid item xs={12} sm={4} md={3} sx={{ display: "flex" }}>
+                                <Box sx={{ width: "50%", marginRight: "-1px", zIndex: 1 }}>
+                                    <label className="primary_label">Shelf life</label>
+                                    <TextField name="shelf_life" type="number" inputProps={{ min: "0" }} />
+                                </Box>
+                                <Box sx={{ width: "50%" }}>
+                                    <label className="primary_label">Duration</label>
+                                    <Select name="duration" value={"None"} options={shelfLife} />
+                                </Box>
                             </Grid>
                             <Grid item xs={6} sm={4} md={3}>
                                 <label className="primary_label">Expiry date</label>
@@ -130,7 +134,7 @@ const AddPartForm = () => {
                     </Form>
                 </Formik>
             </Container>
-            <Divider sx={{ mt: 2, mb: 2 }} />
+            <SecondaryDivider />
         </>
     );
 };

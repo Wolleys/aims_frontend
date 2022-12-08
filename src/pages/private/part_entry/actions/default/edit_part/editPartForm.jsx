@@ -3,15 +3,17 @@ import { useNavigate } from "react-router-dom";
 import { parts } from "../../../../data/parts";
 import { units } from "../../../../data/units";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Container, Grid, Button, Box } from "@mui/material";
 import Select from "../../../../../../components/shared/FormsUI/Select";
-import { Typography, Container, Grid, Divider, Button } from "@mui/material";
 import TextField from "../../../../../../components/shared/FormsUI/TextField";
 import { partEntrySchema } from "../../../../../../validations/partEntrySchema";
 import BackBtn from "../../../../../../components/shared/FormsUI/Button/BackBtn";
 import AutoComplete from "../../../../../../components/shared/FormsUI/AutoComplete";
 import { partStatus, shelfLife, initialValues } from "../../../components/formData";
 import SubmitBtn from "../../../../../../components/shared/FormsUI/Button/SubmitBtn";
+import FormHeading from "../../../../../../components/shared/Typography/FormHeading";
 import DatePicker from "../../../../../../components/shared/FormsUI/DatePicker/DatePicker";
+import SecondaryDivider from "../../../../../../components/shared/Divider/secondaryDivider";
 
 const partNumberOptions = parts?.map((part) => ({
     label: part.part_number,
@@ -39,9 +41,7 @@ function EditPartForm(props) {
     return (
         <>
             <Container>
-                <Typography component="p" variant="h6" gutterBottom sx={{ fontSize: "16px", fontWeight: 600, mb: 2 }}>
-                    Edit Part
-                </Typography>
+                <FormHeading title="Edit Part" />
                 <Formik initialValues={{ ...initialValues }} validationSchema={partEntrySchema} onSubmit={onSubmit} >
                     <Form autoComplete="off">
                         <Grid container spacing={2}>
@@ -100,12 +100,15 @@ function EditPartForm(props) {
                                 <label className="primary_label">Date of production</label>
                                 <DatePicker name="date_of_production" />
                             </Grid>
-                            <Grid item xs={12} sm={4} md={3}>
-                                <label className="primary_label">Shelf life</label>
-                                <TextField name="shelf_life" type="number" inputProps={{ min: "0" }}
-                                    sx={{ width: "50%", marginRight: "-1px", }} />
-                                <Select name="duration" value={"None"} label="Duration" options={shelfLife}
-                                    sx={{ width: "50%" }} />
+                            <Grid item xs={12} sm={4} md={3} sx={{ display: "flex" }}>
+                                <Box sx={{ width: "50%", marginRight: "-1px", zIndex: 1 }}>
+                                    <label className="primary_label">Shelf life</label>
+                                    <TextField name="shelf_life" type="number" inputProps={{ min: "0" }} />
+                                </Box>
+                                <Box sx={{ width: "50%" }}>
+                                    <label className="primary_label">Duration</label>
+                                    <Select name="duration" value={"None"} options={shelfLife} />
+                                </Box>
                             </Grid>
                             <Grid item xs={6} sm={4} md={3}>
                                 <label className="primary_label">Expiry date</label>
@@ -137,7 +140,7 @@ function EditPartForm(props) {
                     </Form>
                 </Formik>
             </Container>
-            <Divider sx={{ mt: 2, mb: 2 }} />
+            <SecondaryDivider />
         </>
     )
 }
