@@ -6,7 +6,7 @@ export default function StyledTextField({ ...props }) {
     const { theme } = useContext(ThemeContext);
 
     const primaryTextField = {
-        background: theme === "light" ? "#f6f8fa" : "#0d1117",
+        backgroundColor: theme === "light" ? "#f6f8fa" : "#0d1117",
         borderRadius: "4px",
         "& .MuiOutlinedInput-root": {
             "& input": {
@@ -30,10 +30,18 @@ export default function StyledTextField({ ...props }) {
         },
     };
 
+    const formHelperStyle = {
+        margin: 0,
+        backgroundColor: theme === "light" ? "#FAFAFA" : "#0d1117",
+    };
+
     const defaultProps = {
         size: "small",
         fullWidth: true,
         variant: "outlined",
+        FormHelperTextProps: {
+            sx: formHelperStyle,
+        },
     };
     return <TextField {...props} {...defaultProps} sx={primaryTextField} />;
 }

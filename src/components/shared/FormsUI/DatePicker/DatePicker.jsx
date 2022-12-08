@@ -21,10 +21,7 @@ export default function DatePicker({ name, ...otherProps }) {
 
     const configTextField = {
         ...field,
-        size: "small",
         ...otherProps,
-        fullWidth: true,
-        variant: "outlined",
     };
 
     if (meta && meta.touched && meta.error) {
