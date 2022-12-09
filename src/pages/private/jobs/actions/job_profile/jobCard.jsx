@@ -33,7 +33,7 @@ function JobCard(props) {
     }
 
     const cardStyle = {
-        borderRadius: "6px",
+        borderRadius: "4px",
         backgroundColor: theme === "light" ? "#FAFAFA" : "#0d1117",
         border: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",
     };
@@ -61,14 +61,20 @@ function JobCard(props) {
         fontSize: "12px",
         color: item.detail === "Opened" ? "#4caf50"
             : item.detail === "Closed" ? "#dc004e"
-            : theme === "light" ? "#24292f" : "#c9d1d9",
+                : theme === "light" ? "#24292f" : "#c9d1d9",
     })
 
     const snagViewStyle = {
         fontSize: "12px",
-        textTransform: "none", 
-        color: theme === "light" ? "#0969da" : "#58a6ff", 
+        textTransform: "none",
+        color: theme === "light" ? "#0969da" : "#58a6ff",
 
+    }
+
+    const dividerStyle = {
+        mb: 1,
+        mt: 1,
+        borderBottom: theme === "light" ? "1px solid #d8dee4" : "1px solid #21262d"
     }
 
     return (
@@ -88,14 +94,14 @@ function JobCard(props) {
                                     <Typography sx={detailsTypoStyle(item)}>{item.detail} </Typography>
                                     <Box style={{ float: "right", margin: "-5px 0px -5px 0" }}>
                                         {item.name === "Snags recorded" && item.detail > 0 ?
-                                            <Button size="small" sx={snagViewStyle}> 
+                                            <Button size="small" sx={snagViewStyle}>
                                                 view
                                             </Button> : null
                                         }
                                     </Box>
                                 </Grid>
                             </Grid>
-                            <Divider sx={{ mb: 1, mt: 1 }} />
+                            <Divider sx={dividerStyle} />
                         </Box>
                     ))}
                 </CardContent>

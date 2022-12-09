@@ -52,8 +52,7 @@ export default function PurchaseHistory(props) {
     const handleSelectedRow = (row) => {
         setSelectedID(row);
     }
-
-
+    
     const showMore = () => { navigate(`/part-entry/default/purchase-history/${row.id}`) }
 
     return (

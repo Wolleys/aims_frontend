@@ -7,7 +7,7 @@ import BusinessCenterOutlinedIcon from '@mui/icons-material/BusinessCenterOutlin
 function Layout() {
     return (
         <Box>
-            <Grid container spacing={1} sx={{ mt: -1 }} >
+            <Grid container spacing={2} sx={{ mt: -2 }} >
                 <Grid item md={3}
                     sx={{
                         display: { xs: "none", sm: "none", md: "grid" }

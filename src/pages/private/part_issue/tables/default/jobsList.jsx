@@ -1,45 +1,44 @@
-import { Fragment, useContext, useState } from 'react';
-import { jobs } from '../../../data/jobs';
-import {
-    Paper, Table, TableRow, TableHead, TableBody, TableCell, tableCellClasses,
-    TableContainer, styled, Typography, Divider, Box
-} from '@mui/material';
-import { SelectedJobContext } from '../../../../../context/SelectedJobContextProvider';
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-    [`&.${tableCellClasses.head}`]: {
-        backgroundColor: "#EBEBEB",
-        color: theme.palette.text.primary,
-        fontSize: 14, paddingTop: '5px', paddingBottom: '5px',
-        fontWeight: '500', cursor: 'default',
-    },
-    [`&.${tableCellClasses.body}`]: {
-        fontSize: 14,
-    },
-}));
+import { jobs } from "../../../data/jobs";
+import { useContext, useState } from "react";
+import { ThemeContext } from "../../../../../context/ThemeContextProvider";
+import StyledTableRow from "../../../../../components/shared/Table/StyledTableRow";
+import StyledTableCell from "../../../../../components/shared/Table/StyledTableCell";
+import { Table, TableRow, TableHead, TableBody, Typography, Box } from "@mui/material";
+import { SelectedJobContext } from "../../../../../context/SelectedJobContextProvider";
+import StyledTableContainer from "../../../../../components/shared/Table/StyledTableContainer";
 
 export default function JobsList() {
+    const { theme } = useContext(ThemeContext);
     const { setSelectedJob } = useContext(SelectedJobContext);
-    const [clickedRow, setClickedRowIndex] = useState(null);
+    const [clickedRow, setClickedRow] = useState(false);
+    const [selectedID, setSelectedID] = useState(null);
 
     const OpenedJobs = jobs.filter((item) => item.job_status === "Opened")
     const ClosedJobs = jobs.filter((item) => item.job_status === "Closed")
 
-    const handleSelection = (rowIndex) => (event) => {
-        if (clickedRow !== rowIndex) {
-            setClickedRowIndex(rowIndex);
-        } else {
-            setClickedRowIndex(rowIndex);
-        }
+    const handleSelectedRow = (row) => (event) => {
+        setSelectedID(row);
+        setClickedRow(true);
         const { target } = event;
         const jobIndex = target.getAttribute("jobindex");
         const selectedJob = jobs[jobIndex];
         setSelectedJob(selectedJob);
     }
 
+    const dataBoxStyle = {
+        display: "flex",
+        fontWeight: 500,
+        fontSize: "13px",
+        color: theme === "light" ? "#24292f" : "#c9d1d9"
+    }
+
+    const spanStyle = {
+        color: theme === "light" ? "#57606a" : "#8b949e"
+    }
+
     return (
-        <Fragment>
-            <TableContainer component={Paper} elevation={0} sx={{ height: 400, overflow: "auto" }}>
+        <Box sx={{ height: "500px", position: "relative" }}>
+            <StyledTableContainer sx={{ height: 450, overflow: "auto" }} >
                 <Table size="small" stickyHeader>
                     <TableHead >
                         <TableRow >
@@ -51,33 +50,32 @@ export default function JobsList() {
                     <TableBody>
                         {jobs.length > 0 ? (
                             jobs.map((row, index) => (
-                                <TableRow key={row.id} hover onClick={handleSelection(index)} style={{ cursor: 'pointer', fontSize: '10px' }}
-                                    className={clickedRow === index ? "selected_row" : null}>
-                                    <TableCell jobindex={index} align="left">{row.job_number}</TableCell>
-                                    <TableCell jobindex={index} align="left">{row.aircraft_reg}</TableCell>
-                                    <TableCell jobindex={index} align="left" style={{ color: row.job_status === "Opened" ? '#4caf50' : '#dc004e' }}>
+                                <StyledTableRow key={row.id} onClick={handleSelectedRow(row.id)} style={{ cursor: "pointer" }}
+                                    selected={clickedRow ? selectedID === row.id : null}>
+                                    <StyledTableCell jobindex={index} align="left">{row.job_number}</StyledTableCell>
+                                    <StyledTableCell jobindex={index} align="left">{row.aircraft_reg}</StyledTableCell>
+                                    <StyledTableCell jobindex={index} align="left" style={{ color: row.job_status === "Opened" ? "#4caf50" : "#dc004e" }}>
                                         {row.job_status}
-                                    </TableCell>
-                                </TableRow>
+                                    </StyledTableCell>
+                                </StyledTableRow>
                             ))
                         ) : (
-                            <TableRow>
-                                <TableCell colSpan={9} sx={{ textAlign: 'center', border: 'none', py: 6 }}>
-                                    <Typography sx={{ py: 6, fontSize: '14px' }} >{jobs.error || "We'll first need to get some data in here!"}</Typography>
-                                </TableCell>
-                            </TableRow>
+                            <StyledTableRow>
+                                <StyledTableCell colSpan={4} sx={{ textAlign: "center", border: "none", py: 6 }}>
+                                    <Typography sx={{ py: 6, fontSize: "14px" }} >{"We'll first need to get some data in here!"}</Typography>
+                                </StyledTableCell>
+                            </StyledTableRow>
                         )}
                     </TableBody>
                 </Table>
-            </TableContainer>
-            <Divider sx={{ mb: 0, mt: 0 }} />
-            <div style={{ width: '100%', cursor: 'default' }}>
-                <Box display="flex" bgcolor="background.paper" style={{ fontSize: '13.4px', fontWeight: 500, marginTop: '0px' }}>
-                    <Box p={1} flexGrow={1} bgcolor="#f5f5f5"> Jobs: <span style={{ color: '#888' }}>{jobs.length}</span></Box>
-                    <Box p={1} flexGrow={1} bgcolor="#f5f5f5"> Closed: <span style={{ color: '#888' }}>{ClosedJobs.length}</span></Box>
-                    <Box p={1} bgcolor="#f5f5f5"> Opened: <span style={{ color: '#888' }}>{OpenedJobs.length}</span></Box>
+            </StyledTableContainer>
+            <div style={{ width: "100%", cursor: "default", position: "absolute", bottom: "0px" }}>
+                <Box sx={dataBoxStyle}>
+                    <Box p={1} flexGrow={1}> Jobs: <span style={spanStyle}>{jobs.length}</span></Box>
+                    <Box p={1} flexGrow={1}> Closed: <span style={spanStyle}>{ClosedJobs.length}</span></Box>
+                    <Box p={1}> Opened: <span style={spanStyle}>{OpenedJobs.length}</span></Box>
                 </Box>
             </div>
-        </Fragment>
+        </Box>
     );
 }
