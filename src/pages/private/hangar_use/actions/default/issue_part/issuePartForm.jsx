@@ -1,9 +1,9 @@
 import { Formik, Form } from "formik";
 import { useNavigate } from "react-router-dom";
 import { parts } from "../../../../data/parts";
+import { Container, Grid } from "@mui/material";
 import { engineers } from "../../../../data/engineers";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Typography, Container, Grid, Divider } from "@mui/material";
 import { partsSchema } from "../../../../../../validations/partsSchema";
 import Select from "../../../../../../components/shared/FormsUI/Select";
 import { partStatus, initialValues } from "../../../../form_data/issuePart";
@@ -11,7 +11,9 @@ import TextField from "../../../../../../components/shared/FormsUI/TextField";
 import BackBtn from "../../../../../../components/shared/FormsUI/Button/BackBtn";
 import AutoComplete from "../../../../../../components/shared/FormsUI/AutoComplete";
 import SubmitBtn from "../../../../../../components/shared/FormsUI/Button/SubmitBtn";
+import FormHeading from "../../../../../../components/shared/Typography/FormHeading";
 import DatePicker from "../../../../../../components/shared/FormsUI/DatePicker/DatePicker";
+import SecondaryDivider from "../../../../../../components/shared/Divider/secondaryDivider";
 
 const partNumberOptions = parts?.map((part) => ({
     label: part.part_number,
@@ -36,13 +38,10 @@ function IssuePartForm() {
         console.log(values);
     }
 
-
     return (
         <>
             <Container>
-                <Typography component="p" variant="h6" gutterBottom sx={{ fontSize: '16px', fontWeight: 600, mb: 2 }}>
-                    Issue Part
-                </Typography>
+                <FormHeading title="Issue Part" />
                 <Formik initialValues={{ ...initialValues }} validationSchema={partsSchema} onSubmit={onSubmit} >
                     <Form autoComplete="off">
                         <Grid container spacing={2}>
@@ -101,7 +100,7 @@ function IssuePartForm() {
                     </Form>
                 </Formik>
             </Container>
-            <Divider sx={{ mt: 2, mb: 2 }} />
+            <SecondaryDivider />
         </>
     );
 }
