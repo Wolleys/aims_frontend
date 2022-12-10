@@ -1,26 +1,22 @@
 import { Button, styled } from "@mui/material";
 
-const ErrorButton = styled(Button)({
-    boxShadow: "none",
-    textTransform: "none",
-    fontSize: 14,
-    border: "1px solid",
-    lineHeight: 1.5,
-    backgroundColor: "#d32f2f",
-    borderColor: "#d32f2f",
-    "&:hover": {
-        backgroundColor: "#c62828",
-        borderColor: "#c62828",
-        boxShadow: "none",
-    },
-    "&:active": {
-        boxShadow: "none",
-        backgroundColor: "#c62828",
-        borderColor: "#c62828",
-    },
-});
-
-
 export default function StyledErrorButton({ ...props }) {
+    const ErrorButton = styled(Button)({
+        fontSize: 14,
+        lineHeight: 1.5,
+        boxShadow: "none",
+        textTransform: "none",
+        backgroundColor: "#d32f2f",
+        border: "1px solid #d32f2f",
+        "&:hover": {
+            borderColor: "#c62828",
+            backgroundColor: "#c62828",
+        },
+        "&:active": {
+            backgroundColor: "#c62828",
+            borderColor: "#c62828",
+        },
+    });
+    
     return <ErrorButton {...props} />;
 }

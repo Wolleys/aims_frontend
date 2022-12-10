@@ -1,27 +1,26 @@
+import { useContext } from "react";
 import { Button, styled } from "@mui/material";
-
-const BackButton = styled(Button)({
-    boxShadow: "none",
-    textTransform: "none",
-    fontSize: 14,
-    border: "1px solid",
-    lineHeight: 1.5,
-    color: "#5046e4",
-    backgroundColor: "transparent",
-    borderColor: "#5046e4",
-    "&:hover": {
-        backgroundColor: "#F1F5F9",
-        borderColor: "#0062cc",
-        boxShadow: "none",
-    },
-    "&:active": {
-        boxShadow: "none",
-        backgroundColor: "#0062cc",
-        borderColor: "#005cbf",
-    },
-    
-});
+import { ThemeContext } from "../../../../context/ThemeContextProvider";
 
 export default function StyledBackButton({ ...props }) {
+    const { theme } = useContext(ThemeContext);
+
+    const BackButton = styled(Button)({
+        fontSize: 14,
+        lineHeight: 1.5,
+        boxShadow: "none",
+        textTransform: "none",
+        color: theme === "light" ? "#5046e4" : "#c9d1d9",
+        backgroundColor: "transparent",
+        border: theme === "light" ? "1px solid #5046e4" : "1px solid #30363D",
+        "&:hover": {
+            backgroundColor: "transparent",
+            borderColor: theme === "light" ? "#5046e4" : "#8b949e",
+        },
+        "&:active": {
+            backgroundColor: "transparent",
+            borderColor: theme === "light" ? "#5046e4" : "#8b949e",
+        },
+    });
     return <BackButton {...props} />;
 }

@@ -9,6 +9,7 @@ const SubmitBtn = ({ children, ...otherProps }) => {
     };
 
     const configButton = {
+        size: "small",
         ...otherProps,
         variant: "contained",
         onClick: handleSubmit,
