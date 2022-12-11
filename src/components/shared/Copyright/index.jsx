@@ -1,14 +1,23 @@
-import { Typography, Link, } from "@mui/material";
+import { useContext } from "react";
+import { Typography, Link } from "@mui/material";
+import { ThemeContext } from "../../../context/ThemeContextProvider";
 
 function Copyright(props) {
+    const { theme } = useContext(ThemeContext);
+
+    const typoStyle = {
+        lineHeight: 1.5,
+        fontSize: "12px",
+        color: theme === "light" ? "#57606a" : "#8b949e",
+    };
     return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
+        <Typography align="center" {...props} sx={typoStyle}>
+            {"Copyright © "}
             <Link color="inherit" href="https://bizwisetechnologies.co.ke/">
                 Bizwise Technologies
-            </Link>{' '}
+            </Link>{" "}
             {new Date().getFullYear()}
-            {'.'}
+            {"."}
         </Typography>
     );
 }

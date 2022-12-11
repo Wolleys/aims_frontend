@@ -16,8 +16,8 @@ export default function AccountMenu() {
     return (
         <Fragment>
             <AppBarAvatar open={open} handleClick={handleClick} isAuth={isAuth} theme={theme} />
-            <DropDownMenu anchorEl={anchorEl} open={open} handleClose={handleClose} 
-            isAuth={isAuth} theme={theme} toggleTheme={toggleTheme} />
+            <DropDownMenu anchorEl={anchorEl} open={open} handleClose={handleClose}
+                isAuth={isAuth} theme={theme} toggleTheme={toggleTheme} />
         </Fragment>
     );
 }
