@@ -1,14 +1,15 @@
 import { Formik, Form } from "formik";
 import { Login } from "../../../queries";
-import { Fragment, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import Copyright from "../../../components/shared/Copyright";
 import { loginSchema } from "../../../validations/loginSchema";
 import { AuthContext } from "../../../context/AuthContextProvider";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { Grid, Link, Alert, CircularProgress } from "@mui/material";
 import { ThemeContext } from "../../../context/ThemeContextProvider";
 import TextField from "../../../components/shared/FormsUI/TextField/Auth";
 import SubmitBtn from "../../../components/shared/FormsUI/Button/SubmitBtn";
-import { Box, Grid, Typography, Link, Alert, CircularProgress } from "@mui/material";
+
 
 function SignIn() {
     const navigate = useNavigate();
@@ -17,12 +18,6 @@ function SignIn() {
     const [message, setMessage] = useState("")
     const { mutateAsync, isLoading, isError, error } = Login()
 
-    const headingTypoStyle = {
-        mb: 2,
-        fontWeight: 600,
-        lineHeight: 1.5,
-        color: theme === "light" ? "#24292f" : "#c9d1d9",
-    }
     const copyRightStyle = {
         mt: 5,
         fontSize: "12px",
@@ -65,38 +60,27 @@ function SignIn() {
     };
 
     return (
-        <Fragment>
-            <Box component="main" maxWidth="sm" sx={{ mb: 4, pt: 9 }}>
-                <Box sx={{ my: 8, mx: 0, display: "flex", flexDirection: "column", alignItems: "left", }} >
-                    <Grid container>
-                        <Grid item xs >
-                            <Typography component="h4" variant="h5" sx={headingTypoStyle} > Sign in </Typography>
-                        </Grid>
-                    </Grid>
-                    <Box sx={{ mt: 1 }}>
-                        <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={loginSchema} >
-                            <Form>
-                                <TextField name="email" placeholder="Email address" disabled={isLoading} style={{ marginBottom: 20 }} />
-                                <TextField name="password" placeholder="Password" disabled={isLoading} type="password" />
-                                <SubmitBtn size="large" fullWidth disabled={isLoading}
-                                    sx={{ mt: 2, mb: 2, textTransform: "none", borderRadius: "6px" }} >
-                                    {isLoading ? (<CircularProgress size={26} color="inherit" />) : (<span>Sign in</span>)}
-                                </SubmitBtn>
-                            </Form>
-                        </Formik>
-                        <Grid sx={{ textAlign: "left", mt: 1 }}>
-                            <Link {...{ to: "/forgot-password", component: RouterLink, }} variant="body2"
-                                sx={linkStyle} > Forgot password?
-                            </Link>
-                        </Grid>
-                        <Grid sx={{ textAlign: "center", mt: 4 }}>
-                            {isLoading ? null : (handleMsg(message))}
-                        </Grid>
-                        <Copyright sx={copyRightStyle} />
-                    </Box>
-                </Box>
-            </Box>
-        </Fragment>
+        <>
+            <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={loginSchema} >
+                <Form>
+                    <TextField name="email" placeholder="Email address" disabled={isLoading} style={{ marginBottom: 20 }} />
+                    <TextField name="password" placeholder="Password" disabled={isLoading} type="password" />
+                    <SubmitBtn size="large" fullWidth disabled={isLoading}
+                        sx={{ mt: 2, mb: 2, textTransform: "none", borderRadius: "6px" }} >
+                        {isLoading ? (<CircularProgress size={26} color="inherit" />) : (<span>Sign in</span>)}
+                    </SubmitBtn>
+                </Form>
+            </Formik>
+            <Grid sx={{ textAlign: "left", mt: 1 }}>
+                <Link {...{ to: "/forgot-password", component: RouterLink, }} variant="body2"
+                    sx={linkStyle} > Forgot password?
+                </Link>
+            </Grid>
+            <Grid sx={{ textAlign: "center", mt: 4 }}>
+                {isLoading ? null : (handleMsg(message))}
+            </Grid>
+            <Copyright sx={copyRightStyle} />
+        </>
     );
 }
 

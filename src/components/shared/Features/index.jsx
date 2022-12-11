@@ -8,9 +8,6 @@ import { Box, Typography, Divider, List, ListItem, ListItemIcon, ListItemText } 
 function Features() {
     const { theme } = useContext(ThemeContext);
 
-    const logoTypoStyle = {
-        color: theme === "light" ? "#24292f" : "#c9d1d9",
-    }
     const headingTypoStyle = {
         mb: 0,
         fontWeight: 600,
@@ -26,7 +23,7 @@ function Features() {
     const iconStyle = {
         color: theme === "light" ? "#27ab6e" : "#3fb950",
     }
-    const primaryTypotextStyle ={
+    const primaryTypotextStyle = {
         fontWeight: 400,
         fontSize: "14px",
         color: theme === "light" ? "#24292f" : "#c9d1d9",
@@ -38,10 +35,7 @@ function Features() {
     };
     return (
         <>
-            <Box sx={{ display: { xs: "none", md: "flex", justifyContent: "left" } }} md={6}>
-                <Typography sx={logoTypoStyle} >aims</Typography>
-            </Box>
-            <Box sx={{ ml: 0, pt: 14, display: { xs: "none", md: "flex" } }}>
+            <Box sx={{ ml: 0, mt: 20, display: { xs: "none", md: "flex" } }}>
                 <Typography variant="h5" sx={headingTypoStyle} >
                     AIMS - Features Dashboard
                 </Typography>
