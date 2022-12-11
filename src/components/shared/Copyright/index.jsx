@@ -11,7 +11,7 @@ function Copyright(props) {
         color: theme === "light" ? "#57606a" : "#8b949e",
     };
     return (
-        <Typography align="center" {...props} sx={typoStyle}>
+        <Typography align="center" sx={typoStyle} {...props} >
             {"Copyright © "}
             <Link color="inherit" href="https://bizwisetechnologies.co.ke/">
                 Bizwise Technologies

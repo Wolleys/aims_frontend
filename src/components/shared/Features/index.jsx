@@ -11,7 +11,6 @@ function Features() {
     const logoTypoStyle = {
         color: theme === "light" ? "#24292f" : "#c9d1d9",
     }
-
     const headingTypoStyle = {
         mb: 0,
         fontWeight: 600,
