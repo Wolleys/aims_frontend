@@ -1,12 +1,13 @@
 import JobCard from "../jobCard";
+import { Box, Grid } from "@mui/material";
 import IssueList from "../tables/issueList";
 import { jobs } from "../../../../data/jobs";
 import { useNavigate } from "react-router-dom";
-import { Box, Grid, Divider } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import BadgeOutlinedIcon from "@mui/icons-material/BadgeOutlined";
 import SwipeableEdgeDrawer from "../../../../../../components/shared/Drawer";
 import BackBtn from "../../../../../../components/shared/FormsUI/Button/BackBtn";
+import SecondaryDivider from "../../../../../../components/shared/Divider/secondaryDivider";
 
 function Layout(props) {
     const { jobId } = props;
@@ -45,7 +46,7 @@ function Layout(props) {
                     </Grid>
                 </Grid>
             ))}
-            <Divider sx={{ mt: 3, }} />
+            <SecondaryDivider />
         </Box>
     );
 }

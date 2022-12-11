@@ -2,9 +2,9 @@ import { useMemo, useContext } from "react";
 import CloseJobDialog from "../CloseJobDialog";
 import ExportBtn from "../FormsUI/Button/ExportBtn";
 import { Grid, Box, Typography } from "@mui/material";
-import DescriptionIcon from "@mui/icons-material/Description";
 import { totalStockValue } from "../../../helpers/stockTotalValues";
 import { ThemeContext } from "../../../context/ThemeContextProvider";
+import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 
 const RecordsCloseExp = (props) => {
     const { theme } = useContext(ThemeContext);
@@ -44,7 +44,7 @@ const RecordsCloseExp = (props) => {
                     {length > 0 ? (
                         <ExportBtn
                             sx={{ fontSize: "13.1px" }}
-                            startIcon={<DescriptionIcon />}
+                            startIcon={<FileDownloadOutlinedIcon />}
                         >
                             Export
                         </ExportBtn>

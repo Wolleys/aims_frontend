@@ -1,7 +1,7 @@
 import { useMemo, useContext } from "react";
 import { Grid, Box, Typography, Button } from "@mui/material";
-import DescriptionIcon from "@mui/icons-material/Description";
 import { ThemeContext } from "../../../context/ThemeContextProvider";
+import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import { totalPurchaseValue, totalQtyReceived } from "../../../helpers/stockTotalValues";
 
 function RecordsExport(props) {
@@ -54,9 +54,10 @@ function RecordsExport(props) {
                             sx={{
                                 textTransform: "none",
                                 float: { xs: "right", sm: "none" },
+                                color: theme === "light" ? "#0969da" : "#58a6ff",
                                 margin: { xs: "-0.4rem 0 0 0", sm: "-2.5rem 0 0 0" },
                             }}
-                            startIcon={<DescriptionIcon />}
+                            startIcon={<FileDownloadOutlinedIcon />}
                         >
                             Export
                         </Button>

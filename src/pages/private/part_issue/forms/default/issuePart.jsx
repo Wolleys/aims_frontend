@@ -1,7 +1,7 @@
 import { Formik, Form } from "formik";
+import { Grid, Box } from "@mui/material";
 import { parts } from "../../../data/parts";
 import { Fragment, useContext } from "react";
-import { Grid, Divider, Box } from "@mui/material";
 import { engineers } from "../../../data/engineers";
 import { partsSchema } from "../../../../../validations/partsSchema";
 import Select from "../../../../../components/shared/FormsUI/Select";
@@ -11,6 +11,7 @@ import AutoComplete from "../../../../../components/shared/FormsUI/AutoComplete"
 import SubmitBtn from "../../../../../components/shared/FormsUI/Button/SubmitBtn";
 import { SelectedJobContext } from '../../../../../context/SelectedJobContextProvider';
 import DatePicker from "../../../../../components/shared/FormsUI/DatePicker/DatePicker";
+import SecondaryDivider from "../../../../../components/shared/Divider/secondaryDivider";
 
 function IssuePart() {
     const { selectedJob } = useContext(SelectedJobContext);
@@ -98,7 +99,7 @@ function IssuePart() {
                     </Grid>
                 </Form>
             </Formik>
-            <Divider sx={{ mt: 2, mb: 2 }} />
+            <SecondaryDivider />
         </Fragment>
     );
 }

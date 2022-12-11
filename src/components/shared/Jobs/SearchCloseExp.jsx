@@ -2,7 +2,7 @@ import { Grid, Box } from "@mui/material";
 import CloseJobDialog from "../CloseJobDialog";
 import SearchTextField from "../FormsUI/Search";
 import ExportBtn from "../FormsUI/Button/ExportBtn";
-import DescriptionIcon from "@mui/icons-material/Description";
+import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 
 export default function SearchCloseExp(props) {
     const { closeJob } = props;
@@ -15,7 +15,7 @@ export default function SearchCloseExp(props) {
             <Grid item xs={12} sm={6} md={6} sx={{ textAlign: "right", mt: { xs: -0.5, sm: 0.5 }, mb: { xs: 1 }}}
             >
                 {closeJob}
-                <ExportBtn sx={{ fontSize: "13.1px" }} startIcon={<DescriptionIcon />}>
+                <ExportBtn sx={{ fontSize: "13.1px" }} startIcon={<FileDownloadOutlinedIcon />}>
                     Export
                 </ExportBtn>
             </Grid>

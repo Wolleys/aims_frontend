@@ -2,7 +2,7 @@ import { Grid } from "@mui/material";
 import SearchTextField from "../FormsUI/Search";
 import ActionBtn from "../FormsUI/Button/ActionBtn";
 import ExportBtn from "../FormsUI/Button/ExportBtn";
-import DescriptionIcon from "@mui/icons-material/Description";
+import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 
 export default function PrimarySearchBar(props) {
     const { action, label, icon, navigate } = props;
@@ -18,7 +18,7 @@ export default function PrimarySearchBar(props) {
                         {label}
                     </ActionBtn>
                 }
-                <ExportBtn sx={{ fontSize: "13.1px" }} startIcon={<DescriptionIcon />} > Export </ExportBtn>
+                <ExportBtn sx={{ fontSize: "13.1px" }} startIcon={<FileDownloadOutlinedIcon />} > Export </ExportBtn>
             </Grid>
         </Grid>
     );

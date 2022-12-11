@@ -111,7 +111,8 @@ export default function PurchaseHistory(props) {
                             </Table>
                             {history.length > 3 ?
                                 <Button component={Link} onClick={showMore} sx={{
-                                    textTransform: "none", float: "right", mt: 0.5, mb: 0.5
+                                    textTransform: "none", float: "right", mt: 0.5, mb: 0.5,
+                                    color: theme === "light" ? "#0969da" : "#58a6ff",
                                 }}>Show more
                                 </Button>
                                 : null
