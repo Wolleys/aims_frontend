@@ -18,22 +18,27 @@ function AuthLayout(props) {
         <Box component="main" sx={{ p: 0 }}>
             <DenseAppBar />
             <Container maxWidth="md">
-                <Grid container component="main" sx={{ height: "100vh" }}>
+                <Grid container sx={{ height: "100vh", pt: "48px" }}>
                     <CssBaseline />
-                    <Grid item xs={false} md={6} sx={{ pr: 4 }}>
-                        <Features />
+                    <Grid item xs={0} sm={0} md={6} sx={{
+                        pr: 4,
+                        display: { xs: "none", sm: "none", md: "grid" },
+                    }}>
+                        <Box>
+                            <Features />
+                        </Box>
                     </Grid>
-                    <Grid item xs={12} sm={6} md={6} elevation={0} >
-                        <Box component="main" maxWidth="sm" sx={{ mb: 4, mt: 20 }}>
-                            <Box sx={{ my: 8, mx: 0, display: "flex", flexDirection: "column", alignItems: "left", }} >
-                                <Grid container>
-                                    <Grid item xs >
-                                        <Typography component="h4" variant="h5" sx={headingTypoStyle} > {header} </Typography>
-                                    </Grid>
+                    <Grid item xs={12} sm={12} md={6} sx={{
+                        display: { xs: "grid", sm: "grid", md: "grid" }
+                    }} >
+                        <Box maxWidth="md" sx={{ mt: 17 }}>
+                            <Grid container>
+                                <Grid item  >
+                                    <Typography component="h4" variant="h5" sx={headingTypoStyle} > {header} </Typography>
                                 </Grid>
-                                <Box sx={{ mt: 1 }}>
-                                    {form}
-                                </Box>
+                            </Grid>
+                            <Box sx={{ mt: 1 }}>
+                                {form}
                             </Box>
                         </Box>
                     </Grid>

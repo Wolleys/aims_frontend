@@ -35,17 +35,17 @@ function Features() {
     };
     return (
         <>
-            <Box sx={{ ml: 0, mt: 20, display: { xs: "none", md: "flex" } }}>
+            <Box sx={{ mt: 17 }}>
                 <Typography variant="h5" sx={headingTypoStyle} >
                     AIMS - Features Dashboard
                 </Typography>
             </Box>
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <Box>
                 <Typography variant="subtitle2" sx={subHeadingTypoStyle}>
                     Manage all your aviation inventory with ease - anywhere, anytime.
                 </Typography>
             </Box>
-            <Box sx={{ display: { xs: "none", md: "flex" }, mt: 3 }}>
+            <Box sx={{ mt: 3 }}>
                 <List disablePadding>
                     {essentialFeatures.map((item) => (
                         <ListItem key={item.name} style={{ padding: "0px" }}>
