@@ -43,7 +43,7 @@ export default function JobsList() {
                     <TableHead >
                         <TableRow >
                             <StyledTableCell align="left">Job No</StyledTableCell>
-                            <StyledTableCell align="left">Air. Reg</StyledTableCell>
+                            <StyledTableCell align="left">A/C Reg</StyledTableCell>
                             <StyledTableCell align="left">Status</StyledTableCell>
                         </TableRow>
                     </TableHead>
