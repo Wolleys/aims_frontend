@@ -1,14 +1,15 @@
 import { Formik, Form } from "formik";
 import { Login } from "../../../queries";
 import { useState, useContext } from "react";
+import { Grid, Link, Alert } from "@mui/material";
 import Copyright from "../../../components/shared/Copyright";
 import { loginSchema } from "../../../validations/loginSchema";
 import { AuthContext } from "../../../context/AuthContextProvider";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-import { Grid, Link, Alert, CircularProgress } from "@mui/material";
 import { ThemeContext } from "../../../context/ThemeContextProvider";
 import TextField from "../../../components/shared/FormsUI/TextField/Auth";
 import SubmitBtn from "../../../components/shared/FormsUI/Button/SubmitBtn";
+import PrimaryCircularProgress from "../../../components/shared/Loader/CircularProgress";
 
 
 function SignIn() {
@@ -67,7 +68,7 @@ function SignIn() {
                     <TextField name="password" placeholder="Password" disabled={isLoading} type="password" />
                     <SubmitBtn size="large" fullWidth disabled={isLoading}
                         sx={{ mt: 2, mb: 2, textTransform: "none", borderRadius: "6px" }} >
-                        {isLoading ? (<CircularProgress size={26} color="inherit" />) : (<span>Sign in</span>)}
+                        {isLoading ? (<PrimaryCircularProgress size={20} />) : (<span>Sign in</span>)}
                     </SubmitBtn>
                 </Form>
             </Formik>

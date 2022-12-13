@@ -1,6 +1,7 @@
 import { useContext } from "react";
+import PrimaryCircularProgress from "./CircularProgress";
 import { ThemeContext } from "../../../context/ThemeContextProvider";
-import { Box, CircularProgress, Backdrop, Typography, Stack } from "@mui/material";
+import { Box, Backdrop, Typography, Stack } from "@mui/material";
 
 function Loader() {
     const { theme } = useContext(ThemeContext);
@@ -15,7 +16,7 @@ function Loader() {
         <Box >
             <Backdrop open sx={backdropStyle} >
                 <Stack gap={1} justifyContent="center" alignItems="center">
-                    <CircularProgress size={20} color="inherit" />
+                    <PrimaryCircularProgress size={20} />
                     <Typography>Loading...</Typography>
                 </Stack>
             </Backdrop>
