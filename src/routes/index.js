@@ -14,6 +14,7 @@ import {
 import { Jobs, DefaultJobsList, OpenJob, EditJob, JobProfile } from "./jobs";
 import { PartIssue, DefaultPartIssue } from "./part_issue/default";
 import { HangarUse, DefaultHangarUse, IssuePart, EditIssuedPart } from "./hangar_use/default";
+import * as Profile from "./profile";
 import { NotFound } from "./not_found";
 
 function AppRoutes() {
@@ -52,6 +53,9 @@ function AppRoutes() {
           <Route path="default" element={<DefaultHangarUse />} />
           <Route path="default/issue-part" element={<IssuePart />} />
           <Route path="default/edit-issue/:partId" element={<EditIssuedPart />} />
+        </Route>
+        <Route path="profile" element={<PrivateRoute> <Profile.Profile /> </PrivateRoute>}>
+          <Route path="overview" element={<Profile.Overview />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />
