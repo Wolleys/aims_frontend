@@ -58,3 +58,26 @@ body {
 #dark .primary_label {
   color: #c9d1d9;
 }
+
+.card_label {
+  margin: 0px;
+  font-size: 14px;
+  color: #57606a;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+#dark .card_label {
+  color: #8b949e;
+}
+
+.card_prices {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #24292f;
+}
+
+#dark .card_prices {
+  color: #c9d1d9;
+}

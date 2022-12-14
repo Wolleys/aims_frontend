@@ -1,12 +1,7 @@
-import React from "react";
+import Layout from "./layout";
 
 function Overview() {
-
-    return (
-        <>
-            <h1>Overview</h1>
-        </>
-    );
+    return <Layout />;
 }
 
 export default Overview;
