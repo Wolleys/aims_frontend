@@ -18,8 +18,8 @@ export default function ProfileTabs() {
 
     return (
         <Container maxWidth="fixed">
-            <Box sx={{ width: "100%", }}>
-                <Tabs value={activeItem?.label} centered
+            <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
+                <Tabs value={activeItem?.label} variant="scrollable" scrollButtons="auto"
                     TabIndicatorProps={{ style: { display: "none", top: "60px" } }}>
                     {navItems.map((item) => (
                         <Tab key={item.label} value={item.label} component={NavLink} to={item.path}
