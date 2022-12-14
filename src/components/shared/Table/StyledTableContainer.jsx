@@ -9,7 +9,7 @@ export default function StyledTableContainer({ ...props }) {
             <Paper
                 elevation={0}
                 {...props}
-                style={{
+                sx={{
                     maxHeight: 500,
                     background: "transparent",
                     border: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",

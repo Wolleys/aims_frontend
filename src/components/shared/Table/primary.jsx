@@ -7,7 +7,7 @@ export default function PrimaryTable(props) {
     const { data, columns } = props;
 
     return (
-        <StyledTableContainer >
+        <StyledTableContainer {...props}>
             <Table size="small" stickyHeader>
                 <TableHead>
                     <TableRow>
