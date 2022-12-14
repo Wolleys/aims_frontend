@@ -58,6 +58,7 @@ function AppRoutes() {
           <Route path="overview" element={<Profile.Overview />} />
           <Route path="details" element={<Profile.Details />} />
           <Route path="picture" element={<Profile.Picture />} />
+          <Route path="security" element={<Profile.Security />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />
