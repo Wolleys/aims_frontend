@@ -1,28 +1,26 @@
-import { NavLink } from 'react-router-dom';
-import { Box, Tabs, Tab, Container } from '@mui/material';
-import useCurrentPath from '../../../hooks/useCurrentPath';
-import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
-import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+import Layout from "../Layout";
+import StyledTab from "../StyledTab";
+import StyledTabs from "../StyledTabs";
+import useCurrentPath from "../../../hooks/useCurrentPath";
+import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
+import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 
 const navItems = [
-    { path: '/dashboard/overview', label: 'Overview', icon: BusinessCenterIcon },
-    { path: '/dashboard/sales', label: 'Sales', icon: PointOfSaleIcon },
+    { path: "/dashboard/overview", label: "Overview", icon: BusinessCenterIcon },
+    { path: "/dashboard/sales", label: "Sales", icon: PointOfSaleIcon },
 ];
 
 export default function DashboardTabs() {
     const activeItem = useCurrentPath(navItems);
 
     return (
-        <Container maxWidth="fixed">
-            <Box sx={{ width: '100%', }}>
-                <Tabs value={activeItem?.label} centered
-                    TabIndicatorProps={{ style: { display: 'none', top: "60px" } }}>
-                    {navItems.map((item) => (
-                        <Tab key={item.label} value={item.label} component={NavLink} to={item.path}
-                            label={<span><item.icon /><br /> {item.label} </span>} sx={{ textTransform: 'none', }} wrapped />
-                    ))}
-                </Tabs>
-            </Box>
-        </Container>
+        <Layout>
+            <StyledTabs value={activeItem?.label} >
+                {navItems.map((item) => (
+                    <StyledTab key={item.label} value={item.label} to={item.path}
+                        label={<span><item.icon /><br />{item.label}</span>} />
+                ))}
+            </StyledTabs>
+        </Layout>
     );
 }
