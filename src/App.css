@@ -81,3 +81,25 @@ body {
 #dark .card_prices {
   color: #c9d1d9;
 }
+
+/* Scrollbar styling */
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #afb8c133 transparent;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 9px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #afb8c133;
+  border-radius: 20px;
+}
