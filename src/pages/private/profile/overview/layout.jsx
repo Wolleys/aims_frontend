@@ -1,7 +1,7 @@
 import CardLabels from "./cardLabels";
 import { Box, Grid } from "@mui/material";
-import CurrentPlanCard from "./currentPlanCard";
 import RecentActivities from "./recentActivities";
+import CurrentPlanCard from "../../../../components/shared/Cards/currentPlanCard";
 
 
 function Layout() {

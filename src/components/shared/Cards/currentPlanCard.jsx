@@ -1,8 +1,8 @@
 import dayjs from "dayjs";
 import { useContext } from "react";
-import { SubscriptionColor } from "../../../../helpers/subscriptionColor";
-import { ThemeContext } from "../../../../context/ThemeContextProvider";
-import SecondaryDivider from "../../../../components/shared/Divider/secondaryDivider";
+import { ThemeContext } from "../../../context/ThemeContextProvider";
+import { SubscriptionColor } from "../../../helpers/subscriptionColor";
+import SecondaryDivider from "../../../components/shared/Divider/secondaryDivider";
 import {
     Card, CardContent, CardHeader, Button, Box, Avatar, Typography, List, ListItem,
     ListItemText
