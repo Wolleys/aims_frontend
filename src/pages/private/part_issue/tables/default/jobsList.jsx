@@ -36,9 +36,18 @@ export default function JobsList() {
         color: theme === "light" ? "#57606a" : "#8b949e"
     }
 
+    const tableStyle = {
+        height: 450,
+        borderRadius: 0,
+        overflow: "auto",
+        borderLeft: "none",
+        borderRight: "none",
+        borderBottom: "none",
+    }
+
     return (
         <Box sx={{ height: "500px", position: "relative" }}>
-            <StyledTableContainer sx={{ height: 450, overflow: "auto" }} >
+            <StyledTableContainer sx={tableStyle} >
                 <Table size="small" stickyHeader>
                     <TableHead >
                         <TableRow >
@@ -54,7 +63,7 @@ export default function JobsList() {
                                     selected={clickedRow ? selectedID === row.id : null}>
                                     <StyledTableCell jobindex={index} align="left">{row.job_number}</StyledTableCell>
                                     <StyledTableCell jobindex={index} align="left">{row.aircraft_reg}</StyledTableCell>
-                                    <StyledTableCell jobindex={index} align="left" style={{ color: row.job_status === "Opened" ? "#4caf50" : "#dc004e" }}>
+                                    <StyledTableCell jobindex={index} align="left" style={{ color: row.job_status === "Opened" ? "#4caf50" : "#d32f2f" }}>
                                         {row.job_status}
                                     </StyledTableCell>
                                 </StyledTableRow>
