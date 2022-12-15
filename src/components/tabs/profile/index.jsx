@@ -1,5 +1,6 @@
-import { NavLink } from "react-router-dom";
-import { Box, Tabs, Tab, Container } from "@mui/material";
+import Layout from "../Layout";
+import StyledTab from "../StyledTab";
+import StyledTabs from "../StyledTabs";
 import useCurrentPath from "../../../hooks/useCurrentPath";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import PhotoCameraOutlinedIcon from "@mui/icons-material/PhotoCameraOutlined";
@@ -17,16 +18,13 @@ export default function ProfileTabs() {
     const activeItem = useCurrentPath(navItems);
 
     return (
-        <Container maxWidth="fixed">
-            <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
-                <Tabs value={activeItem?.label} variant="scrollable" scrollButtons="auto"
-                    TabIndicatorProps={{ style: { display: "none", top: "60px" } }}>
-                    {navItems.map((item) => (
-                        <Tab key={item.label} value={item.label} component={NavLink} to={item.path}
-                            label={<span><item.icon /><br />{item.label}</span>} sx={{ textTransform: "none", }} wrapped />
-                    ))}
-                </Tabs>
-            </Box>
-        </Container>
+        <Layout>
+            <StyledTabs value={activeItem?.label} >
+                {navItems.map((item) => (
+                    <StyledTab key={item.label} value={item.label} to={item.path}
+                        label={<span><item.icon /><br />{item.label}</span>} />
+                ))}
+            </StyledTabs>
+        </Layout>
     );
 }
