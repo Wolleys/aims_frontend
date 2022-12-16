@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Typography } from "@mui/material";
 import { ThemeContext } from "../../../context/ThemeContextProvider";
 
-function FormHeading({ title }) {
+function FormHeading({ title, ...props }) {
     const { theme } = useContext(ThemeContext);
     const typoStyle = {
         mb: 2,
@@ -17,6 +17,7 @@ function FormHeading({ title }) {
             variant="h6"
             gutterBottom
             sx={typoStyle}
+            {...props}
         >
             {title}
         </Typography>
