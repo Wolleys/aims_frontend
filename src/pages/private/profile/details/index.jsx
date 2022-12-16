@@ -1,11 +1,7 @@
-import React from "react";
+import Layout from "./layout";
 
 function Details() {
-    return (
-        <>
-            <h1>Details</h1>
-        </>
-    );
+    return <Layout />;
 }
 
 export default Details;
