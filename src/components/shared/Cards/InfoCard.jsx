@@ -3,11 +3,11 @@ import SecondaryDivider from "../Divider/secondaryDivider";
 import { AuthContext } from "../../../context/AuthContextProvider";
 import { ThemeContext } from "../../../context/ThemeContextProvider";
 import {
-    Card, CardContent, CardHeader, Button, Box, Avatar, Typography, List, ListItem,
-    ListItemText
+    Card, CardContent, CardHeader, Button, Box, Avatar, Typography, List,
+    ListItem, ListItemText
 } from "@mui/material";
 
-function ProfileCard(props) {
+function InfoCard(props) {
     const { header, data } = props;
     const { isAuth } = useContext(AuthContext);
     const { theme } = useContext(ThemeContext);
@@ -94,4 +94,4 @@ function ProfileCard(props) {
         </>
     );
 };
-export default ProfileCard;
+export default InfoCard;

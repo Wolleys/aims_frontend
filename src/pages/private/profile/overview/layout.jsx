@@ -1,8 +1,9 @@
 import CardLabels from "./cardLabels";
 import { Box, Grid } from "@mui/material";
+import { currentPlan } from "./currentPlan";
 import RecentActivities from "./recentActivities";
+import InfoCard from "../../../../components/shared/Cards/InfoCard";
 import SwipeableEdgeDrawer from "../../../../components/shared/Drawer";
-import CurrentPlanCard from "../../../../components/shared/Cards/currentPlanCard";
 
 function Layout() {
     return (
@@ -18,12 +19,12 @@ function Layout() {
                     <Grid item md={3} sx={{
                         display: { xs: "none", sm: "none", md: "grid" }
                     }} >
-                        <CurrentPlanCard />
+                        <InfoCard header data={currentPlan} />
                     </Grid>
                     <Box sx={{
                         display: { xs: "grid", sm: "grid", md: "none" }
                     }}>
-                        <SwipeableEdgeDrawer title="Current Plan" content={<CurrentPlanCard />} />
+                        <SwipeableEdgeDrawer title="Current Plan" content={<InfoCard header data={currentPlan} />} />
                     </Box>
                 </Grid>
             </Box>
