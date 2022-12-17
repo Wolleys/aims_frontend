@@ -13,12 +13,20 @@ export default function CloseJobDialog(props) {
     const { openDialog, handleCloseDialog } = useContext(CloseJobContext);
 
     const paperPropsStyle = {
-        sx: {
-            boxShadow: "none",
-            backgroundColor: theme === "light" ? "#FAFAFA" : "#0d1117",
-            border: theme === "light" ? "1px solid #ff818266" : "1px solid #f8514966",
-        },
+        boxShadow: "none",
+        backgroundColor: theme === "light" ? "#FAFAFA" : "#0d1117",
+        border: theme === "light" ? "1px solid #ff818266" : "1px solid #f8514966",
     };
+
+    const defaultProps = {
+        open: openDialog,
+        keepMounted: true,
+        onClose: handleCloseDialog,
+        TransitionComponent: Transition,
+        PaperProps: {
+            sx: paperPropsStyle
+        }
+    }
 
     const dialogTitleStyle = {
         paddingTop: 0.5,
@@ -31,13 +39,23 @@ export default function CloseJobDialog(props) {
 
     const dialogContentTextStyle = {
         fontSize: "14px",
-        color: theme === "light" ? "#24292f" : "#c9d1d9", 
+        color: theme === "light" ? "#24292f" : "#c9d1d9",
+    }
+
+    const butttonProps = {
+        color: "error",
+        variant: "outlined",
+        onClick: handleCloseDialog,
+        sx: {
+            fontSize: 14,
+            lineHeight: 1.3,
+            textTransform: "none",
+        }
     }
 
     return (
         <Fragment>
-            <Dialog open={openDialog} TransitionComponent={Transition} keepMounted onClose={handleCloseDialog}
-                PaperProps={paperPropsStyle} >
+            <Dialog {...defaultProps} >
                 <DialogTitle sx={dialogTitleStyle}> Are you absolutely sure? </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert" sx={dialogContentTextStyle} >
@@ -45,8 +63,7 @@ export default function CloseJobDialog(props) {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button variant="outlined" color="error" onClick={handleCloseDialog}
-                        sx={{ textTransform: "none", lineHeight: 1.3, fontSize: 14, }} > Cancle
+                    <Button {...butttonProps} > Cancle
                     </Button>
                     <ErrorBtn onClick={() => { handleCloseDialog(); }}> Close Job </ErrorBtn>
                 </DialogActions>

@@ -7,7 +7,7 @@ const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="down" ref={ref} {...props} />;
 });
 
-export default function StyledDialog(props) {
+export default function DeleteDialog(props) {
     const { theme } = useContext(ThemeContext);
     const { open, handleCloseDialog, row, handleDelete, handleClick } = props;
 

@@ -1,7 +1,7 @@
 import { Grid, Box } from "@mui/material";
-import CloseJobDialog from "../CloseJobDialog";
 import SearchTextField from "../FormsUI/Search";
 import ExportBtn from "../FormsUI/Button/ExportBtn";
+import CloseJobDialog from "../DialogActions/CloseJobDialog";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 
 export default function SearchCloseExp(props) {

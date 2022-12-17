@@ -1,9 +1,9 @@
-import DeleteDialog from "../DeleteDialog";
 import { useState, useContext } from "react";
 import EditIcon from "@mui/icons-material/Edit";
 import MenuDivider from "../Divider/menuDivider";
 import DeleteIcon from "@mui/icons-material/Delete";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import DeleteDialog from "../DialogActions/DeleteDialog";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { ThemeContext } from "../../../context/ThemeContextProvider";
 import { Menu, MenuItem, IconButton, ListItemText, ListItemIcon } from "@mui/material";

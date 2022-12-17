@@ -1,7 +1,7 @@
 import { useMemo, useContext } from "react";
-import CloseJobDialog from "../CloseJobDialog";
 import ExportBtn from "../FormsUI/Button/ExportBtn";
 import { Grid, Box, Typography } from "@mui/material";
+import CloseJobDialog from "../DialogActions/CloseJobDialog";
 import { totalStockValue } from "../../../helpers/stockTotalValues";
 import { ThemeContext } from "../../../context/ThemeContextProvider";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";

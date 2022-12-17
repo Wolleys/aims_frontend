@@ -5,9 +5,9 @@ import { Fragment, useState, useContext } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import DeleteDialog from "../../../../components/shared/DeleteDialog";
 import { ThemeContext } from "../../../../context/ThemeContextProvider";
 import MenuDivider from "../../../../components/shared/Divider/menuDivider";
+import DeleteDialog from "../../../../components/shared/DialogActions/DeleteDialog";
 import TransferWithinAStationIcon from "@mui/icons-material/TransferWithinAStation";
 import { Menu, MenuItem, IconButton, ListItemText, ListItemIcon, } from "@mui/material";
 
