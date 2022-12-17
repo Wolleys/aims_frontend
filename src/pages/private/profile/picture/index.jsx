@@ -1,11 +1,7 @@
-import React from "react";
+import Layout from "./layout";
 
 function Picture() {
-    return (
-        <>
-            <h1>Picture</h1>
-        </>
-    );
+    return <Layout />;
 }
 
 export default Picture;
