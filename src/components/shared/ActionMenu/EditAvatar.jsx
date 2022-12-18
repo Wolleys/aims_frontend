@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import ProfileBtn from "../FormsUI/Button/ProfileBtn";
+import RemovePhotoDialog from "../DialogActions/RemovePhotoDialog";
 import { ThemeContext } from "../../../context/ThemeContextProvider";
 import { Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material";
 import PhotoCameraOutlinedIcon from "@mui/icons-material/PhotoCameraOutlined";
@@ -13,6 +14,15 @@ export default function EditAvatar(props) {
   const open = Boolean(anchorEl);
   const handleClick = (event) => { setAnchorEl(event.currentTarget) };
   const handleClose = () => { setAnchorEl(null) };
+
+  //Delete Dialog
+  const [openDialog, setOpenDialog] = useState(false);
+  const handleOpenDialog = () => { setOpenDialog(true) };
+  const handleCloseDialog = (event, reason) => {
+    if (reason !== "backdropClick") {
+      setOpenDialog(false);
+    }
+  };
 
   const menuStyle = {
     mt: 1.3,
@@ -68,11 +78,12 @@ export default function EditAvatar(props) {
           <ListItemIcon><PhotoCameraOutlinedIcon fontSize="small" /></ListItemIcon>
           <ListItemText> Upload a photo </ListItemText>
         </MenuItem>
-        <MenuItem onClick={handleClose} sx={menuItemStyle}>
+        <MenuItem onClick={() => { handleOpenDialog(); handleClose(); }} sx={menuItemStyle}>
           <ListItemIcon><DeleteOutlineOutlinedIcon fontSize="small" /></ListItemIcon>
           <ListItemText> Remove photo </ListItemText>
         </MenuItem>
       </Menu>
+      <RemovePhotoDialog open={openDialog} handleCloseDialog={handleCloseDialog} />
     </>
   );
 }
