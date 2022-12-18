@@ -1,11 +1,7 @@
-import React from "react";
+import Layout from "./layout";
 
 function Security() {
-    return (
-        <>
-            <h1>Security</h1>
-        </>
-    );
+    return <Layout />;
 }
 
 export default Security;

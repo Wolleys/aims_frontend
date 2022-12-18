@@ -25,7 +25,7 @@ function ProfilePictureForm() {
     return (
         <>
             <FormHeading title="Profile Picture" />
-            <Box sx={{ position: "relative" }}>
+            <Box sx={{ position: "relative",  display: "flex", alignItems: "center", }}>
                 <EditAvatar handleChange={handleChange} image={image} />
                 <Box component="label">
                     {image.preview ?
