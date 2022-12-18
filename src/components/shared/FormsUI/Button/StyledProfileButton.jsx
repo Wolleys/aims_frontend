@@ -6,6 +6,7 @@ export default function StyledProfileButton({ ...props }) {
     const { theme } = useContext(ThemeContext);
 
     const buttonStyle = {
+        ml: 0.5,
         fontSize: 14,
         lineHeight: 1.5,
         boxShadow: "none",
