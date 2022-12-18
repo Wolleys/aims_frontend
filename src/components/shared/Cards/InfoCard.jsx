@@ -53,11 +53,12 @@ function InfoCard(props) {
         color: theme === "light" ? "#57606a" : "#8b949e",
     }
 
-    const detailsTypoStyle = {
+    const detailsTypoStyle = (item) => ({
         fontWeight: 400,
         fontSize: "12px",
-        color: theme === "light" ? "#24292f" : "#c9d1d9",
-    }
+        color: item.detail === item.state ? item.textColor
+            : theme === "light" ? "#24292f" : "#c9d1d9",
+    })
 
     return (
         <>
@@ -84,7 +85,7 @@ function InfoCard(props) {
                             {data().map((about) => (
                                 <ListItem key={about.name} sx={{ py: 0, px: 0 }}>
                                     <ListItemText primary={about.name} primaryTypographyProps={nameTypoStyle} />
-                                    <Typography variant="body2" sx={detailsTypoStyle}>{about.detail}</Typography>
+                                    <Typography variant="body2" sx={detailsTypoStyle(about)}>{about.detail}</Typography>
                                 </ListItem>
                             ))}
                         </List>
