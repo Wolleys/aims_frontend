@@ -1,16 +1,15 @@
 import { navItems } from "../nav_items";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Link, MenuItem } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { ThemeContext } from "../../../../../context/ThemeContextProvider";
 
+import DashboardLinks from "../nav_items/dashboardLinks";
+import StockLinks from "../nav_items/default/stockLinks";
+import PartEntryLinks from "../nav_items/default/partEntryLinks";
+
 function MobileNavMenu() {
     const { theme } = useContext(ThemeContext);
-    const [selectedIndex, setSelectedIndex] = useState(null);
-    const handleSelectedIndex = (event, index) => {
-        setSelectedIndex(index);
-    };
-
     const linkStyle = {
         color: "inherit",
         textDecoration: "none",
@@ -33,21 +32,34 @@ function MobileNavMenu() {
             },
         },
         "&.Mui-selected, &.Mui-selected:hover": {
-            backgroundColor: theme === "light" ? "#f6f8fa" : "#161b22",
+            backgroundColor: theme === "light" ? "#F5F5F5" : "#161b22",
         },
     }
 
-    return navItems.map(({ label, href, icon }, index) => {
-        return (
-            <Link {...{ component: RouterLink, to: href, key: label }} sx={linkStyle} >
-                <MenuItem sx={menuItemStyle}
-                    selected={index === selectedIndex}
-                    onClick={(event) => handleSelectedIndex(event, index)}>
-                        {icon} {label}
-                </MenuItem>
-            </Link>
-        );
-    });
+    return (
+        <>
+            {navItems.map(({ label, href, icon }) => {
+                return DashboardLinks(label) ?
+                <Link {...{ component: RouterLink, to: href, key: label }} sx={linkStyle} >
+                    <MenuItem sx={menuItemStyle} selected > {icon} {label} </MenuItem>
+                </Link>
+                : StockLinks(label) ?
+                <Link {...{ component: RouterLink, to: href, key: label }} sx={linkStyle} >
+                    <MenuItem sx={menuItemStyle} selected > {icon} {label} </MenuItem>
+                </Link>
+                : PartEntryLinks(label) ?
+                <Link {...{ component: RouterLink, to: href, key: label }} sx={linkStyle} >
+                    <MenuItem sx={menuItemStyle} selected > {icon} {label} </MenuItem>
+                </Link>
+                :
+                <Link {...{ component: RouterLink, to: href, key: label }} sx={linkStyle} >
+                    <MenuItem sx={menuItemStyle} > {icon} {label} </MenuItem>
+                </Link>
+
+            })}
+
+        </>
+    )
 }
 
 export default MobileNavMenu;
