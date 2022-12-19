@@ -7,6 +7,7 @@ import { ThemeContext } from "../../../../../context/ThemeContextProvider";
 import DashboardLinks from "../nav_items/dashboardLinks";
 import StockLinks from "../nav_items/default/stockLinks";
 import PartEntryLinks from "../nav_items/default/partEntryLinks";
+import JobsLinks from "../nav_items/default/jobsLinks";
 
 function MobileNavMenu() {
     const { theme } = useContext(ThemeContext);
@@ -48,6 +49,10 @@ function MobileNavMenu() {
                     <MenuItem sx={menuItemStyle} selected > {icon} {label} </MenuItem>
                 </Link>
                 : PartEntryLinks(label) ?
+                <Link {...{ component: RouterLink, to: href, key: label }} sx={linkStyle} >
+                    <MenuItem sx={menuItemStyle} selected > {icon} {label} </MenuItem>
+                </Link>
+                : JobsLinks(label) ?
                 <Link {...{ component: RouterLink, to: href, key: label }} sx={linkStyle} >
                     <MenuItem sx={menuItemStyle} selected > {icon} {label} </MenuItem>
                 </Link>
