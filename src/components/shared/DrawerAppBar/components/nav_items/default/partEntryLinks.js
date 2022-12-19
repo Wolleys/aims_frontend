@@ -9,7 +9,8 @@ function PartEntryLinks(label) {
         pathname === `/part-entry/default/edit-part/${partId}` ||
         pathname === `/part-entry/default/purchase-part/${partId}` ||
         pathname === `/part-entry/default/purchase-history/${partId}` ||
-        pathname === `/part-entry/default/purchase-history/edit-part/${partId}`
+        pathname === `/part-entry/default/purchase-history/edit-part/${partId}` ||
+        pathname === `/part-entry/default/issue-history/${partId}`;
     return label === "Part Entry" && pathLinks;
 }
 
