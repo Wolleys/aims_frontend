@@ -6,9 +6,10 @@ import SearchTextField from "../FormsUI/Search";
 import ActionBtn from "../FormsUI/Button/ActionBtn";
 
 function SearchAddFilter(props) {
+    const { partId } = props;
     const navigate = useNavigate();
     const purchasePart = () => {
-        navigate("/part-entry/default/purchase-history/new-purchase");
+        navigate(`/part-entry/default/purchase-part/${partId}`);
     };
 
     return (

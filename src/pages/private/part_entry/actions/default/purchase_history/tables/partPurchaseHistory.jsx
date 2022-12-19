@@ -42,7 +42,7 @@ function PartPurchaseHistory(props) {
 
     return (
         <>
-            <SearchAddFilter />
+            <SearchAddFilter partId={partId} />
             <PartDetails part={partDetails} />
             <PrimaryTable data={historyData} columns={columns} />
             <RecordsExport length={length} history={history} />

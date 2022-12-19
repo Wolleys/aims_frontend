@@ -30,11 +30,10 @@ function AppRoutes() {
           <Route path="default" element={<Part.DefaultPartEntry />} />
           <Route path="default/add-part" element={<Part.AddPart />} />
           <Route path="default/edit-part/:partId" element={<Part.EditPart />} />
+          <Route path="default/purchase-part/:partId" element={<Part.PurchasePart />} />
           <Route path="default/purchase-history/:partId" element={<Part.PurchaseHistory />} />
-          <Route path="default/purchase-history/new-purchase" element={<Part.NewPurchase />} />
           <Route path="default/purchase-history/edit-part/:partId" element={<Part.EditPurchase />} />
           <Route path="default/issue-history/:partId" element={<Part.IssueHistory />} />
-          <Route path="default/purchase-part/:partId" element={<Part.PurchasePart />} />
         </Route>
         <Route path="jobs" element={<PrivateRoute> <Jobs.Jobs /> </PrivateRoute>} >
           <Route path="jobs-list" element={<Jobs.DefaultJobsList />} />
