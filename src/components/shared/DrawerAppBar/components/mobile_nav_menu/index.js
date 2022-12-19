@@ -9,6 +9,7 @@ import StockLinks from "../nav_items/default/stockLinks";
 import PartEntryLinks from "../nav_items/default/partEntryLinks";
 import JobsLinks from "../nav_items/default/jobsLinks";
 import PartIssueLinks from "../nav_items/default/partIssueLinks";
+import HangarUseLinks from "../nav_items/default/hangarUseLinks";
 
 function MobileNavMenu() {
     const { theme } = useContext(ThemeContext);
@@ -58,6 +59,10 @@ function MobileNavMenu() {
                     <MenuItem sx={menuItemStyle} selected > {icon} {label} </MenuItem>
                 </Link>
                 : PartIssueLinks(label) ?
+                <Link {...{ component: RouterLink, to: href, key: label }} sx={linkStyle} >
+                    <MenuItem sx={menuItemStyle} selected > {icon} {label} </MenuItem>
+                </Link>
+                : HangarUseLinks(label) ?
                 <Link {...{ component: RouterLink, to: href, key: label }} sx={linkStyle} >
                     <MenuItem sx={menuItemStyle} selected > {icon} {label} </MenuItem>
                 </Link>
