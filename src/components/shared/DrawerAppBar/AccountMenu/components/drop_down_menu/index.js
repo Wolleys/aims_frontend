@@ -2,13 +2,12 @@ import StyledLink from "./StyledLink";
 import ThemeSwitcher from "./ThemeSwitcher";
 import StyledMenuItem from "./StyledMenuItem";
 import { Logout } from "../../../../../../queries";
+import SettingsMenuItems from "./SettingsMenuItems";
 import MenuDivider from "../../../../Divider/menuDivider";
 import { Avatar, Menu, ListItemIcon } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
 import { stringAvatar } from "../../../../../../assets/js/scripts";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 
 function DropDownMenu(props) {
     const navigate = useNavigate();
@@ -62,17 +61,6 @@ function DropDownMenu(props) {
         },
     ];
 
-    const settingsItems = [
-        {
-            label: "Access Management", link: "/access-management/users",
-            icon: <ListItemIcon> <AdminPanelSettingsOutlinedIcon fontSize="small" /> </ListItemIcon>
-        },
-        {
-            label: "System Setup", link: "/setup/clients",
-            icon: <ListItemIcon> <SettingsOutlinedIcon fontSize="small" /> </ListItemIcon>
-        },
-    ];
-
     const pathLinks =
         pathname === "/profile/overview" ||
         pathname === "/profile/details" ||
@@ -93,13 +81,7 @@ function DropDownMenu(props) {
             })}
             <MenuDivider />
             <ThemeSwitcher />
-            {settingsItems.map((item) => (
-                <StyledLink key={item.label} to={item.link}>
-                    <StyledMenuItem>
-                        {item.icon} {item.label}
-                    </StyledMenuItem>
-                </StyledLink>
-            ))}
+            <SettingsMenuItems />
             <StyledMenuItem onClick={handleLogOut}>
                 <ListItemIcon> <LogoutOutlinedIcon fontSize="small" /> </ListItemIcon>
                 Logout
