@@ -1,5 +1,5 @@
 import { Logout } from "../../../../../../queries";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import MenuDivider from "../../../../Divider/menuDivider";
 import { stringAvatar } from "../../../../../../assets/js/scripts";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
@@ -11,12 +11,43 @@ import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettin
 
 function DropDownMenu(props) {
     const navigate = useNavigate();
+    const { pathname } = useLocation();
     const { anchorEl, open, handleClose, isAuth, theme, toggleTheme } = props;
     const { mutateAsync } = Logout();
 
     const handleLogOut = async () => {
         await mutateAsync();
         navigate("/");
+    }
+
+    const paperStyles = {
+        mt: 1.5,
+        overflow: "visible",
+        "& .MuiAvatar-root": {
+            width: 32, height: 32, ml: -0.5, mr: 1,
+        },
+        "&:before": {
+            content: '""', display: "block", position: "absolute", top: 0, right: 14, width: 10,
+            height: 10, transform: "translateY(-50%) rotate(45deg)", zIndex: 0,
+            bgcolor: theme === "light" ? "background.paper" : "#161B22",
+            borderLeft: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",
+            borderTop: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",
+        },
+        backgroundColor: theme === "light" ? "background.paper" : "#161B22",
+        border: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",
+    }
+
+    const defaultProps = {
+        open: open,
+        anchorEl: anchorEl,
+        onClose: handleClose,
+        onClick: handleClose,
+        PaperProps: {
+            elevation: 0,
+            sx: paperStyles
+        },
+        transformOrigin: { horizontal: "right", vertical: "top" },
+        anchorOrigin: { horizontal: "right", vertical: "bottom" }
     }
 
     const linkStyle = {
@@ -37,12 +68,22 @@ function DropDownMenu(props) {
             "& .MuiSvgIcon-root": {
                 color: theme === "light" ? "#5046e4" : "#fff",
             },
-        }
+        },
+        "&.Mui-selected, &.Mui-selected:hover": {
+            color: theme === "light" ? "#444" : "#fff",
+            backgroundColor: theme === "light" ? "#F5F5F5" : "#5046e4",
+        },
     }
 
     const profileItems = [
-        { label: "My Profile", link: "/profile/overview", icon: <Avatar {...stringAvatar(isAuth.firstName + " " + isAuth.lastName)} /> },
-        { label: "Account Settings", link: "/account-settings", icon: <Avatar src={isAuth?.avatar} /> },
+        {
+            label: "My Profile", link: "/profile/overview",
+            icon: <Avatar {...stringAvatar(isAuth.firstName + " " + isAuth.lastName)} />
+        },
+        {
+            label: "Account Settings", link: "/account-settings",
+            icon: <Avatar src={isAuth?.avatar} />,
+        },
     ];
 
     const settingsItems = [
@@ -56,33 +97,24 @@ function DropDownMenu(props) {
         },
     ];
 
-    return (
-        <Menu anchorEl={anchorEl} open={open} onClose={handleClose} onClick={handleClose}
-            PaperProps={{
-                elevation: 0, sx: {
-                    overflow: "visible",
-                    mt: 1.5, "& .MuiAvatar-root": { width: 32, height: 32, ml: -0.5, mr: 1, },
-                    "&:before": {
-                        content: '""', display: "block", position: "absolute", top: 0, right: 14, width: 10,
-                        height: 10, transform: "translateY(-50%) rotate(45deg)", zIndex: 0,
-                        bgcolor: theme === "light" ? "background.paper" : "#161B22",
-                        borderLeft: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",
-                        borderTop: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",
-                    },
-                    backgroundColor: theme === "light" ? "background.paper" : "#161B22",
-                    border: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",
-                },
-            }}
-            transformOrigin={{ horizontal: "right", vertical: "top" }}
-            anchorOrigin={{ horizontal: "right", vertical: "bottom" }} >
+    const pathLinks =
+        pathname === "/profile/overview" ||
+        pathname === "/profile/details" ||
+        pathname === "/profile/picture" ||
+        pathname === "/profile/security";
 
-            {profileItems.map((item) => (
-                <Link key={item.label} to={item.link} style={linkStyle}>
-                    <MenuItem sx={menuItemStyle}>
-                        {item.icon} {item.label}
-                    </MenuItem>
+    return (
+        <Menu {...defaultProps} >
+            {profileItems.map(({ label, link, icon }) => {
+                return label === "My Profile" && pathLinks ?
+                <Link key={label} to={link} style={linkStyle}>
+                    <MenuItem sx={menuItemStyle} selected> {icon} {label} </MenuItem>
                 </Link>
-            ))}
+                :
+                <Link key={label} to={link} style={linkStyle}>
+                    <MenuItem sx={menuItemStyle}> {icon} {label} </MenuItem>
+                </Link>
+            })}
             <MenuDivider />
             <MenuItem sx={menuItemStyle}>
                 <ListItemIcon>
