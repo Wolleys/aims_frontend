@@ -1,18 +1,16 @@
-import StyledLink from "./StyledLink";
 import ThemeSwitcher from "./ThemeSwitcher";
 import StyledMenuItem from "./StyledMenuItem";
+import { useNavigate } from "react-router-dom";
+import ProfileMenuItems from "./ProfileMenuItems";
 import { Logout } from "../../../../../../queries";
+import { Menu, ListItemIcon } from "@mui/material";
 import SettingsMenuItems from "./SettingsMenuItems";
 import MenuDivider from "../../../../Divider/menuDivider";
-import { Avatar, Menu, ListItemIcon } from "@mui/material";
-import { useNavigate, useLocation } from "react-router-dom";
-import { stringAvatar } from "../../../../../../assets/js/scripts";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 
 function DropDownMenu(props) {
     const navigate = useNavigate();
-    const { pathname } = useLocation();
-    const { anchorEl, open, handleClose, isAuth, theme } = props;
+    const { anchorEl, open, handleClose, theme } = props;
     const { mutateAsync } = Logout();
 
     const handleLogOut = async () => {
@@ -50,35 +48,9 @@ function DropDownMenu(props) {
         anchorOrigin: { horizontal: "right", vertical: "bottom" }
     }
 
-    const profileItems = [
-        {
-            label: "My Profile", link: "/profile/overview",
-            icon: <Avatar {...stringAvatar(isAuth.firstName + " " + isAuth.lastName)} />
-        },
-        {
-            label: "Account Settings", link: "/account-settings",
-            icon: <Avatar src={isAuth?.avatar} />,
-        },
-    ];
-
-    const pathLinks =
-        pathname === "/profile/overview" ||
-        pathname === "/profile/details" ||
-        pathname === "/profile/picture" ||
-        pathname === "/profile/security";
-
     return (
         <Menu {...defaultProps} >
-            {profileItems.map(({ label, link, icon }) => {
-                return label === "My Profile" && pathLinks ?
-                <StyledLink key={label} to={link}>
-                    <StyledMenuItem selected> {icon} {label} </StyledMenuItem>
-                </StyledLink>
-                :
-                <StyledLink key={label} to={link}>
-                    <StyledMenuItem > {icon} {label} </StyledMenuItem>
-                </StyledLink>
-            })}
+            <ProfileMenuItems />
             <MenuDivider />
             <ThemeSwitcher />
             <SettingsMenuItems />
