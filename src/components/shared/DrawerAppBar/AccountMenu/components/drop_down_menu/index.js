@@ -1,9 +1,10 @@
+import StyledMenuItem from "./StyledMenuItem";
 import { Logout } from "../../../../../../queries";
-import { Link, useNavigate, useLocation } from "react-router-dom";
 import MenuDivider from "../../../../Divider/menuDivider";
+import { Avatar, Menu, ListItemIcon } from "@mui/material";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { stringAvatar } from "../../../../../../assets/js/scripts";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
-import { Avatar, Menu, ListItemIcon, MenuItem } from "@mui/material";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
@@ -55,26 +56,6 @@ function DropDownMenu(props) {
         textDecoration: "none",
     }
 
-    const menuItemStyle = {
-        fontSize: "14px",
-        color: theme === "light" ? "#444" : "#c9d1d9",
-        "& .MuiSvgIcon-root": {
-            fontSize: "17px",
-            color: theme === "light" ? "#57606a" : "#8b949e",
-        },
-        "&:hover": {
-            color: theme === "light" ? "#444" : "#fff",
-            backgroundColor: theme === "light" ? "#F5F5F5" : "#5046e4",
-            "& .MuiSvgIcon-root": {
-                color: theme === "light" ? "#5046e4" : "#fff",
-            },
-        },
-        "&.Mui-selected, &.Mui-selected:hover": {
-            color: theme === "light" ? "#444" : "#fff",
-            backgroundColor: theme === "light" ? "#F5F5F5" : "#5046e4",
-        },
-    }
-
     const profileItems = [
         {
             label: "My Profile", link: "/profile/overview",
@@ -108,15 +89,15 @@ function DropDownMenu(props) {
             {profileItems.map(({ label, link, icon }) => {
                 return label === "My Profile" && pathLinks ?
                 <Link key={label} to={link} style={linkStyle}>
-                    <MenuItem sx={menuItemStyle} selected> {icon} {label} </MenuItem>
+                    <StyledMenuItem selected> {icon} {label} </StyledMenuItem>
                 </Link>
                 :
                 <Link key={label} to={link} style={linkStyle}>
-                    <MenuItem sx={menuItemStyle}> {icon} {label} </MenuItem>
+                    <StyledMenuItem > {icon} {label} </StyledMenuItem>
                 </Link>
             })}
             <MenuDivider />
-            <MenuItem sx={menuItemStyle}>
+            <StyledMenuItem>
                 <ListItemIcon>
                     {theme === "light" ? <DarkModeOutlinedIcon fontSize="small" /> : <LightModeOutlinedIcon fontSize="small" />}
                 </ListItemIcon>
@@ -124,18 +105,18 @@ function DropDownMenu(props) {
                 <label htmlFor="mode" style={{ cursor: "pointer" }}>
                     {theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
                 </label>
-            </MenuItem>
+            </StyledMenuItem>
             {settingsItems.map((item) => (
                 <Link key={item.label} to={item.link} style={linkStyle}>
-                    <MenuItem sx={menuItemStyle}>
+                    <StyledMenuItem>
                         {item.icon} {item.label}
-                    </MenuItem>
+                    </StyledMenuItem>
                 </Link>
             ))}
-            <MenuItem onClick={handleLogOut} sx={menuItemStyle}>
+            <StyledMenuItem onClick={handleLogOut}>
                 <ListItemIcon> <LogoutOutlinedIcon fontSize="small" /> </ListItemIcon>
                 Logout
-            </MenuItem>
+            </StyledMenuItem>
         </Menu>
     )
 }
