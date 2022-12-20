@@ -1,13 +1,15 @@
-import React from "react";
+import { useContext } from "react";
 import { stringAvatar } from "../../../../../../assets/js/scripts";
+import { AuthContext } from "../../../../../../context/AuthContextProvider";
 import { Box, Typography, Tooltip, IconButton, Avatar } from "@mui/material"
 
 function AppBarAvatar(props) {
-    const { handleClick, open, isAuth, theme } = props;
+    const { isAuth } = useContext(AuthContext);
+    const { handleClick, open, theme } = props;
     const typographyStyle = {
-        ml: 1, 
-        display: { xs: "none", sm: "block", }, 
+        ml: 1,
         fontSize: "14px",
+        display: { xs: "none", sm: "block", },
         color: theme === "light" ? "#ede7f6" : "#c9d1d9",
     }
 
