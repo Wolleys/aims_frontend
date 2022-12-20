@@ -1,4 +1,5 @@
 import StyledLink from "./StyledLink";
+import ThemeSwitcher from "./ThemeSwitcher";
 import StyledMenuItem from "./StyledMenuItem";
 import { Logout } from "../../../../../../queries";
 import MenuDivider from "../../../../Divider/menuDivider";
@@ -7,14 +8,12 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { stringAvatar } from "../../../../../../assets/js/scripts";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 
 function DropDownMenu(props) {
     const navigate = useNavigate();
     const { pathname } = useLocation();
-    const { anchorEl, open, handleClose, isAuth, theme, toggleTheme } = props;
+    const { anchorEl, open, handleClose, isAuth, theme } = props;
     const { mutateAsync } = Logout();
 
     const handleLogOut = async () => {
@@ -93,15 +92,7 @@ function DropDownMenu(props) {
                 </StyledLink>
             })}
             <MenuDivider />
-            <StyledMenuItem>
-                <ListItemIcon>
-                    {theme === "light" ? <DarkModeOutlinedIcon fontSize="small" /> : <LightModeOutlinedIcon fontSize="small" />}
-                </ListItemIcon>
-                <input type="checkbox" onChange={toggleTheme} checked={theme === "dark"} id="mode" style={{ display: "none" }} />
-                <label htmlFor="mode" style={{ cursor: "pointer" }}>
-                    {theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
-                </label>
-            </StyledMenuItem>
+            <ThemeSwitcher />
             {settingsItems.map((item) => (
                 <StyledLink key={item.label} to={item.link}>
                     <StyledMenuItem>
