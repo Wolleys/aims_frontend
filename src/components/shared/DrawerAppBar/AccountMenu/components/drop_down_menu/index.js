@@ -1,8 +1,9 @@
+import StyledLink from "./StyledLink";
 import StyledMenuItem from "./StyledMenuItem";
 import { Logout } from "../../../../../../queries";
 import MenuDivider from "../../../../Divider/menuDivider";
 import { Avatar, Menu, ListItemIcon } from "@mui/material";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { stringAvatar } from "../../../../../../assets/js/scripts";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
@@ -51,11 +52,6 @@ function DropDownMenu(props) {
         anchorOrigin: { horizontal: "right", vertical: "bottom" }
     }
 
-    const linkStyle = {
-        color: "inherit",
-        textDecoration: "none",
-    }
-
     const profileItems = [
         {
             label: "My Profile", link: "/profile/overview",
@@ -88,13 +84,13 @@ function DropDownMenu(props) {
         <Menu {...defaultProps} >
             {profileItems.map(({ label, link, icon }) => {
                 return label === "My Profile" && pathLinks ?
-                <Link key={label} to={link} style={linkStyle}>
+                <StyledLink key={label} to={link}>
                     <StyledMenuItem selected> {icon} {label} </StyledMenuItem>
-                </Link>
+                </StyledLink>
                 :
-                <Link key={label} to={link} style={linkStyle}>
+                <StyledLink key={label} to={link}>
                     <StyledMenuItem > {icon} {label} </StyledMenuItem>
-                </Link>
+                </StyledLink>
             })}
             <MenuDivider />
             <StyledMenuItem>
@@ -107,11 +103,11 @@ function DropDownMenu(props) {
                 </label>
             </StyledMenuItem>
             {settingsItems.map((item) => (
-                <Link key={item.label} to={item.link} style={linkStyle}>
+                <StyledLink key={item.label} to={item.link}>
                     <StyledMenuItem>
                         {item.icon} {item.label}
                     </StyledMenuItem>
-                </Link>
+                </StyledLink>
             ))}
             <StyledMenuItem onClick={handleLogOut}>
                 <ListItemIcon> <LogoutOutlinedIcon fontSize="small" /> </ListItemIcon>
