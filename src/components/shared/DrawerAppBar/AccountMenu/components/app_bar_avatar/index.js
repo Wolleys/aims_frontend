@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { stringAvatar } from "../../../../../../assets/js/scripts";
+import { stringAvatar } from "../../../../../../helpers/stringToColor";
 import { AuthContext } from "../../../../../../context/AuthContextProvider";
 import { Box, Typography, Tooltip, IconButton, Avatar } from "@mui/material"
 

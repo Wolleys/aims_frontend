@@ -3,7 +3,7 @@ import StyledLink from "./StyledLink";
 import { Avatar } from "@mui/material";
 import StyledMenuItem from "./StyledMenuItem";
 import { useLocation } from "react-router-dom";
-import { stringAvatar } from "../../../../../../assets/js/scripts";
+import { stringAvatar } from "../../../../../../helpers/stringToColor";
 import { AuthContext } from "../../../../../../context/AuthContextProvider";
 
 const profileLinks = (path, label) => {
