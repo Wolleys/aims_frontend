@@ -25,7 +25,7 @@ function ProfileMenuItems() {
             icon: <Avatar {...stringAvatar(isAuth.firstName + " " + isAuth.lastName)} />
         },
         {
-            label: "Account Settings", link: "/account-settings",
+            label: "Account Settings", link: "/settings/billing",
             icon: <Avatar src={isAuth?.avatar} />,
         },
     ];

@@ -3,7 +3,6 @@ import DetailsPanel from "./detailsPanel";
 import { companyProfile } from "./companyProfile";
 import InfoCard from "../../../../components/shared/Cards/InfoCard";
 import SwipeableEdgeDrawer from "../../../../components/shared/Drawer";
-// import ProfileCard from "../../../../components/shared/Cards/profileCard";
 
 function Layout() {
     return (

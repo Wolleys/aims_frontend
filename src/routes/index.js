@@ -11,6 +11,7 @@ import * as Jobs from "./jobs";
 import * as PartIssue from "./part_issue/default";
 import * as HangarUse from "./hangar_use/default";
 import * as Profile from "./profile";
+import * as Settings from "./account_settings";
 import { NotFound } from "./not_found";
 
 function AppRoutes() {
@@ -55,7 +56,10 @@ function AppRoutes() {
           <Route path="picture" element={<Profile.Picture />} />
           <Route path="security" element={<Profile.Security />} />
         </Route>
-
+        <Route path="settings" element={<PrivateRoute> <Settings.Settings /> </PrivateRoute>}>
+          <Route path="billing" element={<Settings.Billing />} />
+        
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
