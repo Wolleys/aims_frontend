@@ -6,6 +6,15 @@ import { useLocation } from "react-router-dom";
 import { stringAvatar } from "../../../../../../assets/js/scripts";
 import { AuthContext } from "../../../../../../context/AuthContextProvider";
 
+const profileLinks = (path, label) => {
+    const pathLinks =
+        path === "/profile/overview" ||
+        path === "/profile/details" ||
+        path === "/profile/picture" ||
+        path === "/profile/security";
+    return label === "My Profile" && pathLinks;
+}
+
 function ProfileMenuItems() {
     const { pathname } = useLocation();
     const { isAuth } = useContext(AuthContext);
@@ -21,16 +30,10 @@ function ProfileMenuItems() {
         },
     ];
 
-    const pathLinks =
-        pathname === "/profile/overview" ||
-        pathname === "/profile/details" ||
-        pathname === "/profile/picture" ||
-        pathname === "/profile/security";
-
     return (
         <>
             {profileItems.map(({ label, link, icon }) => {
-                return label === "My Profile" && pathLinks ?
+                return profileLinks(pathname, label) ?
                     <StyledLink key={label} to={link}>
                         <StyledMenuItem selected> {icon} {label} </StyledMenuItem>
                     </StyledLink>
