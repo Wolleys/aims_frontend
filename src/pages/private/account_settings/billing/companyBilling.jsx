@@ -10,7 +10,7 @@ function CompanyBilling(props) {
         elavation: 0,
         borderRadius: "0px",
         backgroundColor: theme === "light" ? "#FAFAFA" : "#0d1117",
-    };
+    }
     const defaultProps = {
         sx: cardStyles,
         variant: "none",
@@ -24,11 +24,17 @@ function CompanyBilling(props) {
         fontSize: "20px",
         color: theme === "light" ? "#24292f" : "#c9d1d9",
     }
+    const cardContentStyles = {
+        pl: 0, pr: 0,
+        "&.MuiCardContent-root:last-child": {
+            paddingBottom: 2
+        }
+    }
 
     return (
         <Card {...defaultProps} >
             <CardHeader title="Company billing" sx={headerStyles} titleTypographyProps={titleTypoProps} />
-            <CardContent sx={{ pl: 0, pr: 0 }}>
+            <CardContent sx={cardContentStyles}>
                 <CardLabels />
             </CardContent>
         </Card>

@@ -1,19 +1,29 @@
 import { currentPlan } from "./currentPlan";
-import { Container, Grid } from "@mui/material";
 import CompanyBilling from "./companyBilling";
+import { Container, Grid } from "@mui/material";
 import InfoCard from "../../../../components/shared/Cards/InfoCard";
 
 function Layout() {
+    const gridLayoutStyles = {
+        rowSpacing: 0,
+        container: true,
+        columnSpacing:{ 
+            xs: 0, sm: 0, md: 2 
+        },
+        sx:{mt: 1, }
+    }
     return (
-        <Container sx={{height: "500px",}}>
-            <Grid container spacing={3}  >
+        <Container>
+            <Grid {...gridLayoutStyles} >
                 <Grid item md={3} sx={{
+                    marginBottom: "auto",
                     display: { xs: "none", sm: "none", md: "grid" }
                 }} >
                     <InfoCard header data={currentPlan} />
                 </Grid>
                 <Grid item xs={12} md={9} sx={{
-                    display: { xs: "grid", sm: "grid", md: "grid"}
+                    display: { xs: "grid", sm: "grid", md: "flex"},
+                    flexDirection: "column"
                 }} >
                     <CompanyBilling />
                 </Grid>
