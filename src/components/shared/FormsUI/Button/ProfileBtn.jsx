@@ -1,4 +1,4 @@
-import StyledProfileButton from "./StyledProfileButton";
+import StyledUtilityButton from "./StyledUtilityButton";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 
 const ProfileBtn = ({ children, ...otherProps }) => {
@@ -16,7 +16,7 @@ const ProfileBtn = ({ children, ...otherProps }) => {
         ml: "-4px"
     }
 
-    return <StyledProfileButton {...configButton} startIcon={<EditOutlinedIcon sx={iconStyle} />}>{children}</StyledProfileButton>;
+    return <StyledUtilityButton {...configButton} startIcon={<EditOutlinedIcon sx={iconStyle} />}>{children}</StyledUtilityButton>;
 };
 
 export default ProfileBtn;

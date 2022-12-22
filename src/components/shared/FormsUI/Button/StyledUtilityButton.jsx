@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Button } from "@mui/material";
 import { ThemeContext } from "../../../../context/ThemeContextProvider";
 
-export default function StyledProfileButton({ ...props }) {
+export default function StyledUtilityButton({ ...props }) {
     const { theme } = useContext(ThemeContext);
 
     const buttonStyle = {

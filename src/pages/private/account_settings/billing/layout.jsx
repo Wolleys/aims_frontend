@@ -1,3 +1,4 @@
+import PlanFeatures from "./plan_features";
 import { currentPlan } from "./currentPlan";
 import CompanyBilling from "./companyBilling";
 import { Container, Grid } from "@mui/material";
@@ -26,6 +27,7 @@ function Layout() {
                     flexDirection: "column"
                 }} >
                     <CompanyBilling />
+                    <PlanFeatures />
                 </Grid>
             </Grid>
         </Container>
