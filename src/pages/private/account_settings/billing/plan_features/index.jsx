@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import HeaderList from "./headerList";
 import ActionButtons from "./actionButtons";
 import { Card, CardContent, CardHeader, Box } from "@mui/material";
 import { ThemeContext } from "../../../../../context/ThemeContextProvider";
@@ -34,6 +35,11 @@ function PlanFeatures(props) {
     const actionBoxStyles = {
         display: { xs: "none", sm: "block" },
     }
+    const cardContentStyles = {
+        borderRadius: "4px",
+        pl: 0, pr: 0, pt: 0, mt: 2,
+        border: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",
+    }
 
     return (
         <Card {...defaultProps} >
@@ -41,10 +47,10 @@ function PlanFeatures(props) {
                 titleTypographyProps={titleTypoProps}
                 subheader={<Box sx={subHeaderBoxStyles} > {ActionButtons()} </Box>}
                 subheaderTypographyProps={subHeaderTypoProps}
-                action={<Box sx={actionBoxStyles} > {ActionButtons()} </Box>} 
+                action={<Box sx={actionBoxStyles} > {ActionButtons()} </Box>}
             />
-            <CardContent sx={{ pl: 0, pr: 0 }}>
-                features
+            <CardContent sx={cardContentStyles}>
+                <HeaderList theme={theme} />
             </CardContent>
         </Card>
     );
