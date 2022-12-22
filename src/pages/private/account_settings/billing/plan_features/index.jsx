@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import HeaderList from "./headerList";
+import FeaturesList from "./featuresList";
 import ActionButtons from "./actionButtons";
 import { Card, CardContent, CardHeader, Box } from "@mui/material";
 import { ThemeContext } from "../../../../../context/ThemeContextProvider";
@@ -39,6 +40,9 @@ function PlanFeatures(props) {
         borderRadius: "4px",
         pl: 0, pr: 0, pt: 0, mt: 2,
         border: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",
+        "&.MuiCardContent-root:last-child": {
+            paddingBottom: 0
+        }
     }
 
     return (
@@ -51,6 +55,7 @@ function PlanFeatures(props) {
             />
             <CardContent sx={cardContentStyles}>
                 <HeaderList theme={theme} />
+                <FeaturesList theme={theme} />
             </CardContent>
         </Card>
     );

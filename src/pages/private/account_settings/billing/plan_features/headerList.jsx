@@ -42,7 +42,7 @@ function HeaderList({ theme }) {
                 </ListItemAvatar>
                 <ListItemText
                     primary="AIMS Freemium"
-                    secondary="The startup package for all"
+                    secondary="Everything in the freemium plan"
                     primaryTypographyProps={primaryTypoProps}
                     secondaryTypographyProps={secondaryTypoProps}
                 />
