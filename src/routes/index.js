@@ -58,6 +58,7 @@ function AppRoutes() {
         </Route>
         <Route path="settings" element={<PrivateRoute> <Settings.Settings /> </PrivateRoute>}>
           <Route path="billing" element={<Settings.Billing />} />
+          <Route path="billing/billing_information" element={<Settings.BillingInfo />} />
         
         </Route>
         <Route path="*" element={<NotFound />} />
