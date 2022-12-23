@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import SecondaryDivider from "../Divider/secondaryDivider";
 import { AuthContext } from "../../../context/AuthContextProvider";
 import { ThemeContext } from "../../../context/ThemeContextProvider";
@@ -8,9 +9,11 @@ import {
 } from "@mui/material";
 
 function InfoCard(props) {
+    const navigate = useNavigate();
     const { header, data } = props;
     const { isAuth } = useContext(AuthContext);
     const { theme } = useContext(ThemeContext);
+    const goTo = () => navigate("/settings/billing/plans");
 
     const cardStyle = {
         borderRadius: "4px",
@@ -66,7 +69,7 @@ function InfoCard(props) {
                 {header ?
                     <CardHeader title="Current Plan" sx={{ pt: 1, pb: 1 }}
                         titleTypographyProps={titleTypoProps}
-                        action={<Button sx={actionBtnStyle} >Upgrade</Button>} />
+                        action={<Button onClick={goTo} sx={actionBtnStyle} >Upgrade</Button>} />
                     : null
                 }
                 <CardContent sx={{ mt: "0px" }}>
