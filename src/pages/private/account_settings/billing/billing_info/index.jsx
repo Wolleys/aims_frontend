@@ -1,7 +1,7 @@
-import React from "react";
+import Layout from "./layout";
 
 function BillingInfo() {
-  return <div>BillingInfo</div>;
+  return <Layout />;
 }
 
 export default BillingInfo;
