@@ -1,8 +1,9 @@
 import PlanFeatures from "./plan_features";
 import { currentPlan } from "./currentPlan";
 import CompanyBilling from "./companyBilling";
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Box } from "@mui/material";
 import InfoCard from "../../../../components/shared/Cards/InfoCard";
+import SwipeableEdgeDrawer from "../../../../components/shared/Drawer";
 
 function Layout() {
     const gridLayoutStyles = {
@@ -29,6 +30,11 @@ function Layout() {
                     <CompanyBilling />
                     <PlanFeatures />
                 </Grid>
+                <Box sx={{
+                    display: { xs: "grid", sm: "grid", md: "none" }
+                }}>
+                    <SwipeableEdgeDrawer title="Current Plan" content={<InfoCard header data={currentPlan} />} />
+                </Box>
             </Grid>
         </Container>
     );
