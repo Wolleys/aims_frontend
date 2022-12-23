@@ -60,6 +60,7 @@ function AppRoutes() {
           <Route path="billing" element={<Settings.Billing />} />
           <Route path="billing/billing_information" element={<Settings.BillingInfo />} />
           <Route path="billing/payment_method" element={<Settings.PaymentMethod />} />
+          <Route path="billing/plans" element={<Settings.Plans />} />
         
         </Route>
         <Route path="*" element={<NotFound />} />
