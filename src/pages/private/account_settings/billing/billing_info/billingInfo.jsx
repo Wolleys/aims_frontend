@@ -1,9 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import CompanyDetails from "./companyDetails";
+import BillingInfoForm from "./billingInfoForm";
 import { Card, CardContent, CardHeader } from "@mui/material";
 import { ThemeContext } from "../../../../../context/ThemeContextProvider";
 
 function BillingInfo(props) {
     const { theme } = useContext(ThemeContext);
+    const [editing, setEditing] = useState(false);
+
+    const editRow = (company) => {
+        setEditing(true);
+    };
 
     const cardStyles = {
         elavation: 0,
@@ -26,7 +33,6 @@ function BillingInfo(props) {
     const cardContentStyles = {
         borderRadius: "4px",
         pl: 0, pr: 0, pt: 0, mt: 2,
-        border: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",
         "&.MuiCardContent-root:last-child": {
             paddingBottom: 0
         }
@@ -34,10 +40,14 @@ function BillingInfo(props) {
 
     return (
         <Card {...defaultProps} >
-            <CardHeader title="Billing information" sx={headerStyles} titleTypographyProps={titleTypoProps} />
+            <CardHeader title="Billing information"
+                sx={headerStyles}
+                titleTypographyProps={titleTypoProps}
+            />
             <CardContent sx={cardContentStyles}>
-                Content
-                
+                {editing ?
+                    <BillingInfoForm setEditing={setEditing} />
+                    : <CompanyDetails editRow={editRow} />}
             </CardContent>
         </Card>
     );
