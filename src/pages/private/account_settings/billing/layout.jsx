@@ -1,6 +1,6 @@
 import PlanFeatures from "./plan_features";
-import { currentPlan } from "./currentPlan";
 import CompanyBilling from "./companyBilling";
+import { currentPlan } from "../../data/currentPlan";
 import { Container, Grid, Box } from "@mui/material";
 import InfoCard from "../../../../components/shared/Cards/InfoCard";
 import SwipeableEdgeDrawer from "../../../../components/shared/Drawer";

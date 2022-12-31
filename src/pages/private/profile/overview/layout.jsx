@@ -1,7 +1,7 @@
 import CardLabels from "./cardLabels";
 import { Box, Grid } from "@mui/material";
-import { currentPlan } from "./currentPlan";
 import RecentActivities from "./recentActivities";
+import { currentPlan } from "../../data/currentPlan";
 import InfoCard from "../../../../components/shared/Cards/InfoCard";
 import SwipeableEdgeDrawer from "../../../../components/shared/Drawer";
 

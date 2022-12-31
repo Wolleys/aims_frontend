@@ -1,7 +1,7 @@
 import BillingInfo from "./billingInfo";
-import { currentPlan } from "../currentPlan";
 import CompanyBilling from "../companyBilling";
 import { Container, Grid, Box } from "@mui/material";
+import { currentPlan } from "../../../data/currentPlan";
 import InfoCard from "../../../../../components/shared/Cards/InfoCard";
 import SwipeableEdgeDrawer from "../../../../../components/shared/Drawer";
 
