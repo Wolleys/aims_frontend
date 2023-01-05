@@ -1,3 +1,4 @@
+import SelectMethod from "./selectMethod";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../../../../../context/ThemeContextProvider";
 import { Card, CardContent, CardHeader, Box, Typography, Link } from "@mui/material";
@@ -6,7 +7,7 @@ function PaymentMethods() {
     const { theme } = useContext(ThemeContext);
     const [addInfo, setAddInfo] = useState(false);
 
-    const addInformation = (company) => {
+    const addInformation = () => {
         setAddInfo(true);
     };
 
@@ -31,13 +32,11 @@ function PaymentMethods() {
     const cardContentStyles = {
         borderRadius: "4px",
         pl: 0, pr: 0, pt: 0, mt: 2,
-        border: theme === "light" ? "1px solid #d0d7de" : "1px solid #30363d",
         "&.MuiCardContent-root:last-child": {
             paddingBottom: 0
         }
     }
     const boxStyles = {
-        padding: "8px 16px",
         textAlign: "center"
     }
     const typoStyles = {
@@ -69,8 +68,7 @@ function PaymentMethods() {
             />
             <CardContent sx={cardContentStyles}>
                 <Box style={boxStyles}>
-                    {addInfo ? "Add" : emptyState()
-                    }
+                    {addInfo ? <SelectMethod /> : emptyState()}
                 </Box>
             </CardContent>
         </Card>
