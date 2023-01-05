@@ -1,7 +1,7 @@
-import React from "react";
+import Layout from "./layout";
 
 function PaymentMethod() {
-  return <div>PaymentMethod</div>;
+  return <Layout />;
 }
 
 export default PaymentMethod;
