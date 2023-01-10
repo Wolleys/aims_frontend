@@ -68,7 +68,7 @@ function PaymentMethods() {
             />
             <CardContent sx={cardContentStyles}>
                 <Box style={boxStyles}>
-                    {addInfo ? <SelectMethod /> : emptyState()}
+                    {addInfo ? <SelectMethod setAddInfo={setAddInfo} /> : emptyState()}
                 </Box>
             </CardContent>
         </Card>

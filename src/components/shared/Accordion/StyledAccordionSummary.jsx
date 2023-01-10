@@ -44,7 +44,7 @@ function StyledAccordionSummary({ children, }) {
             transform: "rotate(90deg)",
         },
         "& .MuiAccordionSummary-content": {
-            marginLeft: 1,
+            marginLeft: 3,
         },
     }));
 
