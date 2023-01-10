@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CreditCardForm from "./creditCardForm";
+import MobileNumberForm from "./mobileNumberForm";
 import { Typography, Container } from "@mui/material";
 import StyledAccordion from "../../../../../components/shared/Accordion/StyledAccordion";
 import StyledAccordionDetails from "../../../../../components/shared/Accordion/StyledAccordionDetails";
@@ -47,9 +48,9 @@ export default function SelectMethod(props) {
                     Pay with mobile money
                 </StyledAccordionSummary>
                 <StyledAccordionDetails>
-                    <Typography>
-                        Number used to send the payment
-                    </Typography>
+                    <Container {...containerProps}>
+                        <MobileNumberForm setAddInfo={setAddInfo} />
+                    </Container>
                 </StyledAccordionDetails>
             </StyledAccordion>
         </div>
