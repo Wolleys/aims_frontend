@@ -15,6 +15,17 @@ const profileLinks = (path, label) => {
     return label === "My Profile" && pathLinks;
 }
 
+const accSettingsLinks = (path, label) => {
+    const pathLinks =
+        path === "/settings/billing" ||
+        path === "/settings/billing/billing_information" ||
+        path === "/settings/billing/payment_method" ||
+        path === "/settings/billing/plans" ||
+        path === "/account/upgrade" ||
+        path === "/account/billing/history";
+    return label === "Account Settings" && pathLinks;
+}
+
 function ProfileMenuItems() {
     const { pathname } = useLocation();
     const { isAuth } = useContext(AuthContext);
@@ -34,6 +45,10 @@ function ProfileMenuItems() {
         <>
             {profileItems.map(({ label, link, icon }) => {
                 return profileLinks(pathname, label) ?
+                    <StyledLink key={label} to={link}>
+                        <StyledMenuItem selected> {icon} {label} </StyledMenuItem>
+                    </StyledLink>
+                    : accSettingsLinks(pathname, label) ?
                     <StyledLink key={label} to={link}>
                         <StyledMenuItem selected> {icon} {label} </StyledMenuItem>
                     </StyledLink>
