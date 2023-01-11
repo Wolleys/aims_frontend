@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Cardetails from "./cardetails";
 import EditCardForm from "./editCardForm";
+import MobileNumDetails from "./mobileNumDetails";
+import EditMobileNumForm from "./editMobileNumForm";
 import { Typography, Container } from "@mui/material";
 import StyledAccordion from "../../../../../../components/shared/Accordion/StyledAccordion";
 import StyledAccordionDetails from "../../../../../../components/shared/Accordion/StyledAccordionDetails";
@@ -14,7 +16,7 @@ export default function PaymentDetails() {
         setExpanded(newExpanded ? panel : false);
     };
 
-    const editRow = (company) => {
+    const editInfo = (company) => {
         setEditing(true);
     };
 
@@ -33,7 +35,9 @@ export default function PaymentDetails() {
                 </StyledAccordionSummary>
                 <StyledAccordionDetails>
                     <Container {...containerProps} >
-                        {editing ? <EditCardForm setEditing={setEditing} /> : <Cardetails editRow={editRow} />}
+                        {editing ? <EditCardForm setEditing={setEditing} />
+                            : <Cardetails editInfo={editInfo} />
+                        }
                     </Container>
                 </StyledAccordionDetails>
             </StyledAccordion>
@@ -53,7 +57,9 @@ export default function PaymentDetails() {
                 </StyledAccordionSummary>
                 <StyledAccordionDetails>
                     <Container {...containerProps}>
-                        mobile number
+                        {editing ? <EditMobileNumForm setEditing={setEditing} />
+                            : <MobileNumDetails editInfo={editInfo} />
+                        }
                     </Container>
                 </StyledAccordionDetails>
             </StyledAccordion>
