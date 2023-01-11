@@ -65,6 +65,7 @@ function AppRoutes() {
         </Route>
         <Route path="account" element={<PrivateRoute> <Account.Account /> </PrivateRoute>}>
           <Route path="upgrade" element={<Account.Upgrade />} />
+          <Route path="billing/history" element={<Account.PaymentHistory />} />
 
         </Route>
         <Route path="*" element={<NotFound />} />
