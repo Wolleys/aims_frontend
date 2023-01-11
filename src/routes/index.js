@@ -12,6 +12,7 @@ import * as PartIssue from "./part_issue/default";
 import * as HangarUse from "./hangar_use/default";
 import * as Profile from "./profile";
 import * as Settings from "./account_settings";
+import * as Account from "./account";
 import { NotFound } from "./not_found";
 
 function AppRoutes() {
@@ -61,7 +62,10 @@ function AppRoutes() {
           <Route path="billing/billing_information" element={<Settings.BillingInfo />} />
           <Route path="billing/payment_method" element={<Settings.PaymentMethod />} />
           <Route path="billing/plans" element={<Settings.Plans />} />
-        
+        </Route>
+        <Route path="account" element={<PrivateRoute> <Account.Account /> </PrivateRoute>}>
+          <Route path="upgrade" element={<Account.Upgrade />} />
+
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
