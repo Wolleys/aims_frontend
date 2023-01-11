@@ -1,5 +1,7 @@
-import SelectMethod from "./selectMethod";
+import SelectMethod from "./method";
+import PaymentDetails from "./details";
 import { useContext, useState } from "react";
+import { paymentMethod } from "../../../data/paymentMethod";
 import { ThemeContext } from "../../../../../context/ThemeContextProvider";
 import { Card, CardContent, CardHeader, Box, Typography, Link } from "@mui/material";
 
@@ -60,6 +62,8 @@ function PaymentMethods() {
         )
     }
 
+    const length = paymentMethod.length;
+
     return (
         <Card {...defaultProps} >
             <CardHeader title="Payment method"
@@ -68,7 +72,10 @@ function PaymentMethods() {
             />
             <CardContent sx={cardContentStyles}>
                 <Box style={boxStyles}>
-                    {addInfo ? <SelectMethod setAddInfo={setAddInfo} /> : emptyState()}
+                    {length > 0 ? <PaymentDetails />
+                        : addInfo ? <SelectMethod setAddInfo={setAddInfo} />
+                        : emptyState()
+                    }
                 </Box>
             </CardContent>
         </Card>

@@ -1,17 +1,21 @@
 import { useState } from "react";
-import CreditCardForm from "./creditCardForm";
-import MobileNumberForm from "./mobileNumberForm";
+import Cardetails from "./cardetails";
+import EditCardForm from "./editCardForm";
 import { Typography, Container } from "@mui/material";
-import StyledAccordion from "../../../../../components/shared/Accordion/StyledAccordion";
-import StyledAccordionDetails from "../../../../../components/shared/Accordion/StyledAccordionDetails";
-import StyledAccordionSummary from "../../../../../components/shared/Accordion/StyledAccordionSummary";
+import StyledAccordion from "../../../../../../components/shared/Accordion/StyledAccordion";
+import StyledAccordionDetails from "../../../../../../components/shared/Accordion/StyledAccordionDetails";
+import StyledAccordionSummary from "../../../../../../components/shared/Accordion/StyledAccordionSummary";
 
-export default function SelectMethod(props) {
-    const { setAddInfo } = props;
+export default function PaymentDetails() {
+    const [editing, setEditing] = useState(false);
     const [expanded, setExpanded] = useState("creditCard");
 
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
+    };
+
+    const editRow = (company) => {
+        setEditing(true);
     };
 
     const containerProps = {
@@ -22,37 +26,37 @@ export default function SelectMethod(props) {
     }
 
     return (
-        <div>
+        <>
             <StyledAccordion expanded={expanded === "creditCard"} onChange={handleChange("creditCard")}>
                 <StyledAccordionSummary>
-                    Pay with credit card
+                    Credit card
                 </StyledAccordionSummary>
                 <StyledAccordionDetails>
                     <Container {...containerProps} >
-                        <CreditCardForm setAddInfo={setAddInfo} />
+                        {editing ? <EditCardForm setEditing={setEditing} /> : <Cardetails editRow={editRow} />}
                     </Container>
                 </StyledAccordionDetails>
             </StyledAccordion>
             <StyledAccordion expanded={expanded === "payPal"} onChange={handleChange("payPal")}>
                 <StyledAccordionSummary>
-                    Pay with Paypal
+                    Paypal
                 </StyledAccordionSummary>
                 <StyledAccordionDetails>
                     <Typography>
-                        Sign in to Paypal
+                        details
                     </Typography>
                 </StyledAccordionDetails>
             </StyledAccordion>
             <StyledAccordion expanded={expanded === "mobile"} onChange={handleChange("mobile")}>
                 <StyledAccordionSummary>
-                    Pay with mobile money
+                    Mobile number
                 </StyledAccordionSummary>
                 <StyledAccordionDetails>
                     <Container {...containerProps}>
-                        <MobileNumberForm setAddInfo={setAddInfo} />
+                        mobile number
                     </Container>
                 </StyledAccordionDetails>
             </StyledAccordion>
-        </div>
+        </>
     );
 }

@@ -1,9 +1,9 @@
 import { Formik, Form } from "formik";
 import { Grid, Button } from "@mui/material";
-import { initialValues } from "../../../form_data/phoneNumber";
-import TextField from "../../../../../components/shared/FormsUI/TextField";
-import { phoneNumberSchema } from "../../../../../validations/phoneNumberSchema";
-import SubmitBtn from "../../../../../components/shared/FormsUI/Button/SubmitBtn";
+import { initialValues } from "../../../../form_data/phoneNumber";
+import TextField from "../../../../../../components/shared/FormsUI/TextField";
+import { phoneNumberSchema } from "../../../../../../validations/phoneNumberSchema";
+import SubmitBtn from "../../../../../../components/shared/FormsUI/Button/SubmitBtn";
 
 function MobileNumberForm(props) {
     const { setAddInfo } = props;
