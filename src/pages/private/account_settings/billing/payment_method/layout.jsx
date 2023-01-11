@@ -9,13 +9,19 @@ function Layout() {
     const gridLayoutStyles = {
         rowSpacing: 0,
         container: true,
-        columnSpacing:{ 
-            xs: 0, sm: 0, md: 2 
+        columnSpacing: {
+            xs: 0, sm: 0, md: 3
         },
-        sx:{mt: 1, }
+        sx: { mt: 1, }
     }
+    const containerStyles = {
+        padding: {
+            xs: 0, sm: "0 24px"
+        }
+    }
+
     return (
-        <Container>
+        <Container sx={containerStyles} >
             <Grid {...gridLayoutStyles} >
                 <Grid item md={3} sx={{
                     marginBottom: "auto",
@@ -24,11 +30,12 @@ function Layout() {
                     <InfoCard header data={currentPlan} />
                 </Grid>
                 <Grid item xs={12} md={9} sx={{
-                    display: { xs: "grid", sm: "grid", md: "flex"},
+                    display: { xs: "grid", sm: "grid", md: "flex" },
                     flexDirection: "column"
                 }} >
                     <CompanyBilling />
                     <PaymentMethods />
+                    <Box sx={{ mb: 1 }} > &nbsp;</Box>
                 </Grid>
                 <Box sx={{
                     display: { xs: "grid", sm: "grid", md: "none" }

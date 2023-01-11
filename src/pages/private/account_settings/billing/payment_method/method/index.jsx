@@ -18,6 +18,9 @@ export default function SelectMethod(props) {
         maxWidth: "sm",
         sx: {
             textAlign: "left",
+            padding: {
+                xs: 0, sm: "0 16px"
+            }
         }
     }
 
