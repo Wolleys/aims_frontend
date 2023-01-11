@@ -14,11 +14,11 @@ function Cardetails(props) {
 
     return (
         <Grid container spacing={2}>
-            <Grid item xs={6} sm={6}>
+            <Grid item xs={12} sm={6}>
                 <label className="primary_label">Card holder's name</label>
                 <NormalTextField InputProps={{ readOnly: true }} />
             </Grid>
-            <Grid item xs={6} sm={6}>
+            <Grid item xs={12} sm={6}>
                 <label className="primary_label">Card number</label>
                 <NormalTextField InputProps={{ readOnly: true, }} />
             </Grid>

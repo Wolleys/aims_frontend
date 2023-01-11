@@ -16,11 +16,11 @@ function EditCardForm(props) {
         <Formik initialValues={{ ...initialValues }} validationSchema={creditCardSchema} onSubmit={onSubmit}>
             <Form autoComplete="off">
                 <Grid container spacing={2}>
-                    <Grid item xs={6} sm={6}>
+                    <Grid item xs={12} sm={6}>
                         <label className="primary_label">Card holder's name</label>
                         <TextField name="card_holder_name" />
                     </Grid>
-                    <Grid item xs={6} sm={6}>
+                    <Grid item xs={12} sm={6}>
                         <label className="primary_label">Card number</label>
                         <TextField name="card_number" type="number" inputProps={{ min: "0" }} />
                     </Grid>
